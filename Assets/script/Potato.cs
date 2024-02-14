@@ -17,13 +17,17 @@ public class Potato : MonoBehaviour
     public float firstAbilityWaitCountDown = 5f;
     private float localFirstAbilityWaitCountDown;
 
-    public float firstAbilityBoost = 3f;
+    public float firstAbilityRestTime = 5f;
+    private float localFirstAbilityRestTime;
+
+    public float firstAbilityBoostAmount = 3f;
     public float firstAbilityBoostTime = 5f;
     private float localFirstAbilityBoostTime;
     // if the enemy is using the first ability
     bool onFirstAbility = false;
     // enemy stand still before first ability
     bool onFirstAbilityWait = false;
+    bool onFirstAbilityRest = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,7 @@ public class Potato : MonoBehaviour
         localFirstAbilityCountDown = firstAbilityCountDown;
         localFirstAbilityWaitCountDown = firstAbilityWaitCountDown;
         localFirstAbilityBoostTime = firstAbilityBoostTime;
+        localFirstAbilityRestTime = firstAbilityRestTime;
 
         if (player == null)
         {
@@ -87,21 +92,36 @@ public class Potato : MonoBehaviour
         }
 
         // boost the enemy
-        if (!onFirstAbilityWait && onFirstAbility)
+        if (!onFirstAbilityWait && onFirstAbility && !onFirstAbilityRest)
         {
             transform.LookAt(player);
             transform.position = 
-                Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z), step * firstAbilityBoost);
+                Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z), step * firstAbilityBoostAmount);
 
             localFirstAbilityBoostTime -= Time.deltaTime;
 
             // finish boosting
             if (localFirstAbilityBoostTime <= 0)
             {
-                Debug.Log("Potato's first ability finishes");
+                Debug.Log("Potato starts rest");
+
                 // reset boost time
                 localFirstAbilityBoostTime = firstAbilityBoostTime;
+                onFirstAbilityRest = true;
+            }
+        }
+
+        if (onFirstAbilityRest)
+        {
+            localFirstAbilityRestTime -= Time.deltaTime;
+            // rest
+            if (localFirstAbilityRestTime <= 0)
+            {
+                Debug.Log("Potato's first ability finishes");
+
+                onFirstAbilityRest = false;
                 onFirstAbility = false;
+                localFirstAbilityRestTime = firstAbilityRestTime;
             }
         }
     }
