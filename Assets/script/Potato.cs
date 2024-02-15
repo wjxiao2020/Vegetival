@@ -6,8 +6,10 @@ public class Potato : MonoBehaviour
 {
     public Transform player;
     public float moveSpeed = 10;
-    public float minDistance = 2;
+    public float minDistance = 4;
     public int damageAmount = 20;
+
+    Animator animation;
 
     // abilities
     [Header("First Ability")]
@@ -37,6 +39,8 @@ public class Potato : MonoBehaviour
         localFirstAbilityBoostTime = firstAbilityBoostTime;
         localFirstAbilityRestTime = firstAbilityRestTime;
 
+        animation = gameObject.GetComponent <Animator> ();
+
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -65,6 +69,7 @@ public class Potato : MonoBehaviour
         // countdown for first ability
         if (!onFirstAbility)
         {
+            
             localFirstAbilityCountDown -= Time.deltaTime;
         }
 
@@ -73,6 +78,9 @@ public class Potato : MonoBehaviour
         {
             Debug.Log("Potato prepares for first ability");
 
+            // change to serious face
+            animation.SetBool("getSerious", true);
+
             onFirstAbilityWait = true;
             onFirstAbility = true;
             localFirstAbilityCountDown = firstAbilityCountDown;
@@ -80,6 +88,7 @@ public class Potato : MonoBehaviour
 
         if (onFirstAbilityWait)
         {
+            transform.LookAt(player);
             localFirstAbilityWaitCountDown -= Time.deltaTime;
         }
 
@@ -94,9 +103,15 @@ public class Potato : MonoBehaviour
         // boost the enemy
         if (!onFirstAbilityWait && onFirstAbility && !onFirstAbilityRest)
         {
-            transform.LookAt(player);
-            transform.position = 
-                Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z), step * firstAbilityBoostAmount);
+            float distance =
+            Vector3.Distance(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z));
+
+            if (distance > minDistance)
+            {
+                transform.LookAt(player);
+                transform.position =
+                    Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z), step * firstAbilityBoostAmount);
+            }
 
             localFirstAbilityBoostTime -= Time.deltaTime;
 
@@ -118,6 +133,9 @@ public class Potato : MonoBehaviour
             if (localFirstAbilityRestTime <= 0)
             {
                 Debug.Log("Potato's first ability finishes");
+
+                // change back to normal face
+                animation.SetBool("getSerious", false);
 
                 onFirstAbilityRest = false;
                 onFirstAbility = false;
