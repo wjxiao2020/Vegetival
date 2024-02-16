@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Potato : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class Potato : MonoBehaviour
     public int damageAmount = 20;
 
     Animator animation;
+
+    [Header("Jumping")]
+    public float minYCoordinate = 6.05f;
+    public float jumpHeight;
+    public float gravity;
+    Vector3 moveDirection;
 
     // abilities
     [Header("First Ability")]
@@ -41,6 +48,8 @@ public class Potato : MonoBehaviour
 
         animation = gameObject.GetComponent <Animator> ();
 
+        moveDirection = Vector3.zero;
+
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -57,9 +66,24 @@ public class Potato : MonoBehaviour
 
         if (!onFirstAbility && distance > minDistance)
         {
+            // if potato is on ground
+            if (transform.position.y <= minYCoordinate)
+            {
+                // jump
+                moveDirection.y = jumpHeight;
+               
+            }
+            else
+            {
+                moveDirection.y -= gravity * Time.deltaTime;
+                //moveDirection.y = 0.0f;
+            }
+
+
+            
             transform.LookAt(player);
             transform.position = 
-                Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z), step);
+                Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y + moveDirection.y, player.position.z), step);
         }
 
         firstAbility(step);
@@ -75,7 +99,7 @@ public class Potato : MonoBehaviour
         }
 
         // countdown finishes use first ability
-        if (localFirstAbilityCountDown <= 0)
+        if (localFirstAbilityCountDown <= 0 && transform.position.y <= minYCoordinate)
         {
             Debug.Log("Potato prepares for first ability");
 

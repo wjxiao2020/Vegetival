@@ -1008,7 +1008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2737193515740967158, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.4
+      value: 52.8
       objectReference: {fileID: 0}
     - target: {fileID: 2737193515740967158, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1063,8 +1063,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 168816653}
     - target: {fileID: 6904598551589387223, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
+      propertyPath: gravity
+      value: 9.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904598551589387223, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
+      propertyPath: jumpHeight
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904598551589387223, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
       propertyPath: minDistance
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904598551589387223, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
+      propertyPath: minYCoordinate
+      value: 6.05
       objectReference: {fileID: 0}
     - target: {fileID: 6904598551589387223, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
       propertyPath: firstAbilityBoostTime
@@ -1084,6 +1096,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5764945877952447415, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2327297306301257589}
+    - targetCorrespondingSourceObject: {fileID: 5764945877952447415, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2327297306301257595}
   m_SourcePrefab: {fileID: 100100000, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
 --- !u!4 &2327297306301257583 stripped
 Transform:
@@ -1111,6 +1126,32 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!143 &2327297306301257595
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686923175}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2905264341930080417
 PrefabInstance:
   m_ObjectHideFlags: 0
