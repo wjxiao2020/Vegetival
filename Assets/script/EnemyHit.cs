@@ -27,7 +27,9 @@ public class EnemyHit : MonoBehaviour
 
     void DestroyEnemy()
     {
-        Instantiate(drop, transform.position, transform.rotation);
+        Vector3 spawnPosition = new Vector3(transform.position.x, 3f, transform.position.z);
+
+        GameObject droppedItem = Instantiate(drop, spawnPosition, Quaternion.identity);
 
         gameObject.SetActive(false);
 
