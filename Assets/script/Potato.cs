@@ -50,6 +50,7 @@ public class Potato : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         float step = moveSpeed * Time.deltaTime;
         float distance = 
             Vector3.Distance(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z));
