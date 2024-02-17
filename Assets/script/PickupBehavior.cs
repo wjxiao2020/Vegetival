@@ -23,6 +23,9 @@ public class PickupBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // spin the pickup
+        transform.Rotate(new Vector3(0, 0, 0.35f));
+
         if (isSpeedBoostActive)
         {
             speedBoostTimer += Time.deltaTime;
