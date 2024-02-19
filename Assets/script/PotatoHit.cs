@@ -72,6 +72,9 @@ public class PotatoHit : MonoBehaviour
 
         gameObject.SetActive(false);
 
+        // call game over
+        GameObject.FindAnyObjectByType<LevelMagager>().gameWin();
+
         Destroy(gameObject, 0.5f);
     }
 }

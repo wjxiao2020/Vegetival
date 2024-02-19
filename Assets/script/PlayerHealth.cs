@@ -39,6 +39,9 @@ public class PlayerHealth : MonoBehaviour
 
     void PlayerDies()
     {
+        // player dies gameover
+        GameObject.FindAnyObjectByType<LevelMagager>().gameLose();
+
         Debug.Log("Player is dead ...");
         transform.Rotate(-90, 0, 0, Space.Self);
     }
