@@ -33,6 +33,7 @@ public class PickupBehavior : MonoBehaviour
             {
                 playerController.speed = originalSpeed; // Reset to original speed
                 isSpeedBoostActive = false;
+                Debug.Log("Destroyed");
                 Destroy(gameObject); // Destroy the pickup item
             }
         }
@@ -46,13 +47,14 @@ public class PickupBehavior : MonoBehaviour
             playerController.speed *= 2; // Double the speed
             isSpeedBoostActive = true;
             speedBoostTimer = 0f;
+
+            Renderer renderer = GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                renderer.enabled = false;
+            }
         }
 
-        Renderer renderer = GetComponent<Renderer>();
-        if (renderer != null)
-        {
-            renderer.enabled = false;
-        }
     }
 
 }
