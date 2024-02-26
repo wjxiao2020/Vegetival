@@ -11,6 +11,7 @@ public class Potato2 : MonoBehaviour
     public float minDistance = 4;
     public int damageAmount = 20;
 
+
     Animator animation;
 
     [Header("Jumping")]

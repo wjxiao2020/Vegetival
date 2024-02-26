@@ -9,6 +9,7 @@ public class PotatoHit : MonoBehaviour
 
     public Slider potatoHealthBar_first;
     public Slider potatoHealthBar_second;
+    public GameObject enemyTitle;
     public int potatoHealth;
     private int localPotatoHealth;
     private bool onFirstHealth;
@@ -19,6 +20,10 @@ public class PotatoHit : MonoBehaviour
         localPotatoHealth = potatoHealth;
         potatoHealthBar_first.value = localPotatoHealth;
         potatoHealthBar_second.value = localPotatoHealth;
+
+        potatoHealthBar_first.gameObject.SetActive(true);
+        potatoHealthBar_second.gameObject.SetActive(true);
+        enemyTitle.SetActive(true);
 
         onFirstHealth = true;
     }
@@ -66,6 +71,11 @@ public class PotatoHit : MonoBehaviour
 
     void DestroyEnemy()
     {
+        // hide all enemy information
+        potatoHealthBar_first.gameObject.SetActive(false);
+        potatoHealthBar_second.gameObject.SetActive(false);
+        enemyTitle.SetActive(false);
+
         Vector3 spawnPosition = new Vector3(transform.position.x, 4f, transform.position.z);
 
         GameObject droppedItem = Instantiate(drop, spawnPosition, drop.transform.rotation);
