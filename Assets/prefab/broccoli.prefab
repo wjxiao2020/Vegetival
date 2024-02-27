@@ -2089,8 +2089,7 @@ Transform:
   m_LocalPosition: {x: -0, y: -0.022131331, z: -0.037179768}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6201642483365087794}
+  m_Children: []
   m_Father: {fileID: 5237805884651569060}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &5871990186969118113
@@ -2194,6 +2193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 532006520754439977}
   - component: {fileID: 3078620252917453240}
+  - component: {fileID: 861381073446315145}
   m_Layer: 0
   m_Name: broccoli
   m_TagString: Untagged
@@ -2214,6 +2214,7 @@ Transform:
   m_LocalScale: {x: 71.25, y: 71.25, z: 71.25}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 1332246809284975793}
   - {fileID: 5241339732318029833}
   - {fileID: 8542216319203741652}
   - {fileID: 5011470078554076189}
@@ -2241,53 +2242,75 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1001 &5018350891741856762
+--- !u!114 &861381073446315145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132852608436928873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17016ea5791833e4abf408d649e21833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  moveSpeed: 2
+  minDistance: 2
+  damageAmount: 20
+  fixedAngle: 50
+  firstAbilityStartTime: 5
+  enemyShootTime: 6
+  projectilePrefab: {fileID: 3584945447065815714, guid: d70f78b51b8fb554f857d98c43afd656, type: 3}
+  projectileSpeed: 40
+  shotInterval: 0.3
+--- !u!1001 &128770529240765817
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 156320891529271813}
+    m_TransformParent: {fileID: 532006520754439977}
     m_Modifications:
     - target: {fileID: 1419877942052997576, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.32
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 1419877942052997576, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.32
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 1419877942052997576, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.32
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 1419877942052997576, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0476
+      value: -0.05330623
       objectReference: {fileID: 0}
     - target: {fileID: 1419877942052997576, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.063599996
+      value: 0.0617
       objectReference: {fileID: 0}
     - target: {fileID: 1419877942052997576, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.116
+      value: 0.047867708
       objectReference: {fileID: 0}
     - target: {fileID: 1419877942052997576, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 9.489151e-18
+      value: 1.6868789e-17
       objectReference: {fileID: 0}
     - target: {fileID: 1419877942052997576, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.9774413
+      value: 0.9439785
       objectReference: {fileID: 0}
     - target: {fileID: 1419877942052997576, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 6.049266e-17
+      value: 5.886295e-17
       objectReference: {fileID: 0}
     - target: {fileID: 1419877942052997576, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.21120745
+      value: -0.3300069
       objectReference: {fileID: 0}
     - target: {fileID: 1419877942052997576, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2295,7 +2318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1419877942052997576, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 24.386002
+      value: 38.537994
       objectReference: {fileID: 0}
     - target: {fileID: 1419877942052997576, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -2305,13 +2328,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: banana
       objectReference: {fileID: 0}
+    - target: {fileID: 1801364928243372914, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801364928243372914, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
+      propertyPath: m_TagString
+      value: BroccoliWeapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
---- !u!4 &6201642483365087794 stripped
+--- !u!4 &1332246809284975793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1419877942052997576, guid: 271fd7963efd21749b3c95dcf50e1145, type: 3}
-  m_PrefabInstance: {fileID: 5018350891741856762}
+  m_PrefabInstance: {fileID: 128770529240765817}
   m_PrefabAsset: {fileID: 0}

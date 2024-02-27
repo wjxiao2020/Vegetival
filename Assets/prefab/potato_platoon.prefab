@@ -12,10 +12,8 @@ GameObject:
   - component: {fileID: 5366960076242096066}
   - component: {fileID: 4764593136095988995}
   - component: {fileID: 3459047669682301786}
-  - component: {fileID: 6904598551589387223}
   - component: {fileID: 5296792370403947241}
   - component: {fileID: 8901921650525171111}
-  - component: {fileID: 7154566962419280964}
   - component: {fileID: 6365290665583891674}
   - component: {fileID: 306629000582241459}
   m_Layer: 0
@@ -112,30 +110,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.55200446
   m_Center: {x: -0.10921143, y: 0, z: -0.017883047}
---- !u!114 &6904598551589387223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5764945877952447415}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab9ebc25073112f4f80c833110fe70cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  moveSpeed: 5
-  minDistance: 2
-  damageAmount: 20
-  minYCoordinate: 5.5
-  jumpHeight: 4
-  gravity: 9.8
-  firstAbilityCountDown: 10
-  firstAbilityWaitCountDown: 5
-  firstAbilityRestTime: 5
-  firstAbilityBoostAmount: 3
-  firstAbilityBoostTime: 4
 --- !u!95 &5296792370403947241
 Animator:
   serializedVersion: 5
@@ -183,22 +157,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7154566962419280964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5764945877952447415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de8e933544c4ee340ab112f4f0e60176, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drop: {fileID: 1724972533694550, guid: 63e523ab5d9ce7348b431ae1d689a54d, type: 3}
-  potatoHealthBar_first: {fileID: 0}
-  potatoHealthBar_second: {fileID: 0}
-  potatoHealth: 100
 --- !u!64 &6365290665583891674
 MeshCollider:
   m_ObjectHideFlags: 0

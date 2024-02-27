@@ -19,10 +19,16 @@ public class broccoli : MonoBehaviour
 
     public float firstAbilityStartTime;
     public float enemyShootTime;
+    public GameObject projectilePrefab;
+    GameObject GunPrefab;
+    public float projectileSpeed;
+    public float shotInterval;
+    float localShotInterval;
     private float localShootTime;
     // Start is called before the first frame update
     void Start()
     {
+        localShotInterval = shotInterval;
         animation = gameObject.GetComponent<Animator>();
 
         if (player == null)
@@ -30,8 +36,11 @@ public class broccoli : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
 
-        InvokeRepeating("ShootPlayer", firstAbilityStartTime, enemyShootTime + firstAbilityStartTime);
+        InvokeRepeating("TriggerShootPlayer", firstAbilityStartTime, enemyShootTime + firstAbilityStartTime);
 
+        GunPrefab = GameObject.FindGameObjectWithTag("BroccoliWeapon");
+        // hide gun
+        GunPrefab.gameObject.SetActive(false);
         startYCo = transform.position.y;
         localShootTime = enemyShootTime;
     }
@@ -52,6 +61,7 @@ public class broccoli : MonoBehaviour
 
         if (usingGun)
         {
+            Shot();
             transform.LookAt(player);
             transform.Rotate(new Vector3(0, fixedAngle, 0));
             localShootTime -= Time.deltaTime;
@@ -60,14 +70,39 @@ public class broccoli : MonoBehaviour
         if (localShootTime <= 0)
         {
             usingGun = false;
+            GunPrefab.gameObject.SetActive(false);
             animation.SetBool("onGun", false);
             localShootTime = enemyShootTime;
         }
 
     }
 
-    private void ShootPlayer()
+    private void Shot()
     {
+        localShotInterval -= Time.deltaTime;
+
+        if (localShotInterval <= 0)
+        {
+            GameObject projectile =
+                 Instantiate(projectilePrefab, GunPrefab.transform.position, transform.rotation) as GameObject;
+
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+
+
+            transform.Rotate(new Vector3(0, -fixedAngle, 0));
+            rb.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);
+
+            projectile.transform.SetParent(GameObject.FindGameObjectWithTag("BroccoliProjectileParent").transform);
+
+            localShotInterval = shotInterval;
+        }
+
+    }
+
+    // invoked repeatedly in start()
+    private void TriggerShootPlayer()
+    {
+        GunPrefab.gameObject.SetActive(true);
         usingGun = true;
         animation.SetBool("onGun", true);
     }
