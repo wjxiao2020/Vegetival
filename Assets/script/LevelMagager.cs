@@ -50,10 +50,10 @@ public class LevelMagager : MonoBehaviour
     {
         if (index < VegeBoss.Length)
         {
-            index++;
             // initaite next boss
             VegeBoss[index].gameObject.SetActive(true);
+            index++;
         }
-        else gameLose();
+        else gameWin();
     }
 }

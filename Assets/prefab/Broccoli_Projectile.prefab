@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 586743114798521923}
   - component: {fileID: 1204443667695122600}
   - component: {fileID: -1861416216380248491}
+  - component: {fileID: 3524720057333764301}
   m_Layer: 0
   m_Name: Broccoli_Projectile
-  m_TagString: Untagged
+  m_TagString: BroccoliProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +103,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -217,7 +218,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.8724341, b: 0, a: 1}
+      key0: {r: 0.12495544, g: 0.49056602, b: 0.1487748, a: 1}
       key1: {r: 1, g: 0.8144701, b: 0, a: 0.30980393}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -270,3 +271,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyDuration: 3
+--- !u!114 &3524720057333764301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3584945447065815714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18e42e6178c82e4fbce66ba32bf4365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
