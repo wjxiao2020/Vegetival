@@ -7,11 +7,24 @@ public class LevelMagager : MonoBehaviour
 {
     public GameObject gameOverScene;
     public GameObject gameWinScene;
+
+    public GameObject[] VegeBoss;
+    int index = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         gameOverScene.SetActive(false);
         gameWinScene.SetActive(false);
+
+        index = 0;
+
+        foreach (GameObject obj in VegeBoss)
+        {
+            obj.SetActive(false);
+        }
+
+        VegeBoss[index].gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -31,5 +44,16 @@ public class LevelMagager : MonoBehaviour
 
         // freeze the game
         Time.timeScale = 0;
+    }
+
+    public void BossDie()
+    {
+        if (index < VegeBoss.Length)
+        {
+            index++;
+            // initaite next boss
+            VegeBoss[index].gameObject.SetActive(true);
+        }
+        else gameLose();
     }
 }

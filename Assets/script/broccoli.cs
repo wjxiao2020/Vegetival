@@ -25,6 +25,7 @@ public class broccoli : MonoBehaviour
     public float shotInterval;
     float localShotInterval;
     private float localShootTime;
+
     // Start is called before the first frame update
     void Start()
     {

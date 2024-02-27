@@ -83,8 +83,8 @@ public class BossHit : MonoBehaviour
 
         gameObject.SetActive(false);
 
-        // call game over
-        GameObject.FindAnyObjectByType<LevelMagager>().gameWin();
+        // call next boss
+        GameObject.FindAnyObjectByType<LevelMagager>().BossDie();
 
         Destroy(gameObject, 0.5f);
     }
