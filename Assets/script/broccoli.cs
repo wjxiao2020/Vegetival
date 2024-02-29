@@ -89,9 +89,11 @@ public class broccoli : MonoBehaviour
 
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
 
+            // because there's rotation applied on gun's prefab
+            // aim the player
+            rb.transform.LookAt(player.position);
 
-            transform.Rotate(new Vector3(0, -fixedAngle, 0));
-            rb.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);
+            rb.AddForce(rb.transform.forward * projectileSpeed, ForceMode.VelocityChange);
 
             projectile.transform.SetParent(GameObject.FindGameObjectWithTag("BroccoliProjectileParent").transform);
 
