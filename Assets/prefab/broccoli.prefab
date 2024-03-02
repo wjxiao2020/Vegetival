@@ -2194,6 +2194,8 @@ GameObject:
   - component: {fileID: 532006520754439977}
   - component: {fileID: 3078620252917453240}
   - component: {fileID: 861381073446315145}
+  - component: {fileID: 4935637579870624749}
+  - component: {fileID: 1827886633516821349}
   m_Layer: 0
   m_Name: broccoli
   m_TagString: Untagged
@@ -2264,6 +2266,46 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3584945447065815714, guid: d70f78b51b8fb554f857d98c43afd656, type: 3}
   projectileSpeed: 40
   shotInterval: 0.3
+--- !u!114 &4935637579870624749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132852608436928873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb28988c2321f2c46a7802c14994dcb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drop: {fileID: 1724972533694550, guid: 63e523ab5d9ce7348b431ae1d689a54d, type: 3}
+  potatoHealthBar_first: {fileID: 0}
+  potatoHealthBar_second: {fileID: 0}
+  enemyTitle: {fileID: 0}
+  potatoHealth: 100
+--- !u!136 &1827886633516821349
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132852608436928873}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.06
+  m_Height: 0.19
+  m_Direction: 1
+  m_Center: {x: -0, y: 0.05, z: -0.01}
 --- !u!1001 &128770529240765817
 PrefabInstance:
   m_ObjectHideFlags: 0

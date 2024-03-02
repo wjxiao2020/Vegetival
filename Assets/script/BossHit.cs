@@ -7,22 +7,25 @@ public class BossHit : MonoBehaviour
 {
     public GameObject drop;
 
-    public Slider potatoHealthBar_first;
-    public Slider potatoHealthBar_second;
+    public Slider bossFirstHealthBar;
+    public Slider bossSecondHealthBar;
     public GameObject enemyTitle;
-    public int potatoHealth;
-    private int localPotatoHealth;
+    public int BossHealth;
+    private int localBossHealth;
     private bool onFirstHealth;
 
-    // Start is called before the first frame update
-    void Start()
+    // initiate common status of enemy
+    public void CreateBoss()
     {
-        localPotatoHealth = potatoHealth;
-        potatoHealthBar_first.value = localPotatoHealth;
-        potatoHealthBar_second.value = localPotatoHealth;
+        gameObject.SetActive(true);
 
-        potatoHealthBar_first.gameObject.SetActive(true);
-        potatoHealthBar_second.gameObject.SetActive(true);
+        localBossHealth = BossHealth;
+
+        bossFirstHealthBar.value = localBossHealth;
+        bossSecondHealthBar.value = localBossHealth;
+
+        bossFirstHealthBar.gameObject.SetActive(true);
+        bossSecondHealthBar.gameObject.SetActive(true);
         enemyTitle.SetActive(true);
 
         onFirstHealth = true;
@@ -47,23 +50,23 @@ public class BossHit : MonoBehaviour
 
     private void takeDamage(int damage)
     {
-        localPotatoHealth -= damage;
+        localBossHealth -= damage;
         if (onFirstHealth)
         {
-            potatoHealthBar_first.value = localPotatoHealth;
+            bossFirstHealthBar.value = localBossHealth;
         }
         else
         {
-            potatoHealthBar_second.value = localPotatoHealth;
+            bossSecondHealthBar.value = localBossHealth;
         }
 
-        if (localPotatoHealth <= 0 && onFirstHealth)
+        if (localBossHealth <= 0 && onFirstHealth)
         {
             onFirstHealth = false;
-            localPotatoHealth = potatoHealth;
+            localBossHealth = BossHealth;
         }
 
-        if (!onFirstHealth && localPotatoHealth <=0) 
+        if (!onFirstHealth && localBossHealth <=0) 
         {
             DestroyEnemy();
         }
@@ -71,10 +74,10 @@ public class BossHit : MonoBehaviour
 
     void DestroyEnemy()
     {
-
         // hide all enemy information
-        potatoHealthBar_first.gameObject.SetActive(false);
-        potatoHealthBar_second.gameObject.SetActive(false);
+        bossFirstHealthBar.gameObject.SetActive(false);
+        bossSecondHealthBar.gameObject.SetActive(false);
+
         enemyTitle.SetActive(false);
 
         Vector3 spawnPosition = new Vector3(transform.position.x, 4f, transform.position.z);
@@ -83,9 +86,13 @@ public class BossHit : MonoBehaviour
 
         gameObject.SetActive(false);
 
+        // reset value
+        bossSecondHealthBar.value = BossHealth;
+        bossFirstHealthBar.value = BossHealth;
+
         // call next boss
         GameObject.FindAnyObjectByType<LevelMagager>().BossDie();
 
-        Destroy(gameObject, 0.5f);
+        //Destroy(gameObject, 0.5f);
     }
 }
