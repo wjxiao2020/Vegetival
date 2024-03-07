@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     CharacterController controller;
     Vector3 input, moveDirection;
-    public float speed;
+    public float speed = 5.0f;
+    private int speedBoostCount = 0;
+    public Text speedBoostCountText;
     public float jumpHeight = 10;
     public float gravity = 9.81f;
     public float airControl = 10;
@@ -26,6 +29,11 @@ public class PlayerController : MonoBehaviour
         input = (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
 
         input *= speed;
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ActivateSpeedBoost();
+        }
 
         if (controller.isGrounded)
         {
@@ -48,5 +56,34 @@ public class PlayerController : MonoBehaviour
 
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
+    }
+
+    public void AddSpeedBoost()
+    {
+        speedBoostCount++;
+        UpdateSpeedBoostCountUI();
+    }
+
+    private void ActivateSpeedBoost()
+    {
+        if (speedBoostCount > 0)
+        {
+            speedBoostCount--;
+            UpdateSpeedBoostCountUI();
+            StartCoroutine(ApplySpeedBoost());
+        }
+    }
+
+    private IEnumerator ApplySpeedBoost()
+    {
+        float originalSpeed = speed;
+        speed *= 2;
+        yield return new WaitForSeconds(3);
+        speed = originalSpeed;
+    }
+
+    private void UpdateSpeedBoostCountUI()
+    {
+        speedBoostCountText.text = "Speed Boosts: " + speedBoostCount.ToString();
     }
 }

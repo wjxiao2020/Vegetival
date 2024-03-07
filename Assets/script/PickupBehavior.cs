@@ -25,36 +25,19 @@ public class PickupBehavior : MonoBehaviour
     {
         // spin the pickup
         transform.Rotate(new Vector3(0, 0, 0.35f));
-
-        if (isSpeedBoostActive)
-        {
-            speedBoostTimer += Time.deltaTime;
-            if (speedBoostTimer >= speedBoostDuration)
-            {
-                playerController.speed = originalSpeed; // Reset to original speed
-                isSpeedBoostActive = false;
-                Debug.Log("Destroyed");
-                Destroy(gameObject); // Destroy the pickup item
-            }
-        }
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && playerController != null && !isSpeedBoostActive)
+        if (other.gameObject.CompareTag("Player"))
         {
-            originalSpeed = playerController.speed; // Store original speed
-            playerController.speed *= 2; // Double the speed
-            isSpeedBoostActive = true;
-            speedBoostTimer = 0f;
-
-            Renderer renderer = GetComponent<Renderer>();
-            if (renderer != null)
+            PlayerController playerController = other.GetComponent<PlayerController>();
+            if (playerController != null)
             {
-                renderer.enabled = false;
+                playerController.AddSpeedBoost();
+                gameObject.SetActive(false); // Deactivate the pickup object.
             }
         }
-
     }
 
 }
