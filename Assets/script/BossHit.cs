@@ -95,4 +95,10 @@ public class BossHit : MonoBehaviour
 
         //Destroy(gameObject, 0.5f);
     }
+
+    // if the boss is dead on the first health
+    public bool OnFirstHealth()
+    {
+        return onFirstHealth;
+    }
 }
