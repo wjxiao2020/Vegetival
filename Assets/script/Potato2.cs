@@ -109,8 +109,7 @@ public class Potato2 : MonoBehaviour
     // method to move current enemy
     private void moveEnemy()
     {
-        if (!onTransformForm)
-        {
+        
             float step = moveSpeed * Time.deltaTime;
             float distance =
                 Vector3.Distance(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z));
@@ -129,6 +128,9 @@ public class Potato2 : MonoBehaviour
                     //moveDirection.y = 0.0f;
                 }
 
+            if (!onTransformForm)
+            {
+                Debug.Log(onTransformForm);
                 FaceTarget(player.position);
                 transform.position =
                     Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y + moveDirection.y, player.position.z), step);
@@ -160,7 +162,6 @@ public class Potato2 : MonoBehaviour
             {
                 if (!onFirstAbilityRest && !onFirstAbilityWait)
                 {
-                  
                     moveEnemy();
                 }
 
@@ -202,6 +203,7 @@ public class Potato2 : MonoBehaviour
                     if (distance > minDistance)
                     {
                         FaceTarget(player.position);
+
                         transform.position =
                             Vector3.MoveTowards(transform.position,
                             new Vector3(player.position.x, transform.position.y, player.position.z), step * firstAbilityBoostAmount);
@@ -280,12 +282,10 @@ public class Potato2 : MonoBehaviour
 
             time += Time.deltaTime;
             yield return null;
-
-            onFirstForm = false;
-            onTransformForm = false;
-
-            // cancel the previous "invokeRepeat"
-            CancelInvoke();
         }
+        onFirstForm = false;
+        onTransformForm = false;
+        // cancel the previous "invokeRepeat"
+        CancelInvoke();
     }
 }
