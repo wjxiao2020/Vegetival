@@ -302,10 +302,21 @@ public class Potato2 : MonoBehaviour
         {
             float step = secondAbilityFallSpeed * Time.deltaTime;
             //transform.po.y -= gravity * secondAbilityFallSpeed * Time.deltaTime;
-        
-            transform.position =
+            float distance =
+               Vector3.Distance(transform.position, playerRecordPosition);
+
+            if (distance > minDistance)
+            {
+
+                transform.position =
             Vector3.MoveTowards(transform.position,
             playerRecordPosition, step);
+            }
+            else
+            {
+                onAbilityDown = false;
+                Instantiate(hitEffect, new Vector3(transform.position.x, 2f, transform.position.z), Quaternion.identity);
+            }
             
         }
 
