@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Windows;
 
 
 public class Potato2 : MonoBehaviour
@@ -41,20 +42,41 @@ public class Potato2 : MonoBehaviour
     bool onFirstAbilityRest = false;
     bool onFirstAbilityBoost = false;
 
+    float firstAbilityRepeatTime;
+
     // trigger the second form of potato
     bool onFirstForm = true;
     public float changeFormSpinDuration = 4f;
     bool onTransformForm = false;
 
     [Header("Second Ability")]
+    public float secondAbilityCountDown = 15f;
+    //private float localFirstAbilityCountDown;
+    //public float secondAbilityWaitCountDown = 5f;
+
     public float damageRadius;
+    public float secondAbilityJumpHeight;
+    public float secondAbilityFallSpeed;
+    public int onSkyTime = 2;
     // visual effect for ability
     public GameObject hitEffect;
     public float secondAbilityDamage;
+    public float jumpSpeed = 3f;
+
+
+    Vector3 directionToLift;
+    Vector3 targetPosition;
+    Vector3 playerRecordPosition;
+    bool onAbilityLift;
+    bool onAbilityDown;
+
+    CharacterController controller;
 
     // Start is called before the first frame update
     void Start()
     {
+        controller = GetComponent<CharacterController>();
+
         localFirstAbilityCountDown = firstAbilityCountDown;
         localFirstAbilityWaitCountDown = firstAbilityWaitCountDown;
         localFirstAbilityBoostTime = firstAbilityBoostTime;
@@ -63,10 +85,13 @@ public class Potato2 : MonoBehaviour
         // make sure boss starts with 1st form
         onFirstForm = true;
         onTransformForm = false;
-        
+
+        onAbilityLift = false;
+        onAbilityDown = false;
+
         animation = gameObject.GetComponent <Animator> ();
 
-        var firstAbilityRepeatTime =
+        firstAbilityRepeatTime =
             firstAbilityCountDown + firstAbilityWaitCountDown + firstAbilityBoostTime + firstAbilityRestTime;
 
         InvokeRepeating
@@ -87,12 +112,13 @@ public class Potato2 : MonoBehaviour
         // if spinning, don't do anything except spinning
         if (!onTransformForm)
         {
-            if (!onFirstAbility)
+            if (!onFirstAbility && !onAbilityDown)
             {
                 moveEnemy();
             }
 
             firstAbility();
+            SecondAbility();
         }
 
         // trigger 2nd form is enemy is on second health bar
@@ -103,6 +129,16 @@ public class Potato2 : MonoBehaviour
             onFirstForm = false;
             animation.SetTrigger("IntoSecondForm");
             StartCoroutine(SpinEnemy(changeFormSpinDuration));
+
+            firstAbilityRepeatTime =
+            5f + firstAbilityWaitCountDown + firstAbilityBoostTime + firstAbilityRestTime;
+            //InvokeRepeating
+           //(nameof(UseFirstAbility), 2f, firstAbilityRepeatTime);
+
+            secondAbilityCountDown = firstAbilityRepeatTime + secondAbilityCountDown;
+
+            InvokeRepeating
+           (nameof(UseSecondAbility), 2f, firstAbilityRepeatTime);
         }
     }
 
@@ -130,7 +166,7 @@ public class Potato2 : MonoBehaviour
 
             if (!onTransformForm)
             {
-                Debug.Log(onTransformForm);
+                //Debug.Log(onTransformForm);
                 FaceTarget(player.position);
                 transform.position =
                     Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y + moveDirection.y, player.position.z), step);
@@ -147,7 +183,6 @@ public class Potato2 : MonoBehaviour
         onFirstAbilityBoost = false;
         localFirstAbilityWaitCountDown = firstAbilityWaitCountDown;
         localFirstAbilityBoostTime = firstAbilityBoostTime;
-
     }
 
     // implementation of first Ability
@@ -245,15 +280,62 @@ public class Potato2 : MonoBehaviour
         }
     }
 
-    private void secondAbility()
+    private void SecondAbility()
     {
-        float step = moveSpeed * Time.deltaTime;
-        // jump into the sky
-        /*
-        transform.position =
-                            Vector3.MoveTowards(transform.position,
-                            new Vector3(player.position.x, 20, player.position.z), step * firstAbilityBoostAmount);
-        */
+        if (onAbilityLift)
+        {
+            float step = jumpSpeed * Time.deltaTime;
+            //controller.Move(directionToLift * Time.deltaTime);
+            transform.position =
+            Vector3.MoveTowards(transform.position, 
+            targetPosition, step);
+
+        }
+        
+        if (transform.position.y >= secondAbilityJumpHeight)
+        {
+            // float for some time
+            StartCoroutine(CountdownFloating(onSkyTime));
+        }
+
+        if (onAbilityDown)
+        {
+            float step = secondAbilityFallSpeed * Time.deltaTime;
+            //transform.po.y -= gravity * secondAbilityFallSpeed * Time.deltaTime;
+        
+            transform.position =
+            Vector3.MoveTowards(transform.position,
+            playerRecordPosition, step);
+            
+        }
+
+    }
+
+    private void UseSecondAbility()
+    {
+        onAbilityLift = true;
+        onAbilityDown = false;
+
+        //targetPosition = transform.forward;
+        targetPosition = transform.position;
+        targetPosition.y = secondAbilityJumpHeight;
+
+    }
+
+    private IEnumerator CountdownFloating(int timer)
+    {
+        FaceTarget(player.position);
+        while (timer > 0)
+        {
+            // for each timer, sleep for 1 second
+            yield return new WaitForSeconds(1);
+            
+            timer--;
+        }
+        onAbilityLift = false;
+        onAbilityDown = true;
+
+        playerRecordPosition = new Vector3(player.position.x, player.position.y + 3, player.position.z);
     }
 
     private void OnTriggerEnter(Collider other)
