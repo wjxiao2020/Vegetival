@@ -11,6 +11,8 @@ public class Potato2 : MonoBehaviour
     public float moveSpeed = 10;
     public float minDistance = 4;
     public int damageAmount = 20;
+    public float changeFormSpinDuration = 4f;
+
 
 
     Animator animation;
@@ -46,7 +48,7 @@ public class Potato2 : MonoBehaviour
 
     // trigger the second form of potato
     bool onFirstForm = true;
-    public float changeFormSpinDuration = 4f;
+  
     bool onTransformForm = false;
 
     [Header("Second Ability")]
@@ -60,7 +62,7 @@ public class Potato2 : MonoBehaviour
     public int onSkyTime = 2;
     // visual effect for ability
     public GameObject hitEffect;
-    public float secondAbilityDamage;
+    public int secondAbilityDamage;
     public float jumpSpeed = 3f;
 
 
@@ -130,15 +132,27 @@ public class Potato2 : MonoBehaviour
             animation.SetTrigger("IntoSecondForm");
             StartCoroutine(SpinEnemy(changeFormSpinDuration));
 
-            firstAbilityRepeatTime =
-            5f + firstAbilityWaitCountDown + firstAbilityBoostTime + firstAbilityRestTime;
-            //InvokeRepeating
-           //(nameof(UseFirstAbility), 2f, firstAbilityRepeatTime);
+            // cancel the previous "invokeRepeat"
+            CancelInvoke();
 
-            secondAbilityCountDown = firstAbilityRepeatTime + secondAbilityCountDown;
+            // assume second ability last for 6f
+            float secondAbilityDuration = 12.5f;
+
+            firstAbilityRepeatTime =
+            5f + firstAbilityWaitCountDown + 
+            firstAbilityBoostTime + firstAbilityRestTime  + secondAbilityDuration;
+
+            float secondAbilityRepeatTime =
+                5f + firstAbilityRepeatTime;
+
+            // first ability get invoked after second ability
+            InvokeRepeating
+            (nameof(UseFirstAbility), 4f + secondAbilityDuration, firstAbilityRepeatTime);
+
+           secondAbilityCountDown = firstAbilityRepeatTime + secondAbilityCountDown;
 
             InvokeRepeating
-           (nameof(UseSecondAbility), 2f, firstAbilityRepeatTime);
+           (nameof(UseSecondAbility), 5f, secondAbilityRepeatTime);
         }
     }
 
@@ -231,7 +245,6 @@ public class Potato2 : MonoBehaviour
                 // boost the enemy
                 if (onFirstAbilityBoost && !onFirstAbilityRest)
                 {
-
                     float distance =
                     Vector3.Distance(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z));
 
@@ -312,10 +325,26 @@ public class Potato2 : MonoBehaviour
             Vector3.MoveTowards(transform.position,
             playerRecordPosition, step);
             }
+            // enemy hit ground
             else
             {
                 onAbilityDown = false;
                 Instantiate(hitEffect, new Vector3(transform.position.x, 2f, transform.position.z), Quaternion.identity);
+
+                Vector3 startPoint = transform.position;
+                Vector3 endPoint = transform.position;
+                startPoint.y = startPoint.y + damageRadius;
+                endPoint.y = endPoint.y - damageRadius;
+
+                Collider[] colliders = Physics.OverlapCapsule(startPoint, endPoint, damageRadius);
+                foreach (Collider collider in colliders)
+                {
+                    if (collider.gameObject.CompareTag("Player"))
+                    {
+                        var playerHealth = collider.GetComponent<PlayerHealth>();
+                        playerHealth.TakeDamage(secondAbilityDamage);
+                    }
+                }
             }
             
         }
@@ -378,7 +407,13 @@ public class Potato2 : MonoBehaviour
         }
         onFirstForm = false;
         onTransformForm = false;
-        // cancel the previous "invokeRepeat"
-        CancelInvoke();
+    }
+
+    // display second ability radius
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, damageRadius);
+
     }
 }
