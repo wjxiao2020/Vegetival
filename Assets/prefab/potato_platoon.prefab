@@ -195,6 +195,8 @@ MonoBehaviour:
   moveSpeed: 5
   minDistance: 2
   damageAmount: 20
+  changeFormSpinDuration: 3.5
+  shield: {fileID: 0}
   minYCoordinate: 5.5
   jumpHeight: 4
   gravity: 9.8
@@ -203,7 +205,14 @@ MonoBehaviour:
   firstAbilityRestTime: 5
   firstAbilityBoostAmount: 3
   firstAbilityBoostTime: 3
-  changeFormSpinDuration: 3.5
+  secondAbilityCountDown: 15
+  damageRadius: 0
+  secondAbilityJumpHeight: 0
+  secondAbilityFallSpeed: 0
+  onSkyTime: 2
+  hitEffect: {fileID: 0}
+  secondAbilityDamage: 0
+  jumpSpeed: 3
 --- !u!1001 &2978594077758162005
 PrefabInstance:
   m_ObjectHideFlags: 0

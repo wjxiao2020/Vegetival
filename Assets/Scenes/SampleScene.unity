@@ -849,6 +849,7 @@ MonoBehaviour:
   VegeBoss:
   - {fileID: 1374235662}
   - {fileID: 919132149153625849}
+  createBossInterval: 2
 --- !u!1 &493579749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2797,6 +2798,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 168816653}
     - target: {fileID: 306629000582241459, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
+      propertyPath: shield
+      value: 
+      objectReference: {fileID: 4204917445197582160, guid: e208eb407e7a72d4aa1df345fb2f7452, type: 3}
+    - target: {fileID: 306629000582241459, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
       propertyPath: hitEffect
       value: 
       objectReference: {fileID: 1714681308540598, guid: 5cbc537826220e04592d5a41a0dd985f, type: 3}
@@ -2872,6 +2877,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3332490749518352420, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332490749518352420, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
+      propertyPath: m_ImplicitCom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332490749518352420, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
+      propertyPath: m_ImplicitTensor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332490749518352420, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332490749518352420, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5764945877952447415, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
       propertyPath: m_Name
       value: potato_platoon
@@ -2916,7 +2941,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 80
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3332490749518352420, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

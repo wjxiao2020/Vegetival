@@ -41,7 +41,7 @@ public class broccoli : MonoBehaviour
 
         GunPrefab = GameObject.FindGameObjectWithTag("BroccoliWeapon");
         // hide gun
-        GunPrefab.gameObject.SetActive(false);
+        //GunPrefab.gameObject.SetActive(false);
         startYCo = transform.position.y;
         localShootTime = enemyShootTime;
     }
@@ -71,7 +71,7 @@ public class broccoli : MonoBehaviour
         if (localShootTime <= 0)
         {
             usingGun = false;
-            GunPrefab.gameObject.SetActive(false);
+            //GunPrefab.gameObject.SetActive(false);
             animation.SetBool("onGun", false);
             localShootTime = enemyShootTime;
         }

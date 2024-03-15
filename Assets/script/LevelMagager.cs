@@ -9,6 +9,7 @@ public class LevelMagager : MonoBehaviour
     public GameObject gameWinScene;
 
     public GameObject[] VegeBoss;
+    public float createBossInterval = 2f;
     int index = 0;
 
     // Start is called before the first frame update
@@ -28,12 +29,6 @@ public class LevelMagager : MonoBehaviour
         index++;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void gameWin()
     {
         gameWinScene.gameObject.SetActive(true);
@@ -51,10 +46,17 @@ public class LevelMagager : MonoBehaviour
     {
         if (index < VegeBoss.Length)
         {
-            // initaite next boss
-            VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
-            index++;
+            Invoke("CreateNextBoss", createBossInterval);
+            
         }
         else gameWin();
+    }
+
+    private void CreateNextBoss()
+    {
+        // initaite next boss
+        VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
+
+        index++;
     }
 }

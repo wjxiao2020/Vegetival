@@ -16,6 +16,8 @@ public class Potato2 : MonoBehaviour
 
 
     Animator animation;
+    public GameObject shield;
+    GameObject currentShield;
 
     [Header("Jumping")]
     public float minYCoordinate = 6.05f;
@@ -127,6 +129,10 @@ public class Potato2 : MonoBehaviour
         bool currentOnFirstHealth = gameObject.GetComponent<BossHit>().OnFirstHealth();
         if (!currentOnFirstHealth && onFirstForm)
         {
+            // enable shield
+            currentShield = GameObject.Instantiate(shield, transform);
+            currentShield.transform.parent = null;
+
             onTransformForm = true;
             onFirstForm = false;
             animation.SetTrigger("IntoSecondForm");
@@ -202,7 +208,7 @@ public class Potato2 : MonoBehaviour
     // implementation of first Ability
     private void firstAbility()
     {
-        // (can't delete, to make sure enemy isn't spinning)
+  
         if (!onTransformForm)
         {
             float step = moveSpeed * Time.deltaTime;
@@ -243,52 +249,65 @@ public class Potato2 : MonoBehaviour
                 }
 
                 // boost the enemy
-                if (onFirstAbilityBoost && !onFirstAbilityRest)
-                {
-                    float distance =
-                    Vector3.Distance(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z));
+                BoostEnemy(step);
 
-                    if (distance > minDistance)
-                    {
-                        FaceTarget(player.position);
+                // rest enemy and countdown rest time
+                RestCountDown();
+            }
+        }
+    }
 
-                        transform.position =
-                            Vector3.MoveTowards(transform.position,
-                            new Vector3(player.position.x, transform.position.y, player.position.z), step * firstAbilityBoostAmount);
-                    }
+    // part of enemy's first ability
+    private void BoostEnemy(float step)
+    {
+        if (onFirstAbilityBoost && !onFirstAbilityRest)
+        {
+            float distance =
+            Vector3.Distance(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z));
 
-                    localFirstAbilityBoostTime -= Time.deltaTime;
+            if (distance > minDistance)
+            {
+                FaceTarget(player.position);
 
-                    // finish boosting
-                    if (localFirstAbilityBoostTime <= 0)
-                    {
-                        Debug.Log("Potato starts rest");
+                transform.position =
+                    Vector3.MoveTowards(transform.position,
+                    new Vector3(player.position.x, transform.position.y, player.position.z), step * firstAbilityBoostAmount);
+            }
 
-                        // change back to normal face
-                        animation.SetBool("getSerious", false);
+            localFirstAbilityBoostTime -= Time.deltaTime;
 
-                        // reset boost time
-                        localFirstAbilityBoostTime = firstAbilityBoostTime;
-                        onFirstAbilityRest = true;
-                        onFirstAbilityBoost = false;
-                    }
-                }
+            // finish boosting
+            if (localFirstAbilityBoostTime <= 0)
+            {
+                Debug.Log("Potato starts rest");
 
-                if (onFirstAbilityRest)
-                {
-                    localFirstAbilityRestTime -= Time.deltaTime;
-                    // rest
-                    if (localFirstAbilityRestTime <= 0)
-                    {
-                        Debug.Log("Potato's first ability finishes");
+                // change back to normal face
+                animation.SetBool("getSerious", false);
 
-                        onFirstAbilityRest = false;
-                        onFirstAbility = false;
-                        onFirstAbilityBoost = false;
+                // reset boost time
+                localFirstAbilityBoostTime = firstAbilityBoostTime;
+                onFirstAbilityRest = true;
+                onFirstAbilityBoost = false;
+            }
+        }
+    }
 
-                        localFirstAbilityRestTime = firstAbilityRestTime;
-                    }
-                }
+    // part of enemy's first ability
+    private void RestCountDown()
+    {
+        if (onFirstAbilityRest)
+        {
+            localFirstAbilityRestTime -= Time.deltaTime;
+            // rest
+            if (localFirstAbilityRestTime <= 0)
+            {
+                Debug.Log("Potato's first ability finishes");
+
+                onFirstAbilityRest = false;
+                onFirstAbility = false;
+                onFirstAbilityBoost = false;
+
+                localFirstAbilityRestTime = firstAbilityRestTime;
             }
         }
     }
@@ -313,6 +332,9 @@ public class Potato2 : MonoBehaviour
 
         if (onAbilityDown)
         {
+            // disable shield when falling
+            Destroy(currentShield);
+
             float step = secondAbilityFallSpeed * Time.deltaTime;
             //transform.po.y -= gravity * secondAbilityFallSpeed * Time.deltaTime;
             float distance =
@@ -353,6 +375,8 @@ public class Potato2 : MonoBehaviour
 
     private void UseSecondAbility()
     {
+        currentShield = GameObject.Instantiate(shield, transform);
+
         onAbilityLift = true;
         onAbilityDown = false;
 
@@ -407,6 +431,9 @@ public class Potato2 : MonoBehaviour
         }
         onFirstForm = false;
         onTransformForm = false;
+
+        // disable shield
+        Destroy(currentShield);
     }
 
     // display second ability radius
