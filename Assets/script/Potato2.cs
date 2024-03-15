@@ -93,7 +93,7 @@ public class Potato2 : MonoBehaviour
         onAbilityLift = false;
         onAbilityDown = false;
 
-        animation = gameObject.GetComponent <Animator> ();
+        animation = gameObject.GetComponent<Animator>();
 
         firstAbilityRepeatTime =
             firstAbilityCountDown + firstAbilityWaitCountDown + firstAbilityBoostTime + firstAbilityRestTime;
@@ -129,7 +129,7 @@ public class Potato2 : MonoBehaviour
         bool currentOnFirstHealth = gameObject.GetComponent<BossHit>().OnFirstHealth();
         if (!currentOnFirstHealth && onFirstForm)
         {
-            // enable shield
+            // back up and enable shield
             currentShield = GameObject.Instantiate(shield, transform);
             currentShield.transform.parent = null;
 
@@ -208,7 +208,6 @@ public class Potato2 : MonoBehaviour
     // implementation of first Ability
     private void firstAbility()
     {
-  
         if (!onTransformForm)
         {
             float step = moveSpeed * Time.deltaTime;
@@ -234,7 +233,6 @@ public class Potato2 : MonoBehaviour
 
                 if (onFirstAbilityWait)
                 {
-
                     FaceTarget(player.position);
                     localFirstAbilityWaitCountDown -= Time.deltaTime;
                 }
@@ -383,7 +381,6 @@ public class Potato2 : MonoBehaviour
         //targetPosition = transform.forward;
         targetPosition = transform.position;
         targetPosition.y = secondAbilityJumpHeight;
-
     }
 
     private IEnumerator CountdownFloating(int timer)
