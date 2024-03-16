@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BossHit : MonoBehaviour
 {
     public GameObject drop;
-    public AudioSource cheer;
+    public float cheerVolume;
 
     public Slider bossFirstHealthBar;
     public Slider bossSecondHealthBar;
@@ -69,8 +69,7 @@ public class BossHit : MonoBehaviour
 
         if (!onFirstHealth && localBossHealth <=0) 
         {
-            cheer.time = 5;
-            cheer.Play();
+            PlayCheer.Play(cheerVolume);
             DestroyEnemy();
         }
     }

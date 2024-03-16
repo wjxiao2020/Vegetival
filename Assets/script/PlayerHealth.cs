@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public int startingHealth = 100;
     int currentHealth;
     public Slider healthSlider;
-    public AudioSource cheer;
+    public float cheerVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +25,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        if (!cheer.isPlaying) {
-            cheer.time = 5;
-            cheer.Play();
+        if (!PlayCheer.isPlaying() || currentHealth <= 0) {
+            PlayCheer.Play(cheerVolume);
         }
         if (currentHealth > 0)
         {
