@@ -11,6 +11,7 @@ public class LevelMagager : MonoBehaviour
     public GameObject[] VegeBoss;
     public float createBossInterval = 2f;
     int index = 0;
+    bool gameEnd;
 
     // Start is called before the first frame update
     void Start()
@@ -27,19 +28,29 @@ public class LevelMagager : MonoBehaviour
 
         VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
         index++;
+
+        gameEnd = false;
     }
 
     public void gameWin()
     {
-        gameWinScene.gameObject.SetActive(true);
+        if (!gameEnd)
+        {
+            gameEnd = true;
+            gameWinScene.gameObject.SetActive(true);
+        }   
     }
 
     public void gameLose()
     {
-        gameOverScene.gameObject.SetActive(true) ;
+        if (!gameEnd)
+        {
+            gameEnd = true;
+            gameOverScene.gameObject.SetActive(true);
 
-        // freeze the game
-        Time.timeScale = 0;
+            // freeze the game
+            Time.timeScale = 0;
+        }
     }
 
     public void BossDie()

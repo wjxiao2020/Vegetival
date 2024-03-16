@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PickupBehavior : MonoBehaviour
 {
+    public AudioClip pickUpClip;
+
     private PlayerController playerController;
     private float originalSpeed;
     private bool isSpeedBoostActive = false;
@@ -31,6 +33,7 @@ public class PickupBehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioSource.PlayClipAtPoint(pickUpClip, transform.position);
             PlayerController playerController = other.GetComponent<PlayerController>();
             if (playerController != null)
             {

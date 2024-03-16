@@ -21,6 +21,7 @@ public class broccoli : MonoBehaviour
     public float enemyShootTime;
     public GameObject projectilePrefab;
     GameObject GunPrefab;
+    public GameObject gunMuzzle;
     public float projectileSpeed;
     public float shotInterval;
     float localShotInterval;
@@ -85,7 +86,7 @@ public class broccoli : MonoBehaviour
         if (localShotInterval <= 0)
         {
             GameObject projectile =
-                 Instantiate(projectilePrefab, GunPrefab.transform.position, transform.rotation) as GameObject;
+                 Instantiate(projectilePrefab, gunMuzzle.transform.position, transform.rotation) as GameObject;
 
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
 

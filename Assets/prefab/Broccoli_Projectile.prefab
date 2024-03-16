@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1204443667695122600}
   - component: {fileID: -1861416216380248491}
   - component: {fileID: 3524720057333764301}
+  - component: {fileID: -4406893711439786740}
   m_Layer: 0
   m_Name: Broccoli_Projectile
   m_TagString: BroccoliProjectile
@@ -135,7 +136,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!96 &1204443667695122600
 TrailRenderer:
   serializedVersion: 3
@@ -284,3 +285,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!114 &-4406893711439786740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3584945447065815714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9b2b209db7749e5a0908a37183f231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

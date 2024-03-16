@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BossHit : MonoBehaviour
 {
     public GameObject drop;
+    public AudioSource cheer;
 
     public Slider bossFirstHealthBar;
     public Slider bossSecondHealthBar;
@@ -68,6 +69,8 @@ public class BossHit : MonoBehaviour
 
         if (!onFirstHealth && localBossHealth <=0) 
         {
+            cheer.time = 5;
+            cheer.Play();
             DestroyEnemy();
         }
     }
@@ -91,7 +94,7 @@ public class BossHit : MonoBehaviour
         bossFirstHealthBar.value = BossHealth;
 
         // call next boss
-        GameObject.FindAnyObjectByType<LevelMagager>().BossDie();
+        FindAnyObjectByType<LevelMagager>().BossDie();
 
         //Destroy(gameObject, 0.5f);
     }

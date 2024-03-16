@@ -125,7 +125,7 @@ public class Potato2 : MonoBehaviour
             SecondAbility();
         }
 
-        // trigger 2nd form is enemy is on second health bar
+        // trigger 2nd form when enemy is on second health bar
         bool currentOnFirstHealth = gameObject.GetComponent<BossHit>().OnFirstHealth();
         if (!currentOnFirstHealth && onFirstForm)
         {
@@ -319,7 +319,6 @@ public class Potato2 : MonoBehaviour
             transform.position =
             Vector3.MoveTowards(transform.position, 
             targetPosition, step);
-
         }
         
         if (transform.position.y >= secondAbilityJumpHeight)
@@ -340,10 +339,7 @@ public class Potato2 : MonoBehaviour
 
             if (distance > minDistance)
             {
-
-                transform.position =
-            Vector3.MoveTowards(transform.position,
-            playerRecordPosition, step);
+                transform.position = Vector3.MoveTowards(transform.position, playerRecordPosition, step);
             }
             // enemy hit ground
             else
@@ -373,7 +369,7 @@ public class Potato2 : MonoBehaviour
 
     private void UseSecondAbility()
     {
-        currentShield = GameObject.Instantiate(shield, transform);
+        currentShield = Instantiate(shield, transform);
 
         onAbilityLift = true;
         onAbilityDown = false;
@@ -421,7 +417,7 @@ public class Potato2 : MonoBehaviour
         
         while (time < duration)
         {
-          transform.Rotate(new Vector3(0, 30 ,0));
+            transform.Rotate(new Vector3(0, 30 ,0));
 
             time += Time.deltaTime;
             yield return null;
