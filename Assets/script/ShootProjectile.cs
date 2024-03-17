@@ -14,6 +14,8 @@ public class ShootProjectile : MonoBehaviour
     private bool isReloading = false;
     Color originalReticleColor;
 
+    public float fireRate = 0.1f;
+    private bool isShooting = false;
     void Start()
     {
         originalReticleColor = reticleImage.color;
@@ -25,7 +27,8 @@ public class ShootProjectile : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && currentBullets > 0 && !isReloading)
         {
-            Shoot();
+            StartCoroutine(ShootContinuously());
+            isShooting = true;
         }
 
         if (Input.GetKeyDown(KeyCode.R) && !isReloading)
@@ -33,7 +36,22 @@ public class ShootProjectile : MonoBehaviour
             StartCoroutine(Reload());
         }
 
+        if (Input.GetButtonUp("Fire1"))
+        {
+            StopAllCoroutines();
+            isShooting = false;
+        }
         ReticleEffect();
+    }
+
+    IEnumerator ShootContinuously()
+    {
+        while (Input.GetButton("Fire1") && currentBullets > 0 && !isReloading)
+        {
+            Shoot();
+            yield return new WaitForSeconds(fireRate);
+        }
+        isShooting = false;
     }
 
     void Shoot()

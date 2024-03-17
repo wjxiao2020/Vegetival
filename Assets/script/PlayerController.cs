@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 10;
     public float gravity = 9.81f;
     public float airControl = 10;
+    private bool isSpeedBoostActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
         input *= speed;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             ActivateSpeedBoost();
         }
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
     private void ActivateSpeedBoost()
     {
-        if (speedBoostCount > 0)
+        if (speedBoostCount > 0 && !isSpeedBoostActive)
         {
             speedBoostCount--;
             UpdateSpeedBoostCountUI();
@@ -76,10 +77,12 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator ApplySpeedBoost()
     {
+        isSpeedBoostActive = true;
         float originalSpeed = speed;
         speed *= 2;
         yield return new WaitForSeconds(3);
         speed = originalSpeed;
+        isSpeedBoostActive = false;
     }
 
     private void UpdateSpeedBoostCountUI()

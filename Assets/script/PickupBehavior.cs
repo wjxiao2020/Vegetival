@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PickupBehavior : MonoBehaviour
 {
@@ -11,10 +12,13 @@ public class PickupBehavior : MonoBehaviour
     private bool isSpeedBoostActive = false;
     private float speedBoostDuration = 3f;
     private float speedBoostTimer = 0f;
-
+    private bool isInRange = false;
+    public Text interactText;
     // Start is called before the first frame update
     void Start()
     {
+        interactText.gameObject.SetActive(false);
+
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
         {
@@ -25,22 +29,36 @@ public class PickupBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isInRange && Input.GetKeyDown(KeyCode.E))
+        {
+            Destroy(gameObject);
+            interactText.gameObject.SetActive(false);
+            AudioSource.PlayClipAtPoint(pickUpClip, transform.position);
+           
+            if (playerController != null)
+            {
+                playerController.AddSpeedBoost();
+            }
+        }
         // spin the pickup
         transform.Rotate(new Vector3(0, 0, 0.35f));
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            AudioSource.PlayClipAtPoint(pickUpClip, transform.position);
-            PlayerController playerController = other.GetComponent<PlayerController>();
-            if (playerController != null)
-            {
-                playerController.AddSpeedBoost();
-                gameObject.SetActive(false); // Deactivate the pickup object.
-            }
+            interactText.gameObject.SetActive(true);
+            isInRange = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            interactText.gameObject.SetActive(false);
+            isInRange = false;
         }
     }
 
-}
+}

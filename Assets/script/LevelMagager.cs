@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.UI;
+using UnityEngine.UI;
 
 public class LevelMagager : MonoBehaviour
 {
@@ -12,7 +12,8 @@ public class LevelMagager : MonoBehaviour
     public float createBossInterval = 2f;
     int index = 0;
     bool gameEnd;
-
+    public Text levelText;
+    float levelTextTimer = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,21 @@ public class LevelMagager : MonoBehaviour
         index++;
 
         gameEnd = false;
+    }
+
+    void Update()
+    {
+        SetLevelText();
+    }
+
+    void SetLevelText()
+    {
+        levelTextTimer -= Time.deltaTime;
+
+        if (levelTextTimer <= 0)
+        {
+            levelText.transform.localScale = Vector3.Lerp(levelText.transform.localScale, new Vector3(0, 0, 0), Time.deltaTime * 2);
+        }
     }
 
     public void gameWin()
