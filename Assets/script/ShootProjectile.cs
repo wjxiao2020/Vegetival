@@ -14,6 +14,7 @@ public class ShootProjectile : MonoBehaviour
     private bool isReloading = false;
     Color originalReticleColor;
 
+    private float lastShootTime = 0f;
     public float fireRate = 0.1f;
     private bool isShooting = false;
     void Start()
@@ -27,18 +28,26 @@ public class ShootProjectile : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && currentBullets > 0 && !isReloading)
         {
-            StartCoroutine(ShootContinuously());
-            isShooting = true;
+            if (!isShooting)
+            {
+                StartCoroutine(ShootContinuously());
+                isShooting = true;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.R) && !isReloading)
         {
+            if (isShooting)
+            {
+                StopCoroutine(ShootContinuously());
+                isShooting = false; 
+            }
             StartCoroutine(Reload());
         }
 
         if (Input.GetButtonUp("Fire1"))
         {
-            StopAllCoroutines();
+            StopCoroutine(ShootContinuously());
             isShooting = false;
         }
         ReticleEffect();
@@ -56,12 +65,18 @@ public class ShootProjectile : MonoBehaviour
 
     void Shoot()
     {
-        currentBullets--;
-        UpdateBulletCountUI();
-        GameObject projectile = Instantiate(projectilePrefab, transform.position + transform.forward, transform.rotation) as GameObject;
-        Rigidbody rb = projectile.GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);
-        projectile.transform.SetParent(GameObject.FindGameObjectWithTag("ProjectileParent").transform);
+        if (Time.time - lastShootTime >= fireRate)
+        {
+            lastShootTime = Time.time;
+
+            currentBullets--;
+            UpdateBulletCountUI();
+
+            GameObject projectile = Instantiate(projectilePrefab, transform.position + transform.forward, transform.rotation) as GameObject;
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);
+            projectile.transform.SetParent(GameObject.Find("ProjectileParent").transform);
+        }
     }
 
     IEnumerator Reload()

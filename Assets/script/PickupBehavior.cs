@@ -14,6 +14,7 @@ public class PickupBehavior : MonoBehaviour
     private float speedBoostTimer = 0f;
     private bool isInRange = false;
     public Text interactText;
+
     // Start is called before the first frame update
     void Start()
     {
