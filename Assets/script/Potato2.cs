@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.Windows;
 
 
@@ -17,6 +18,8 @@ public class Potato2 : MonoBehaviour
 
     Animator animation;
     public GameObject shield;
+    public Material material;
+    public Color color;
     GameObject currentShield;
 
     [Header("Jumping")]
@@ -94,6 +97,7 @@ public class Potato2 : MonoBehaviour
         onAbilityDown = false;
 
         animation = gameObject.GetComponent<Animator>();
+        material.color = color;
 
         firstAbilityRepeatTime =
             firstAbilityCountDown + firstAbilityWaitCountDown + firstAbilityBoostTime + firstAbilityRestTime;
@@ -135,7 +139,8 @@ public class Potato2 : MonoBehaviour
 
             onTransformForm = true;
             onFirstForm = false;
-            animation.SetTrigger("IntoSecondForm");
+            //animation.SetTrigger("IntoSecondForm");
+
             StartCoroutine(SpinEnemy(changeFormSpinDuration));
 
             // cancel the previous "invokeRepeat"
@@ -414,10 +419,10 @@ public class Potato2 : MonoBehaviour
     private IEnumerator SpinEnemy(float duration)
     {
         float time = 0;
-        
         while (time < duration)
         {
             transform.Rotate(new Vector3(0, 30 ,0));
+            material.color = Color.Lerp(material.color, Color.red, 0.01f);
 
             time += Time.deltaTime;
             yield return null;
