@@ -20,7 +20,9 @@ public class Potato2 : MonoBehaviour
     public GameObject shield;
     public Material material;
     public Color color;
+    public float playerBounceBackScale = 3f;
     GameObject currentShield;
+    CharacterController playerController;
 
     [Header("Jumping")]
     public float minYCoordinate = 6.05f;
@@ -111,6 +113,8 @@ public class Potato2 : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
+
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -402,10 +406,19 @@ public class Potato2 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // avoid deal damage for 2 times 
+        if (!onAbilityDown)
+        {
+            if (other.CompareTag("Player"))
+            {
+                var playerHealth = other.GetComponent<PlayerHealth>();
+                playerHealth.TakeDamage(damageAmount);
+            }
+        }
+
         if (other.CompareTag("Player"))
         {
-            var playerHealth = other.GetComponent<PlayerHealth>();
-            playerHealth.TakeDamage(damageAmount);
+            playerController.Move(transform.forward.normalized * playerBounceBackScale);
         }
     }
 

@@ -35,7 +35,8 @@ public class ShootProjectile : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && !isReloading)
+        // automatically reload if run out of bullets
+        if ((Input.GetKeyDown(KeyCode.R) || currentBullets <= 0) && !isReloading)
         {
             if (isShooting)
             {

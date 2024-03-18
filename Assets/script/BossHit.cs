@@ -7,6 +7,7 @@ public class BossHit : MonoBehaviour
 {
     public GameObject drop;
     public float cheerVolume;
+    public AudioClip hitSFX;
 
     public Slider bossFirstHealthBar;
     public Slider bossSecondHealthBar;
@@ -32,18 +33,14 @@ public class BossHit : MonoBehaviour
         onFirstHealth = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Projectile"))
         {
             // get damage amount of project
             int dmg = FindObjectOfType<VariableHolder>().projectileDamage;
+
+            AudioSource.PlayClipAtPoint(hitSFX, gameObject.transform.position, 4000);
 
             takeDamage(dmg);
         }
