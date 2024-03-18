@@ -17,18 +17,21 @@ public class BossHit : MonoBehaviour
     private bool onFirstHealth;
 
     // initiate common status of enemy
-    public void CreateBoss()
+    private void Awake()
     {
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
 
         localBossHealth = BossHealth;
 
         bossFirstHealthBar.value = localBossHealth;
         bossSecondHealthBar.value = localBossHealth;
 
-        bossFirstHealthBar.gameObject.SetActive(true);
-        bossSecondHealthBar.gameObject.SetActive(true);
-        enemyTitle.SetActive(true);
+        var canvas = GetComponentInChildren<Canvas>();
+        canvas.transform.parent = null;
+
+        //bossFirstHealthBar.gameObject.SetActive(true);
+        //bossSecondHealthBar.gameObject.SetActive(true);
+        //enemyTitle.SetActive(true);
 
         onFirstHealth = true;
     }

@@ -27,8 +27,7 @@ public class broccoli : MonoBehaviour
     float localShotInterval;
     private float localShootTime;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         localShotInterval = shotInterval;
         animation = gameObject.GetComponent<Animator>();
@@ -45,6 +44,12 @@ public class broccoli : MonoBehaviour
         //GunPrefab.gameObject.SetActive(false);
         startYCo = transform.position.y;
         localShootTime = enemyShootTime;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame

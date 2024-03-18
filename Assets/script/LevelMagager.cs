@@ -24,10 +24,11 @@ public class LevelMagager : MonoBehaviour
 
         foreach (GameObject obj in VegeBoss)
         {
-            obj.SetActive(false);
+            //obj.SetActive(false);
         }
 
-        VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
+        //VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
+        GameObject.Instantiate(VegeBoss[index], new Vector3(52,6,-3), Quaternion.identity);
         index++;
 
         gameEnd = false;
@@ -82,7 +83,8 @@ public class LevelMagager : MonoBehaviour
     private void CreateNextBoss()
     {
         // initaite next boss
-        VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
+        //VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
+        GameObject.Instantiate(VegeBoss[index], new Vector3(52, 6, -3), Quaternion.identity);
 
         index++;
     }
