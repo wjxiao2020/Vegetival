@@ -21,6 +21,7 @@ public class Potato2 : MonoBehaviour
     public Material material;
     public Color color;
     public float playerBounceBackScale = 3f;
+    public float playerBounceBackTime = 3f;
     GameObject currentShield;
     CharacterController playerController;
 
@@ -421,7 +422,9 @@ public class Potato2 : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            playerController.Move(transform.forward.normalized * playerBounceBackScale);
+            //playerController.Move(transform.forward.normalized * playerBounceBackScale);
+            PlayerBounceBack.backUpTimeLeft += playerBounceBackTime;
+            PlayerBounceBack.backUpDirection = transform.forward.normalized;
         }
     }
 

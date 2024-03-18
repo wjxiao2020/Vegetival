@@ -34,7 +34,7 @@ public class PickupBehavior : MonoBehaviour
         {
             Destroy(gameObject);
             interactText.gameObject.SetActive(false);
-            AudioSource.PlayClipAtPoint(pickUpClip, transform.position);
+            AudioSource.PlayClipAtPoint(pickUpClip, Camera.main.transform.position, 1);
            
             if (playerController != null)
             {
