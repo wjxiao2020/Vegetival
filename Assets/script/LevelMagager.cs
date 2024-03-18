@@ -14,6 +14,8 @@ public class LevelMagager : MonoBehaviour
     bool gameEnd;
     public Text levelText;
     float levelTextTimer = 2;
+
+    public Transform spawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +24,13 @@ public class LevelMagager : MonoBehaviour
 
         index = 0;
 
-        foreach (GameObject obj in VegeBoss)
+        if (spawn == null)
         {
-            //obj.SetActive(false);
+            spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
         }
 
         //VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
-        GameObject.Instantiate(VegeBoss[index], new Vector3(52,6,-3), Quaternion.identity);
+        GameObject.Instantiate(VegeBoss[index], spawn.position, Quaternion.identity);
         index++;
 
         gameEnd = false;
@@ -84,7 +86,7 @@ public class LevelMagager : MonoBehaviour
     {
         // initaite next boss
         //VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
-        GameObject.Instantiate(VegeBoss[index], new Vector3(52, 6, -3), Quaternion.identity);
+        Instantiate(VegeBoss[index], spawn.position, Quaternion.identity);
 
         index++;
     }

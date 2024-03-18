@@ -9,7 +9,8 @@ public class broccoli : MonoBehaviour
     public float minDistance = 2;
     public int damageAmount = 20;
     public float fixedAngle;
-
+    public float minYCoordinate;
+    public float gravity;
     private bool usingGun = false;
 
     // fix broccoli's y coordinate
@@ -26,6 +27,8 @@ public class broccoli : MonoBehaviour
     public float shotInterval;
     float localShotInterval;
     private float localShootTime;
+    //public GameObject minionPrefab;
+    //public float minionSpawnRadius = 3f;
 
     private void Awake()
     {
@@ -44,12 +47,6 @@ public class broccoli : MonoBehaviour
         //GunPrefab.gameObject.SetActive(false);
         startYCo = transform.position.y;
         localShootTime = enemyShootTime;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -80,6 +77,12 @@ public class broccoli : MonoBehaviour
             //GunPrefab.gameObject.SetActive(false);
             animation.SetBool("onGun", false);
             localShootTime = enemyShootTime;
+        }
+
+        if (transform.position.y > minYCoordinate)
+        {
+            transform.position = 
+                new Vector3(transform.position.x, transform.position.y - gravity*Time.deltaTime, transform.position.z);
         }
 
     }
@@ -114,6 +117,13 @@ public class broccoli : MonoBehaviour
         GunPrefab.gameObject.SetActive(true);
         usingGun = true;
         animation.SetBool("onGun", true);
+
+        SummonMinion();
+    }
+
+    private void SummonMinion()
+    {
+        // to be implemented
     }
 
     private void OnTriggerEnter(Collider other)
