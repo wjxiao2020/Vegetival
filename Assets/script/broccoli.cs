@@ -27,8 +27,11 @@ public class broccoli : MonoBehaviour
     public float shotInterval;
     float localShotInterval;
     private float localShootTime;
-    //public GameObject minionPrefab;
-    //public float minionSpawnRadius = 3f;
+
+    [Header("Summon Minion")]
+    public GameObject minionPrefab;
+    public float minionSpawnRadius = 3f;
+    public int minionNumber = 3;
 
     private void Awake()
     {
@@ -123,7 +126,24 @@ public class broccoli : MonoBehaviour
 
     private void SummonMinion()
     {
-        // to be implemented
+        int i = 0;
+        while (i < minionNumber)
+        {
+            float xCo = 
+                Random.RandomRange(transform.position.x + minionSpawnRadius, transform.position.x - minionSpawnRadius);
+            float zCo =
+                Random.RandomRange(transform.position.z + minionSpawnRadius, transform.position.z - minionSpawnRadius);
+            Instantiate(minionPrefab, new Vector3(xCo, transform.position.y, zCo), Quaternion.identity);
+            i++;
+        }
+    }
+
+    // display minion spawn radius
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, minionSpawnRadius);
+
     }
 
     private void OnTriggerEnter(Collider other)

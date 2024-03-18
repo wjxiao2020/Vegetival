@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -953,8 +953,8 @@ MonoBehaviour:
   gameOverScene: {fileID: 493579749}
   gameWinScene: {fileID: 1809218138}
   VegeBoss:
-  - {fileID: 5764945877952447415, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
   - {fileID: 9132852608436928873, guid: 718ef496f5beb07498c4f25d468bd23c, type: 3}
+  - {fileID: 5764945877952447415, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
   createBossInterval: 2
   levelText: {fileID: 1960458453}
   spawn: {fileID: 1173707621}
@@ -3444,6 +3444,10 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 81702027}
+    - target: {fileID: 7421197991660579346, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7838005727144632063, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
       propertyPath: speedBoostCountText
       value: 

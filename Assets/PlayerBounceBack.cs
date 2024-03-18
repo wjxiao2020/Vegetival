@@ -23,6 +23,7 @@ public class PlayerBounceBack : MonoBehaviour
         if (backUpTimeLeft > 0)
         {
             playerController.Move(backUpDirection.normalized * backUpScale * Time.deltaTime);
+            backUpDirection = backUpDirection * 0.7f;
             backUpTimeLeft -= Time.deltaTime;
         }
         else
