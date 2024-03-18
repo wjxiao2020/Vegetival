@@ -353,7 +353,6 @@ public class Potato2 : MonoBehaviour
             // enemy hit ground
             else
             {
-                onAbilityDown = false;
                 Instantiate(hitEffect, new Vector3(transform.position.x, 2f, transform.position.z), Quaternion.identity);
 
                 Vector3 startPoint = transform.position;
@@ -361,17 +360,21 @@ public class Potato2 : MonoBehaviour
                 startPoint.y = startPoint.y + damageRadius;
                 endPoint.y = endPoint.y - damageRadius;
 
+                bool takenDamage = false;
                 Collider[] colliders = Physics.OverlapCapsule(startPoint, endPoint, damageRadius);
                 foreach (Collider collider in colliders)
                 {
-                    if (collider.gameObject.CompareTag("Player"))
+                    if (collider.gameObject.CompareTag("Player") && !takenDamage)
                     {
                         var playerHealth = collider.GetComponent<PlayerHealth>();
                         playerHealth.TakeDamage(secondAbilityDamage);
+                        takenDamage = true;
                     }
                 }
+
+                onAbilityDown = false;
             }
-            
+
         }
 
     }
