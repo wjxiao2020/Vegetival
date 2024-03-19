@@ -6,6 +6,7 @@ public class ProjectileBehaviour : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
+        
         //Debug.Log("Projectie Hit Another Object.");
         // make this projectile invisible once hit into another stuff
         gameObject.SetActive(false);
@@ -13,6 +14,11 @@ public class ProjectileBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            var script = GameObject.FindAnyObjectByType<ShootProjectile>();
+            script.ChangeCrosshair();
+        }
         //Debug.Log("Projectie Hit Another Object.");
         // make this projectile invisible once hit into another stuff
         gameObject.SetActive(false);

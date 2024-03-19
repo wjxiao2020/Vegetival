@@ -7,6 +7,8 @@ public class ShootProjectile : MonoBehaviour
     public GameObject projectilePrefab;
     public float projectileSpeed = 100;
     public Image reticleImage;
+    public Image hitReticle;
+    public float HitCrossHairActiveTime = 0.3f;
     public Color reticleEnemyColor;
     public Text bulletCountText;
     public int maxBullets = 15;
@@ -19,6 +21,8 @@ public class ShootProjectile : MonoBehaviour
     private bool isShooting = false;
     void Start()
     {
+        hitReticle.gameObject.SetActive(false);
+
         originalReticleColor = reticleImage.color;
         currentBullets = maxBullets;
         UpdateBulletCountUI();
@@ -110,14 +114,41 @@ public class ShootProjectile : MonoBehaviour
         {
             if (hit.collider.CompareTag("Enemy"))
             {
-                reticleImage.color = Color.Lerp(reticleImage.color, reticleEnemyColor, Time.deltaTime * 2);
-                reticleImage.transform.localScale = Vector3.Lerp(reticleImage.transform.localScale, new Vector3(0.7f, 0.7f, 1), Time.deltaTime * 2);
+                ReticleUpdateHitEnemy(reticleImage);
+                ReticleUpdateHitEnemy(hitReticle);
             }
             else
             {
-                reticleImage.color = Color.Lerp(reticleImage.color, originalReticleColor, Time.deltaTime * 2);
-                reticleImage.transform.localScale = Vector3.Lerp(reticleImage.transform.localScale, new Vector3(1, 1, 1), Time.deltaTime * 2);
+                ReticleUpdateNotHitEnemy(reticleImage);
+                ReticleUpdateNotHitEnemy(hitReticle);
             }
         }
+    }
+
+    private void ReticleUpdateHitEnemy(Image image)
+    {
+        image.color = Color.Lerp(image.color, reticleEnemyColor, Time.deltaTime * 2);
+        image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(0.7f, 0.7f, 1), Time.deltaTime * 2);
+    }
+
+    private void ReticleUpdateNotHitEnemy(Image image)
+    {
+        image.color = Color.Lerp(image.color, originalReticleColor, Time.deltaTime * 2);
+        image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(1, 1, 1), Time.deltaTime * 2);
+    }
+
+    public void ChangeCrosshair()
+    {
+        reticleImage.gameObject.SetActive(false);
+        hitReticle.gameObject.SetActive(true);
+        StartCoroutine(HitCrossHair());
+    }
+
+    IEnumerator HitCrossHair()
+    {
+        yield return new WaitForSeconds(HitCrossHairActiveTime);
+
+        reticleImage.gameObject.SetActive(true);
+        hitReticle.gameObject.SetActive(false);
     }
 }

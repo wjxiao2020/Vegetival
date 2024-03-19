@@ -95,7 +95,7 @@ public class BossHit : MonoBehaviour
         // call next boss
         FindAnyObjectByType<LevelMagager>().BossDie();
 
-        //Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 0.5f);
     }
 
     // if the boss is dead on the first health
