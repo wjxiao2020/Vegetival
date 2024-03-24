@@ -19,6 +19,9 @@ public class ShootProjectile : MonoBehaviour
     private float lastShootTime = 0f;
     public float fireRate = 0.1f;
     private bool isShooting = false;
+
+    public GameObject weaponPrefab;
+    Animator weaponAnimator;
     void Start()
     {
         hitReticle.gameObject.SetActive(false);
@@ -26,10 +29,20 @@ public class ShootProjectile : MonoBehaviour
         originalReticleColor = reticleImage.color;
         currentBullets = maxBullets;
         UpdateBulletCountUI();
+
+        if (weaponPrefab == null )
+        {
+            weaponPrefab = GameObject.FindGameObjectWithTag("Weapon");
+        }
+
+        weaponAnimator = weaponPrefab.GetComponent<Animator>();
     }
 
     void Update()
     {
+        weaponAnimator.SetBool("fire", false);
+
+
         if (Input.GetButtonDown("Fire1") && currentBullets > 0 && !isReloading)
         {
             if (!isShooting)
@@ -48,6 +61,7 @@ public class ShootProjectile : MonoBehaviour
                 isShooting = false; 
             }
             StartCoroutine(Reload());
+            weaponAnimator.SetBool("reload", true);
         }
 
         if (Input.GetButtonUp("Fire1"))
@@ -56,6 +70,7 @@ public class ShootProjectile : MonoBehaviour
             isShooting = false;
         }
         ReticleEffect();
+
     }
 
     IEnumerator ShootContinuously()
@@ -66,6 +81,7 @@ public class ShootProjectile : MonoBehaviour
             yield return new WaitForSeconds(fireRate);
         }
         isShooting = false;
+
     }
 
     void Shoot()
@@ -81,7 +97,10 @@ public class ShootProjectile : MonoBehaviour
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);
             projectile.transform.SetParent(GameObject.Find("ProjectileParent").transform);
+
+            weaponAnimator.SetBool("fire", true);
         }
+
     }
 
     IEnumerator Reload()
@@ -91,6 +110,8 @@ public class ShootProjectile : MonoBehaviour
         yield return new WaitForSeconds(2); 
         currentBullets = maxBullets;
         isReloading = false;
+        weaponAnimator.SetBool("reload", false);
+
         UpdateBulletCountUI();
     }
 
