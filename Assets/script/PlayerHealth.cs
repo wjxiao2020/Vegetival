@@ -41,6 +41,21 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Current Health: " + currentHealth);
     }
 
+    public void TakeHealth(int healthAmount)
+    {
+        if (currentHealth < 100)
+        {
+            currentHealth += healthAmount;
+            healthSlider.value = Mathf.Clamp(currentHealth, 0, 100);
+        }
+        if (currentHealth <= 0)
+        {
+            PlayerDies();
+        }
+
+        Debug.Log("Current Health: " + currentHealth);
+    }
+
     void PlayerDies()
     {
         // player dies gameover
@@ -49,4 +64,6 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Player is dead ...");
         transform.Rotate(-90, 0, 0, Space.Self);
     }
+
+
 }
