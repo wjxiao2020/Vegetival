@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &56232785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 989505543394194460, guid: 7677de9ad9d871d4c8cf9c862afa2b60, type: 3}
+  m_PrefabInstance: {fileID: 1294977913}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &75045733
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,11 +965,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338431697}
   m_CullTransparentMesh: 1
---- !u!1 &355442761 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2231186759702566490, guid: 7677de9ad9d871d4c8cf9c862afa2b60, type: 3}
-  m_PrefabInstance: {fileID: 1294977913}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &390852325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,12 +1086,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverScene: {fileID: 493579749}
   gameWinScene: {fileID: 1809218138}
-  VegeBoss:
-  - {fileID: 5764945877952447415, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
-  - {fileID: 9132852608436928873, guid: 718ef496f5beb07498c4f25d468bd23c, type: 3}
+  VegeBoss: {fileID: 5764945877952447415, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
   createBossInterval: 2
   levelText: {fileID: 1960458453}
-  portal: {fileID: 0}
+  portal: {fileID: 56232785}
   spawn: {fileID: 1173707621}
 --- !u!1 &493579749
 GameObject:
@@ -1839,11 +1837,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63e523ab5d9ce7348b431ae1d689a54d, type: 3}
---- !u!1 &1087293571 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8939788587444867875, guid: 7677de9ad9d871d4c8cf9c862afa2b60, type: 3}
-  m_PrefabInstance: {fileID: 1294977913}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1107498077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2273,7 +2266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 989505543394194451, guid: 7677de9ad9d871d4c8cf9c862afa2b60, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.0572958
+      value: 1.92
       objectReference: {fileID: 0}
     - target: {fileID: 989505543394194451, guid: 7677de9ad9d871d4c8cf9c862afa2b60, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2310,18 +2303,6 @@ PrefabInstance:
     - target: {fileID: 989505543394194460, guid: 7677de9ad9d871d4c8cf9c862afa2b60, type: 3}
       propertyPath: m_Name
       value: platform_blue
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657782200917643766, guid: 7677de9ad9d871d4c8cf9c862afa2b60, type: 3}
-      propertyPath: beam
-      value: 
-      objectReference: {fileID: 355442761}
-    - target: {fileID: 8657782200917643766, guid: 7677de9ad9d871d4c8cf9c862afa2b60, type: 3}
-      propertyPath: particle
-      value: 
-      objectReference: {fileID: 1087293571}
-    - target: {fileID: 8657782200917643766, guid: 7677de9ad9d871d4c8cf9c862afa2b60, type: 3}
-      propertyPath: beamGrowSpeed
-      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

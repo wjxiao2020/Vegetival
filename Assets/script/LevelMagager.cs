@@ -8,7 +8,7 @@ public class LevelMagager : MonoBehaviour
     public GameObject gameOverScene;
     public GameObject gameWinScene;
 
-    public GameObject[] VegeBoss;
+    public GameObject VegeBoss;
     public float createBossInterval = 2f;
     int index = 0;
     public static bool gameEnd;
@@ -23,8 +23,6 @@ public class LevelMagager : MonoBehaviour
         gameOverScene.SetActive(false);
         gameWinScene.SetActive(false);
 
-        index = 0;
-
         if (spawn == null)
         {
             spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
@@ -36,8 +34,7 @@ public class LevelMagager : MonoBehaviour
         }
 
         //VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
-        GameObject.Instantiate(VegeBoss[index], spawn.position, Quaternion.identity);
-        index++;
+        GameObject.Instantiate(VegeBoss, spawn.position, Quaternion.identity);
 
         gameEnd = false;
     }
@@ -80,14 +77,11 @@ public class LevelMagager : MonoBehaviour
 
     public void BossDie()
     {
-        if (index < VegeBoss.Length)
-        {
-            Invoke("CreateNextBoss", createBossInterval);
-            
-        }
-        else gameWin();
+        var portalScript = portal.GetComponent<Portal>();
+        portalScript.ReadyToTeleport();
     }
 
+    /*
     private void CreateNextBoss()
     {
         // initaite next boss
@@ -100,4 +94,5 @@ public class LevelMagager : MonoBehaviour
 
         index++;
     }
+    */
 }
