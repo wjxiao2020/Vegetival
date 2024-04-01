@@ -14,6 +14,7 @@ public class LevelMagager : MonoBehaviour
     public static bool gameEnd;
     public Text levelText;
     float levelTextTimer = 2;
+    public GameObject portal;
 
     public Transform spawn;
     // Start is called before the first frame update
@@ -27,6 +28,11 @@ public class LevelMagager : MonoBehaviour
         if (spawn == null)
         {
             spawn = GameObject.FindGameObjectWithTag("Spawn").transform;
+        }
+
+        if (portal == null)
+        {
+            portal = GameObject.FindGameObjectWithTag("Portal");
         }
 
         //VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
@@ -87,6 +93,10 @@ public class LevelMagager : MonoBehaviour
         // initaite next boss
         //VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
         Instantiate(VegeBoss[index], spawn.position, Quaternion.identity);
+
+        
+        var portalScript = portal.GetComponent<Portal>();
+        portalScript.ReadyToTeleport();
 
         index++;
     }
