@@ -11,7 +11,7 @@ public class LevelMagager : MonoBehaviour
     public GameObject[] VegeBoss;
     public float createBossInterval = 2f;
     int index = 0;
-    bool gameEnd;
+    public static bool gameEnd;
     public Text levelText;
     float levelTextTimer = 2;
 

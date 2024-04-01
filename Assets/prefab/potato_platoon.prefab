@@ -570,7 +570,6 @@ GameObject:
   - component: {fileID: 8901921650525171111}
   - component: {fileID: 6365290665583891674}
   - component: {fileID: 306629000582241459}
-  - component: {fileID: 2262679648417431639}
   - component: {fileID: 6362365144603932297}
   m_Layer: 0
   m_Name: potato_platoon
@@ -756,8 +755,8 @@ MonoBehaviour:
   shield: {fileID: 4204917445197582160, guid: e208eb407e7a72d4aa1df345fb2f7452, type: 3}
   material: {fileID: 2100000, guid: eea085fbba1a6d2458b9504773e06652, type: 2}
   color: {r: 0.77254903, g: 0.60784316, b: 0.27450982, a: 1}
-  playerBounceBackScale: 8
-  playerBounceBackTime: 1
+  playerBounceBackTime: 1.5
+  seriousSFX: {fileID: 8300000, guid: cad57fcf83264a4489ae5c41b55e7a8b, type: 3}
   minYCoordinate: 5.5
   jumpHeight: 4
   gravity: 9.8
@@ -774,102 +773,7 @@ MonoBehaviour:
   hitEffect: {fileID: 1714681308540598, guid: 5cbc537826220e04592d5a41a0dd985f, type: 3}
   secondAbilityDamage: 30
   jumpSpeed: 60
---- !u!82 &2262679648417431639
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5764945877952447415}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  JumpSFX: {fileID: 8300000, guid: 55520881781472649ac612614a24f148, type: 3}
 --- !u!114 &6362365144603932297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -884,7 +788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drop: {fileID: 1724972533694550, guid: 63e523ab5d9ce7348b431ae1d689a54d, type: 3}
   cheerVolume: 0.5
-  hitSFX: {fileID: 8300000, guid: ea5f6ca0a61b1a648a669dc2f7a32b66, type: 3}
+  hitSFX: {fileID: 8300000, guid: 9ef3f6cb1b48c67419812b50793d9da6, type: 3}
   bossFirstHealthBar: {fileID: 7816971498078095000}
   bossSecondHealthBar: {fileID: 2956168903312529332}
   enemyTitle: {fileID: 5417986264044251516}

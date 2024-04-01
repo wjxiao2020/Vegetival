@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class ShootProjectile : MonoBehaviour
 {
     public GameObject projectilePrefab;
+    public AudioClip projectileSFX;
+    public float SFXVolume = 0.1f;
     public float projectileSpeed = 100;
     public Image reticleImage;
     public Image hitReticle;
@@ -40,38 +42,41 @@ public class ShootProjectile : MonoBehaviour
 
     void Update()
     {
-        weaponAnimator.SetBool("fire", false);
+        if (!LevelMagager.gameEnd)
+        { 
+            weaponAnimator.SetBool("fire", false);
 
-
-        if (Input.GetButtonDown("Fire1") && currentBullets > 0 && !isReloading)
-        {
-            if (!isShooting)
+        
+            if (Input.GetButtonDown("Fire1") && currentBullets > 0 && !isReloading)
             {
-                StartCoroutine(ShootContinuously());
-                isShooting = true;
+                if (!isShooting)
+                {
+                    StartCoroutine(ShootContinuously());
+                    isShooting = true;
+                }
             }
-        }
 
-        // automatically reload if run out of bullets
-        if ((Input.GetKeyDown(KeyCode.R) || currentBullets <= 0) && !isReloading)
-        {
-            if (isShooting)
+            // automatically reload if run out of bullets
+            if ((Input.GetKeyDown(KeyCode.R) || currentBullets <= 0) && !isReloading)
+            {
+                if (isShooting)
+                {
+                    StopCoroutine(ShootContinuously());
+                    isShooting = false; 
+                }
+                StartCoroutine(Reload());
+                weaponAnimator.SetBool("reload", true);
+            }
+
+            if (Input.GetButtonUp("Fire1"))
             {
                 StopCoroutine(ShootContinuously());
-                isShooting = false; 
+                isShooting = false;
             }
-            StartCoroutine(Reload());
-            weaponAnimator.SetBool("reload", true);
+            ReticleEffect();
         }
-
-        if (Input.GetButtonUp("Fire1"))
-        {
-            StopCoroutine(ShootContinuously());
-            isShooting = false;
-        }
-        ReticleEffect();
-
     }
+
 
     IEnumerator ShootContinuously()
     {
@@ -89,10 +94,10 @@ public class ShootProjectile : MonoBehaviour
         if (Time.time - lastShootTime >= fireRate)
         {
             lastShootTime = Time.time;
-
             currentBullets--;
             UpdateBulletCountUI();
 
+            AudioSource.PlayClipAtPoint(projectileSFX, transform.position, SFXVolume);
             GameObject projectile = Instantiate(projectilePrefab, transform.position + transform.forward, transform.rotation) as GameObject;
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);

@@ -1,9 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Experimental.GlobalIllumination;
-using UnityEngine.Windows;
 
 
 public class Potato2 : MonoBehaviour
@@ -14,16 +10,15 @@ public class Potato2 : MonoBehaviour
     public int damageAmount = 20;
     public float changeFormSpinDuration = 4f;
 
-
-
     Animator animation;
     public GameObject shield;
     public Material material;
     public Color color;
-    public float playerBounceBackScale = 3f;
     public float playerBounceBackTime = 3f;
     GameObject currentShield;
     CharacterController playerController;
+
+    public AudioClip seriousSFX;
 
     [Header("Jumping")]
     public float minYCoordinate = 6.05f;
@@ -72,6 +67,7 @@ public class Potato2 : MonoBehaviour
     public GameObject hitEffect;
     public int secondAbilityDamage;
     public float jumpSpeed = 3f;
+    public AudioClip JumpSFX;
 
 
     Vector3 directionToLift;
@@ -237,6 +233,8 @@ public class Potato2 : MonoBehaviour
                     // change to serious face
                     animation.SetBool("getSerious", true);
 
+                    AudioSource.PlayClipAtPoint(seriousSFX, Camera.main.transform.position, 1);
+
                     onFirstAbilityWait = true;
                     localFirstAbilityCountDown = firstAbilityCountDown;
                 }
@@ -326,9 +324,8 @@ public class Potato2 : MonoBehaviour
         {
             float step = jumpSpeed * Time.deltaTime;
             //controller.Move(directionToLift * Time.deltaTime);
-            transform.position =
-            Vector3.MoveTowards(transform.position, 
-            targetPosition, step);
+            transform.position = Vector3.MoveTowards(transform.position, 
+                                    targetPosition, step);
         }
         
         if (transform.position.y >= secondAbilityJumpHeight)
@@ -390,6 +387,9 @@ public class Potato2 : MonoBehaviour
         //targetPosition = transform.forward;
         targetPosition = transform.position;
         targetPosition.y = secondAbilityJumpHeight;
+
+        AudioSource.PlayClipAtPoint(JumpSFX, Camera.main.transform.position, 1);
+        //AudioSource.PlayClipAtPoint(JumpSFX, transform.position, 1);
     }
 
     private IEnumerator CountdownFloating(int timer)
@@ -410,21 +410,17 @@ public class Potato2 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // avoid deal damage for 2 times 
-        if (!onAbilityDown)
+        if (other.CompareTag("Player"))
         {
-            if (other.CompareTag("Player"))
+            PlayerBounceBack.backUpTimeLeft += playerBounceBackTime;
+            PlayerBounceBack.backUpDirection = transform.forward.normalized;
+
+            // avoid deal damage for 2 times 
+            if (!onAbilityDown)
             {
                 var playerHealth = other.GetComponent<PlayerHealth>();
                 playerHealth.TakeDamage(damageAmount);
             }
-        }
-
-        if (other.CompareTag("Player"))
-        {
-            //playerController.Move(transform.forward.normalized * playerBounceBackScale);
-            PlayerBounceBack.backUpTimeLeft += playerBounceBackTime;
-            PlayerBounceBack.backUpDirection = transform.forward.normalized;
         }
     }
 

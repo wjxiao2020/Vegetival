@@ -28,6 +28,11 @@ public class broccoli : MonoBehaviour
     float localShotInterval;
     private float localShootTime;
 
+    public AudioClip shootSFX;
+    public float SFXVolume = 0.1f;
+
+    public AudioClip showUpSFX;
+
     [Header("Summon Minion")]
     public GameObject minionPrefab;
     public float minionSpawnRadius = 3f;
@@ -50,6 +55,8 @@ public class broccoli : MonoBehaviour
         //GunPrefab.gameObject.SetActive(false);
         startYCo = transform.position.y;
         localShootTime = enemyShootTime;
+
+        AudioSource.PlayClipAtPoint(showUpSFX, Camera.main.transform.position, 1);
     }
 
     // Update is called once per frame
@@ -99,6 +106,8 @@ public class broccoli : MonoBehaviour
             GameObject projectile =
                  Instantiate(projectilePrefab, gunMuzzle.transform.position, transform.rotation) as GameObject;
 
+            AudioSource.PlayClipAtPoint(shootSFX, transform.position, SFXVolume);
+
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
 
             // because there's rotation applied on gun's prefab
@@ -130,9 +139,9 @@ public class broccoli : MonoBehaviour
         while (i < minionNumber)
         {
             float xCo = 
-                Random.RandomRange(transform.position.x + minionSpawnRadius, transform.position.x - minionSpawnRadius);
+                Random.Range(transform.position.x + minionSpawnRadius, transform.position.x - minionSpawnRadius);
             float zCo =
-                Random.RandomRange(transform.position.z + minionSpawnRadius, transform.position.z - minionSpawnRadius);
+                Random.Range(transform.position.z + minionSpawnRadius, transform.position.z - minionSpawnRadius);
             Instantiate(minionPrefab, new Vector3(xCo, transform.position.y, zCo), Quaternion.identity);
             i++;
         }

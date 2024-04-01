@@ -15,6 +15,7 @@ public class BossHit : MonoBehaviour
     public int BossHealth;
     private int localBossHealth;
     private bool onFirstHealth;
+    private int hitAmout;
 
     // initiate common status of enemy
     private void Awake()
@@ -34,6 +35,7 @@ public class BossHit : MonoBehaviour
         //enemyTitle.SetActive(true);
 
         onFirstHealth = true;
+        hitAmout = 0;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,7 +45,12 @@ public class BossHit : MonoBehaviour
             // get damage amount of project
             int dmg = FindObjectOfType<VariableHolder>().projectileDamage;
 
-            AudioSource.PlayClipAtPoint(hitSFX, gameObject.transform.position, 4000);
+            hitAmout++;
+            if (hitAmout % 10 == 1)
+            {
+                AudioSource.PlayClipAtPoint(hitSFX, Camera.main.transform.position, 0.5f);
+            }
+            
 
             takeDamage(dmg);
         }

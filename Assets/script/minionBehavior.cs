@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class minionBehavior : MonoBehaviour
 {
@@ -12,6 +8,9 @@ public class minionBehavior : MonoBehaviour
     public float explosionRadius;
     public float minExplodeDistance;
     public int explodeDamage;
+    public AudioClip explosionSFX;
+    public float SFXVolume;
+
     bool triggered = false;
 
     // Start is called before the first frame update
@@ -31,14 +30,15 @@ public class minionBehavior : MonoBehaviour
         float distance =
             Vector3.Distance(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z));
 
-                //Debug.Log(onTransformForm);
-                FaceTarget(player.position);
-                transform.position =
-                    Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y , player.position.z), step);
+        //Debug.Log(onTransformForm);
+        FaceTarget(player.position);
+        transform.position =
+            Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y , player.position.z), step);
 
         if (distance < minExplodeDistance && !triggered)
         {
             var explosion = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(explosionSFX, transform.position, SFXVolume);
             Destroy(gameObject, 0.1f);
 
             explosion.transform.parent = transform;
