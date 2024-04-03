@@ -1030,8 +1030,9 @@ GameObject:
   - component: {fileID: 5711381272057078158}
   - component: {fileID: 5116830033532969393}
   - component: {fileID: 5533389475973795020}
+  - component: {fileID: 3302837714507406785}
   m_Layer: 0
-  m_Name: Lettuce
+  m_Name: Lettuce[don't use this]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1091,8 +1092,8 @@ MonoBehaviour:
   drop: {fileID: 1724972533694550, guid: 63e523ab5d9ce7348b431ae1d689a54d, type: 3}
   cheerVolume: 1
   hitSFX: {fileID: 8300000, guid: 9ef3f6cb1b48c67419812b50793d9da6, type: 3}
-  bossFirstHealthBar: {fileID: 3359644892881834726, guid: 718ef496f5beb07498c4f25d468bd23c, type: 3}
-  bossSecondHealthBar: {fileID: 2622705858922518294, guid: 718ef496f5beb07498c4f25d468bd23c, type: 3}
+  bossFirstHealthBar: {fileID: 3974109306429657467}
+  bossSecondHealthBar: {fileID: 6037386402861176586}
   enemyTitle: {fileID: 6172026448569693746, guid: 718ef496f5beb07498c4f25d468bd23c, type: 3}
   BossHealth: 100
 --- !u!114 &5533389475973795020
@@ -1108,6 +1109,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  potatoPrefab: {fileID: 0}
+  broccoliPrefab: {fileID: 0}
+--- !u!135 &3302837714507406785
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4246590684554044443}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.94
+  m_Center: {x: 0, y: 1.51, z: 0}
 --- !u!1 &4264409647776834904
 GameObject:
   m_ObjectHideFlags: 0
