@@ -80,15 +80,22 @@ public class LevelMagager : MonoBehaviour
             gameOverScene.gameObject.SetActive(true);
 
             // freeze the game
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
 
-            Invoke("LoadCurrentLevel", 2);
+            Invoke("LoadCurrentLevel", 3f);
+            //LoadCurrentLevel();
         }
     }
 
     void LoadCurrentLevel()
     {
+        //Debug.Log("aaaa");
+
+        Time.timeScale = 1;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(0);
+
     }
 
     public void BossDie()
@@ -100,6 +107,11 @@ public class LevelMagager : MonoBehaviour
             bossDieCount = 0;
             bossCount = 0;
             portalScript.ReadyToTeleport();
+
+            if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCount)
+            {
+                gameWinScene.gameObject.SetActive(true );
+            }
         }
         
     }
