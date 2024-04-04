@@ -16,10 +16,18 @@ public class LevelMagager : MonoBehaviour
     float levelTextTimer = 2;
     public GameObject portal;
 
+    public static int bossCount = 0;
+    int bossDieCount = 0;
+
+
+
     public Transform spawn;
     // Start is called before the first frame update
     void Start()
     {
+        bossCount = 0;
+        bossDieCount = 0;
+
         gameOverScene.SetActive(false);
         gameWinScene.SetActive(false);
 
@@ -77,8 +85,13 @@ public class LevelMagager : MonoBehaviour
 
     public void BossDie()
     {
-        var portalScript = portal.GetComponent<Portal>();
-        portalScript.ReadyToTeleport();
+        bossDieCount++;
+        if (bossDieCount == bossCount)
+        {
+            var portalScript = portal.GetComponent<Portal>();
+            portalScript.ReadyToTeleport();
+        }
+        
     }
 
     /*

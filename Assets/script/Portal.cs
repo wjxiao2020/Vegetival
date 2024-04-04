@@ -35,8 +35,10 @@ public class Portal : MonoBehaviour
 
             if (isInRange && Input.GetKeyDown(KeyCode.E))
             {
-                // assume you don't place portal in the last scene
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                if (SceneManager.GetActiveScene().buildIndex <= SceneManager.sceneCount)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
             }
         }
 

@@ -40,6 +40,8 @@ public class broccoli : MonoBehaviour
 
     private void Awake()
     {
+        LevelMagager.bossCount++;
+
         localShotInterval = shotInterval;
         animation = gameObject.GetComponent<Animator>();
 
