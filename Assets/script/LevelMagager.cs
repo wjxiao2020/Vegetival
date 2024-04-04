@@ -89,6 +89,8 @@ public class LevelMagager : MonoBehaviour
         if (bossDieCount == bossCount)
         {
             var portalScript = portal.GetComponent<Portal>();
+            bossDieCount = 0;
+            bossCount = 0;
             portalScript.ReadyToTeleport();
         }
         

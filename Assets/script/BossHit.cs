@@ -20,6 +20,8 @@ public class BossHit : MonoBehaviour
     // initiate common status of enemy
     private void Awake()
     {
+        enemyTitle.SetActive(true);
+
         //gameObject.SetActive(true);
 
         localBossHealth = BossHealth;

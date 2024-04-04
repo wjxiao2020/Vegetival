@@ -12,10 +12,13 @@ public class LettuceLord : MonoBehaviour
 
     public GameObject[] spawns;
     public float scaleForHealth = 0.6f;
+    public GameObject panel;
 
     // Start is called before the first frame update
     void Awake()
     {
+        LevelMagager.bossCount++;
+
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -49,15 +52,18 @@ public class LettuceLord : MonoBehaviour
 
         GameObject[] healthbars = GameObject.FindGameObjectsWithTag("BossCanvas");
 
-        var panel = GameObject.FindGameObjectWithTag("BossPanel");
-
         foreach (var healthbar in healthbars)
         {
             healthbar.transform.parent = panel.transform;
+            healthbar.transform.localScale *= 0.7f;
+
         }
+        
         var currentScale = panel.transform.localScale;
+        
         panel.transform.localScale = 
             new Vector3(currentScale.x * scaleForHealth, currentScale.y * scaleForHealth, currentScale.z * scaleForHealth);
-
+        
+        
     }
 }
