@@ -35,10 +35,15 @@ public class HealthLoot : MonoBehaviour
             lootSFX.time = 2;
             lootSFX.Play();
             print("lootSFX played");
+            var playerHealth = player.GetComponent<PlayerHealth>();
+            if(bottle.activeSelf)
+            {
+                playerHealth.TakeHealth(healthAmount);
+            }
             bottle.SetActive(false);
             //gameObject.SetActive(false);
-            var playerHealth = player.GetComponent<PlayerHealth>();
-            playerHealth.TakeHealth(healthAmount);
+            
+
             Destroy(gameObject, 3f);
         }
     }
@@ -59,5 +64,6 @@ public class HealthLoot : MonoBehaviour
             isInRange = false;
         }
     }
-}
+}
+
 
