@@ -112,7 +112,7 @@ public class ShootProjectile : MonoBehaviour
     {
         isReloading = true;
         UpdateBulletCountUI();
-        yield return new WaitForSeconds(2); 
+        yield return new WaitForSeconds(3); 
         currentBullets = maxBullets;
         isReloading = false;
         weaponAnimator.SetBool("reload", false);

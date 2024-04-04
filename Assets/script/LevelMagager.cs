@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelMagager : MonoBehaviour
 {
@@ -80,7 +81,14 @@ public class LevelMagager : MonoBehaviour
 
             // freeze the game
             Time.timeScale = 0;
+
+            Invoke("LoadCurrentLevel", 2);
         }
+    }
+
+    void LoadCurrentLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void BossDie()
