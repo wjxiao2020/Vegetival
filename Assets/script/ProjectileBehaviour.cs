@@ -6,10 +6,11 @@ public class ProjectileBehaviour : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        
+
         //Debug.Log("Projectie Hit Another Object.");
         // make this projectile invisible once hit into another stuff
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,6 +22,7 @@ public class ProjectileBehaviour : MonoBehaviour
         }
         //Debug.Log("Projectie Hit Another Object.");
         // make this projectile invisible once hit into another stuff
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
