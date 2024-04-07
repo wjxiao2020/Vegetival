@@ -58,7 +58,6 @@ public class PauseMenuBehavior : MonoBehaviour
 
     public void ResumeGame()
     {
-        print("RESUME PRESSED");
         isGamePaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
