@@ -42,10 +42,9 @@ public class ShootProjectile : MonoBehaviour
 
     void Update()
     {
-        if (!LevelMagager.gameEnd)
+        if (!LevelMagager.gameEnd && !PauseMenuBehavior.isGamePaused)
         { 
             weaponAnimator.SetBool("fire", false);
-
         
             if (Input.GetButtonDown("Fire1") && currentBullets > 0 && !isReloading)
             {
@@ -80,7 +79,7 @@ public class ShootProjectile : MonoBehaviour
 
     IEnumerator ShootContinuously()
     {
-        while (Input.GetButton("Fire1") && currentBullets > 0 && !isReloading)
+        while (Input.GetButton("Fire1") && currentBullets > 0 && !isReloading && !PauseMenuBehavior.isGamePaused)
         {
             Shoot();
             yield return new WaitForSeconds(fireRate);

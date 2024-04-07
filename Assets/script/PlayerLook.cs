@@ -22,15 +22,17 @@ public class PlayerLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float moveY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        if (!PauseMenuBehavior.isGamePaused)
+        {
+            float moveX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float moveY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        playerBody.Rotate(Vector3.up * moveX);
+            playerBody.Rotate(Vector3.up * moveX);
 
-        pitch -= moveY;
+            pitch -= moveY;
 
-        pitch = Mathf.Clamp(pitch, -90f, 90f);
-        transform.localRotation = Quaternion.Euler(pitch, 0, 0);
-
+            pitch = Mathf.Clamp(pitch, -90f, 90f);
+            transform.localRotation = Quaternion.Euler(pitch, 0, 0);
+        }
     }
 }
