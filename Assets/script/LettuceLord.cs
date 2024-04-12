@@ -10,6 +10,8 @@ public class LettuceLord : MonoBehaviour
     public GameObject potatoPrefab;
     public GameObject broccoliPrefab;
     public GameObject fireballVFX;
+    public GameObject shieldPrefab;
+    GameObject currentShield;
 
     public int fireballAmount = 3;
     int localAmount = 0;
@@ -23,10 +25,17 @@ public class LettuceLord : MonoBehaviour
     // if the boss is summoning another boss
     bool summoning = false;
     bool onFiring = false;
+    bool summonFirst = false;
+    bool summonSecond = false;
+
+    int bossIndex = 0;
+
 
     // Start is called before the first frame update
     void Awake()
     {
+        summonFirst = false;
+        summonSecond = false;
         localAmount = 0;
         onFiring = false;
         animator = GetComponentInChildren<Animator>();
@@ -51,12 +60,13 @@ public class LettuceLord : MonoBehaviour
     {
         FaceTarget(player.transform.position);
 
+        SummonBoss();
         CastFireBall();
     }
 
     void CastFireBall()
     {
-        if (!onFiring)
+        if (!onFiring && !summoning)
         {
             if (localAmount <= fireballAmount)
             {
@@ -102,10 +112,55 @@ public class LettuceLord : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRoation, 10 * Time.deltaTime);
     }
 
+    // when boss's health is below 50%, summon another boss
+    // when boss's first health is empty, summon another boss
     private void SummonBoss()
     {
-        var potato = GameObject.Instantiate(potatoPrefab, spawns[0].transform.position, Quaternion.identity);
-        var broccoli = GameObject.Instantiate(broccoliPrefab, spawns[1].transform.position, Quaternion.identity);
+        var health = gameObject.GetComponent<BossHit>();
+
+        if (!onFiring)
+        {
+            // if health is below 50% and haven't summon
+            if (health.localBossHealth <= health.BossHealth / 2 && !summonFirst && !summoning)
+            {
+                bossIndex = 0;
+                animator.SetInteger("animState", 1);
+                currentShield = GameObject.Instantiate(shieldPrefab, transform);
+                summoning = true;
+            }
+
+            if (health.localBossHealth <= 10 && !summonSecond && !summoning)
+            {
+                bossIndex = 1;
+                animator.SetInteger("animState", 1);
+                currentShield = GameObject.Instantiate(shieldPrefab, transform);
+                summoning = true;
+            }
+        }
+     
+    }
+
+
+    public void SummonBossHelper()
+    {
+        GameObject newBoss;
+        switch (bossIndex)
+        {
+            case 0: newBoss = GameObject.Instantiate(potatoPrefab, spawns[0].transform.position, Quaternion.identity);
+                summonFirst = true;
+                break;
+            case 1: newBoss = GameObject.Instantiate(broccoliPrefab, spawns[1].transform.position, Quaternion.identity);
+                summonSecond = true;
+                break;
+        }
+
+        if (!summonSecond)
+        {
+            var currentScale = panel.transform.localScale;
+
+            panel.transform.localScale =
+                new Vector3(currentScale.x * scaleForHealth, currentScale.y * scaleForHealth, currentScale.z * scaleForHealth);
+        }
 
         GameObject[] healthbars = GameObject.FindGameObjectsWithTag("BossCanvas");
 
@@ -113,14 +168,19 @@ public class LettuceLord : MonoBehaviour
         {
             healthbar.transform.parent = panel.transform;
             healthbar.transform.localScale *= 0.7f;
-
+            healthbar.transform.gameObject.tag = "Untagged";
         }
-        
-        var currentScale = panel.transform.localScale;
-        
-        panel.transform.localScale = 
-            new Vector3(currentScale.x * scaleForHealth, currentScale.y * scaleForHealth, currentScale.z * scaleForHealth);
-        
-        
+
+        // wait for the animation to complete
+        StartCoroutine(SummonRest());
+
+    }
+
+    IEnumerator SummonRest()
+    {
+        yield return new WaitForSeconds(2);
+        animator.SetInteger("animState", 0);
+        currentShield.gameObject.SetActive(false);
+        summoning = false;
     }
 }

@@ -13,7 +13,7 @@ public class BossHit : MonoBehaviour
     public Slider bossSecondHealthBar;
     public GameObject enemyTitle;
     public int BossHealth;
-    private int localBossHealth;
+    public int localBossHealth;
     private bool onFirstHealth;
     private int hitAmout;
 
