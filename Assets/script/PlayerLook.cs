@@ -11,6 +11,8 @@ public class PlayerLook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PauseMenuBehavior.isGamePaused = false;
+
         playerBody = transform.parent.transform;
 
         Cursor.visible = false;
@@ -22,8 +24,10 @@ public class PlayerLook : MonoBehaviour
     {
         if (!PauseMenuBehavior.isGamePaused)
         {
+
             float moveX = Input.GetAxis("Mouse X") * UserSettings.mouseSensitivity * Time.deltaTime;
             float moveY = Input.GetAxis("Mouse Y") * UserSettings.mouseSensitivity * Time.deltaTime;
+
 
             playerBody.Rotate(Vector3.up * moveX);
 

@@ -14,9 +14,17 @@ public class LettuceLord : MonoBehaviour
     public float scaleForHealth = 0.6f;
     public GameObject panel;
 
+    Animator animator;
+    // if the boss is summoning another boss
+    bool summoning = false;
+    bool onFiring = false;
+
     // Start is called before the first frame update
     void Awake()
     {
+        onFiring = false;
+        animator = GetComponentInChildren<Animator>();
+        summoning = false;
         LevelMagager.bossCount++;
 
         if (player == null)
@@ -36,6 +44,25 @@ public class LettuceLord : MonoBehaviour
     void Update()
     {
         FaceTarget(player.transform.position);
+
+        CastFireBall();
+    }
+
+    void CastFireBall()
+    {
+        if (!onFiring)
+        {
+            animator.SetInteger("animState", 2);
+            onFiring=true;
+            StartCoroutine(FirstPause());
+        }
+    }
+
+    IEnumerator FirstPause()
+    {
+        yield return new WaitForSeconds(3);
+        animator.SetInteger("animState", 0);
+        onFiring = false;
     }
 
     private void FaceTarget(Vector3 target)

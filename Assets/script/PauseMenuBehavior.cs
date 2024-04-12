@@ -14,6 +14,7 @@ public class PauseMenuBehavior : MonoBehaviour
 
     void Start()
     {
+        isGamePaused = false;
         crosshairs = GameObject.FindGameObjectsWithTag("Crosshair");
     }
 

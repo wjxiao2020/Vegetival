@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UserSettings : MonoBehaviour
 {
-    public static float mouseSensitivity;
+    public static float mouseSensitivity = 100;
     public static float soundVolume;
 
     public Slider mouseSensitivitySlider;
