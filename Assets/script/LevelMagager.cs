@@ -108,7 +108,7 @@ public class LevelMagager : MonoBehaviour
             bossCount = 0;
             portalScript.ReadyToTeleport();
 
-            if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCount)
+            if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCount + 1)
             {
                 gameWinScene.gameObject.SetActive(true );
             }

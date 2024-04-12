@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1519,6 +1519,87 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63e523ab5d9ce7348b431ae1d689a54d, type: 3}
+--- !u!1001 &631629581
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5234381639215228699, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234381639215228699, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234381639215228699, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234381639215228699, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234381639215228699, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234381639215228699, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234381639215228699, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234381639215228699, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234381639215228699, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234381639215228699, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426448222602471666, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: m_Name
+      value: player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7391303440379896197, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 81702027}
+    - target: {fileID: 7838005727144632063, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: speedBoostCountText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093697223150452174, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: hitReticle
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093697223150452174, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: reticleImage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9093697223150452174, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: bulletCountText
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9093697223150452174, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1894925494398130805, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1687395068}
+  m_SourcePrefab: {fileID: 100100000, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
 --- !u!1 &633498992
 GameObject:
   m_ObjectHideFlags: 0
@@ -2934,6 +3015,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1687395061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1894925494398130805, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+  m_PrefabInstance: {fileID: 631629581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1687395068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687395061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7181e649493d15b40b3e5c2b9504031a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 3584945447065815714, guid: 57d3b817c36286b44985a7b95d3f33ac, type: 3}
+  projectileSFX: {fileID: 8300000, guid: a764377339b869e459f5e53fb9258f73, type: 3}
+  SFXVolume: 0.05
+  projectileSpeed: 100
+  reticleImage: {fileID: 2118328022}
+  hitReticle: {fileID: 1931068643}
+  HitCrossHairActiveTime: 0.3
+  reticleEnemyColor: {r: 1, g: 0.7466958, b: 0, a: 1}
+  bulletCountText: {fileID: 1849501014}
+  maxBullets: 30
+  fireRate: 0.3
+  weaponPrefab: {fileID: 0}
 --- !u!1 &1728443341
 GameObject:
   m_ObjectHideFlags: 0
@@ -4493,7 +4603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5426448222602471666, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7391303440379896197, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
       propertyPath: cheer
@@ -5017,3 +5127,4 @@ SceneRoots:
   - {fileID: 1130782237}
   - {fileID: 641026944}
   - {fileID: 6930425379483441886}
+  - {fileID: 631629581}
