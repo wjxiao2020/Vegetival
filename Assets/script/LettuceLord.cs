@@ -9,6 +9,11 @@ public class LettuceLord : MonoBehaviour
     public GameObject player;
     public GameObject potatoPrefab;
     public GameObject broccoliPrefab;
+    public GameObject fireballVFX;
+
+    public int fireballAmount = 3;
+    int localAmount = 0;
+    public Transform hand;
 
     public GameObject[] spawns;
     public float scaleForHealth = 0.6f;
@@ -22,6 +27,7 @@ public class LettuceLord : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        localAmount = 0;
         onFiring = false;
         animator = GetComponentInChildren<Animator>();
         summoning = false;
@@ -37,7 +43,7 @@ public class LettuceLord : MonoBehaviour
             spawns = GameObject.FindGameObjectsWithTag("Level3Spawn");
         }
 
-        Invoke("SummonBoss", 2f);
+        //Invoke("SummonBoss", 2f);
     }
 
     // Update is called once per frame
@@ -52,10 +58,27 @@ public class LettuceLord : MonoBehaviour
     {
         if (!onFiring)
         {
-            animator.SetInteger("animState", 2);
-            onFiring=true;
-            StartCoroutine(FirstPause());
+            if (localAmount <= fireballAmount)
+            {
+                localAmount++;
+                animator.SetInteger("animState", 2);
+                onFiring = true;
+                StartCoroutine(FirstPause());
+            }
+            // if boss already fired given amount of fire ball
+            else
+            {
+                StartCoroutine(FireCooldown());
+            }
         }
+     
+    }
+
+    // invoked in the animataion 
+    public void FireFireball()
+    {
+        Instantiate(fireballVFX, hand.transform.position,
+                hand.transform.rotation);
     }
 
     IEnumerator FirstPause()
@@ -63,6 +86,13 @@ public class LettuceLord : MonoBehaviour
         yield return new WaitForSeconds(3);
         animator.SetInteger("animState", 0);
         onFiring = false;
+    }
+
+    IEnumerator FireCooldown()
+    {
+        yield return new WaitForSeconds(3);
+        animator.SetInteger("animState", 0);
+        localAmount = 0;
     }
 
     private void FaceTarget(Vector3 target)

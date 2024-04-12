@@ -22320,6 +22320,7 @@ GameObject:
   - component: {fileID: 2599349072404380394}
   - component: {fileID: 6666018879153591935}
   - component: {fileID: 3913739398427018642}
+  - component: {fileID: 6055827585551919637}
   m_Layer: 0
   m_Name: LettuceLord
   m_TagString: Enemy
@@ -22398,9 +22399,32 @@ MonoBehaviour:
   player: {fileID: 0}
   potatoPrefab: {fileID: 5764945877952447415, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
   broccoliPrefab: {fileID: 9132852608436928873, guid: 718ef496f5beb07498c4f25d468bd23c, type: 3}
+  fireballVFX: {fileID: 1714274598519724, guid: 46f837efd030e1844bc2d60f88994d6a, type: 3}
+  hand: {fileID: 5263243921195713580}
   spawns: []
   scaleForHealth: 0.6
   panel: {fileID: 3533266232524020248}
+--- !u!95 &6055827585551919637
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5948381027451894572}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 6be8972acbdfa5d4cb8d810da86fb3f2, type: 3}
+  m_Controller: {fileID: 9100000, guid: 6a90ba5034e3dff45a76f1c11b4f706e, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5951832425780430342
 GameObject:
   m_ObjectHideFlags: 0
@@ -23025,7 +23049,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6403915112802200728}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 6be8972acbdfa5d4cb8d810da86fb3f2, type: 3}
   m_Controller: {fileID: 9100000, guid: 6a90ba5034e3dff45a76f1c11b4f706e, type: 2}
   m_CullingMode: 1
