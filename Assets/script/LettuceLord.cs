@@ -11,7 +11,9 @@ public class LettuceLord : MonoBehaviour
     public GameObject broccoliPrefab;
     public GameObject fireballVFX;
     public GameObject shieldPrefab;
+    public int summonBossHealth = 70;
     GameObject currentShield;
+    int currentSummonBoss = 0;
 
     public int fireballAmount = 3;
     int localAmount = 0;
@@ -34,6 +36,7 @@ public class LettuceLord : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        currentSummonBoss = 0;
         summonFirst = false;
         summonSecond = false;
         localAmount = 0;
@@ -59,7 +62,6 @@ public class LettuceLord : MonoBehaviour
     void Update()
     {
         FaceTarget(player.transform.position);
-
         SummonBoss();
         CastFireBall();
     }
@@ -81,7 +83,6 @@ public class LettuceLord : MonoBehaviour
                 StartCoroutine(FireCooldown());
             }
         }
-     
     }
 
     // invoked in the animataion 
@@ -121,15 +122,16 @@ public class LettuceLord : MonoBehaviour
         if (!onFiring)
         {
             // if health is below 50% and haven't summon
-            if (health.localBossHealth <= health.BossHealth / 2 && !summonFirst && !summoning)
+            if (health.localBossHealth <= health.BossHealth / (1.5) && !summonFirst && !summoning)
             {
                 bossIndex = 0;
                 animator.SetInteger("animState", 1);
                 currentShield = GameObject.Instantiate(shieldPrefab, transform);
+
                 summoning = true;
             }
 
-            if (health.localBossHealth <= 10 && !summonSecond && !summoning)
+            if (health.localBossHealth <= 90 && !health.onFirstHealth && !summonSecond && summonFirst && !summoning)
             {
                 bossIndex = 1;
                 animator.SetInteger("animState", 1);
@@ -137,22 +139,33 @@ public class LettuceLord : MonoBehaviour
                 summoning = true;
             }
         }
-     
     }
 
 
     public void SummonBossHelper()
     {
+        currentSummonBoss++;
+
         GameObject newBoss;
         switch (bossIndex)
         {
             case 0: newBoss = GameObject.Instantiate(potatoPrefab, spawns[0].transform.position, Quaternion.identity);
+                newBoss.AddComponent<SummonBehavior>();
+
                 summonFirst = true;
+                var script = newBoss.GetComponent<BossHit>();
+                script.BossHealth = summonBossHealth;
                 break;
             case 1: newBoss = GameObject.Instantiate(broccoliPrefab, spawns[1].transform.position, Quaternion.identity);
+                newBoss.AddComponent<SummonBehavior>();
+
                 summonSecond = true;
+                var healthScript = newBoss.GetComponent<BossHit>();
+                healthScript.BossHealth = summonBossHealth;
                 break;
         }
+
+       
 
         if (!summonSecond)
         {
@@ -180,7 +193,15 @@ public class LettuceLord : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         animator.SetInteger("animState", 0);
-        currentShield.gameObject.SetActive(false);
         summoning = false;
+    }
+
+    public void BossDie()
+    {
+        currentSummonBoss--;
+        if (currentSummonBoss <= 0)
+        {
+           currentShield.gameObject.SetActive(false);
+        }
     }
 }

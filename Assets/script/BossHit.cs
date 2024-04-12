@@ -14,7 +14,7 @@ public class BossHit : MonoBehaviour
     public GameObject enemyTitle;
     public int BossHealth;
     public int localBossHealth;
-    private bool onFirstHealth;
+    public bool onFirstHealth;
     private int hitAmout;
 
     // initiate common status of enemy
