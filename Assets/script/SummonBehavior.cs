@@ -6,7 +6,7 @@ public class SummonBehavior : MonoBehaviour
 {
     private void OnDestroy()
     {
-        var boss = GameObject.FindAnyObjectByType<LettuceLord>();
+        var boss = GameObject.FindGameObjectWithTag("Lettuce");
         var script = boss.GetComponent<LettuceLord>();
         script.BossDie();
     }

@@ -15,7 +15,7 @@ public class ProjectileBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Lettuce"))
         {
             var script = GameObject.FindAnyObjectByType<ShootProjectile>();
             script.ChangeCrosshair();

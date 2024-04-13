@@ -62,12 +62,13 @@ public class Potato2 : MonoBehaviour
     public float damageRadius;
     public float secondAbilityJumpHeight;
     public float secondAbilityFallSpeed;
-    public int onSkyTime = 2;
+    public float onSkyTime = 2;
     // visual effect for ability
     public GameObject hitEffect;
     public int secondAbilityDamage;
     public float jumpSpeed = 3f;
     public AudioClip JumpSFX;
+    public GameObject warning;
 
 
     Vector3 directionToLift;
@@ -75,6 +76,8 @@ public class Potato2 : MonoBehaviour
     Vector3 playerRecordPosition;
     bool onAbilityLift;
     bool onAbilityDown;
+    bool localBool;
+    GameObject localWarning;
 
     CharacterController controller;
 
@@ -346,6 +349,7 @@ public class Potato2 : MonoBehaviour
             float distance =
                Vector3.Distance(transform.position, playerRecordPosition);
 
+
             if (distance > minDistance)
             {
                 transform.position = Vector3.MoveTowards(transform.position, playerRecordPosition, step);
@@ -353,6 +357,11 @@ public class Potato2 : MonoBehaviour
             // enemy hit ground
             else
             {
+                if (localWarning!= null)
+                {
+                    localWarning.SetActive(false);
+                }
+
                 Instantiate(hitEffect, new Vector3(transform.position.x, 2f, transform.position.z), Quaternion.identity);
 
                 Vector3 startPoint = transform.position;
@@ -394,20 +403,31 @@ public class Potato2 : MonoBehaviour
         //AudioSource.PlayClipAtPoint(JumpSFX, transform.position, 1);
     }
 
-    private IEnumerator CountdownFloating(int timer)
+    private IEnumerator CountdownFloating(float timer)
     {
-        FaceTarget(player.position);
+
         while (timer > 0)
         {
-            // for each timer, sleep for 1 second
-            yield return new WaitForSeconds(1);
-            
-            timer--;
+            FaceTarget(player.position);
+            timer -= Time.deltaTime;
+            yield return null;
         }
-        onAbilityLift = false;
-        onAbilityDown = true;
+        
+        if (timer <= 0 && !localBool)
+        {
+            localBool = true;
+            onAbilityLift = false;
+            onAbilityDown = true;
 
-        playerRecordPosition = new Vector3(player.position.x, player.position.y + 3, player.position.z);
+            // minus and plus the height of the player
+            playerRecordPosition = new Vector3(player.position.x, player.position.y + 3, player.position.z);
+            Vector3 teampPosition = new Vector3(player.position.x, player.position.y - 0.6f, player.position.z);
+
+            localWarning = Instantiate(warning, teampPosition, Quaternion.identity);
+            localWarning.transform.localScale = new Vector3(2.2f * damageRadius, 0.2f, 2.2f * damageRadius);
+        }
+       
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -439,6 +459,7 @@ public class Potato2 : MonoBehaviour
         while (time < duration)
         {
             transform.Rotate(new Vector3(0, 30 ,0));
+
             material.color = Color.Lerp(material.color, Color.red, 0.01f);
 
             time += Time.deltaTime;

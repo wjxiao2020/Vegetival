@@ -127,7 +127,7 @@ public class LettuceLord : MonoBehaviour
                 bossIndex = 0;
                 animator.SetInteger("animState", 1);
                 currentShield = GameObject.Instantiate(shieldPrefab, transform);
-
+                Debug.Log("shield");
                 summoning = true;
             }
 

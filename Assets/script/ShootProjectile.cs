@@ -24,9 +24,12 @@ public class ShootProjectile : MonoBehaviour
 
     public GameObject weaponPrefab;
     Animator weaponAnimator;
+
+    Vector3 deFaultReticleSize = Vector3.one * 0.5f;
     void Start()
     {
         hitReticle.gameObject.SetActive(false);
+        //deFaultReticleSize = reticleImage.transform.localScale;
 
         originalReticleColor = reticleImage.color;
         currentBullets = maxBullets;
@@ -137,7 +140,7 @@ public class ShootProjectile : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity))
         {
-            if (hit.collider.CompareTag("Enemy"))
+            if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Lettuce"))
             {
                 ReticleUpdateHitEnemy(reticleImage);
                 ReticleUpdateHitEnemy(hitReticle);
@@ -153,13 +156,17 @@ public class ShootProjectile : MonoBehaviour
     private void ReticleUpdateHitEnemy(Image image)
     {
         image.color = Color.Lerp(image.color, reticleEnemyColor, Time.deltaTime * 2);
-        image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(0.7f, 0.7f, 1), Time.deltaTime * 2);
+        Vector3 newSize = new Vector3(0.7f * deFaultReticleSize.x, 0.7f * deFaultReticleSize.y, 1);
+        image.transform.localScale = Vector3.Lerp(image.transform.localScale, newSize, Time.deltaTime * 2);
+
     }
 
     private void ReticleUpdateNotHitEnemy(Image image)
     {
         image.color = Color.Lerp(image.color, originalReticleColor, Time.deltaTime * 2);
-        image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(1, 1, 1), Time.deltaTime * 2);
+        //image.transform.localScale = Vector3.Lerp(image.transform.localScale, new Vector3(1, 1, 1), Time.deltaTime * 2);
+        image.transform.localScale = Vector3.Lerp(image.transform.localScale,deFaultReticleSize, Time.deltaTime * 2);
+
     }
 
     public void ChangeCrosshair()
