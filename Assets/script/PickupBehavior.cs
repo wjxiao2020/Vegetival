@@ -41,8 +41,6 @@ public class PickupBehavior : MonoBehaviour
                 playerController.AddSpeedBoost();
             }
         }
-        // spin the pickup
-        transform.Rotate(new Vector3(0, 0, 0.35f));
     }
 
     private void OnTriggerEnter(Collider other)

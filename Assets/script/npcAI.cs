@@ -5,8 +5,6 @@ using UnityEngine.AI;
 
 public class npcAI : MonoBehaviour
 {
-
-
     public enum FSMStates
     {
         Patrol,
@@ -33,9 +31,14 @@ public class npcAI : MonoBehaviour
 
     public GameObject deadVFX;
 
-    public GameObject spellProjectile;
+    public GameObject healthPotionPrefab;
+    public GameObject speedPotionPrefab;
 
     public GameObject hand;
+
+    public GameObject redGlowVFX;
+    public GameObject blueGlowVFX;
+    private GameObject currentVFX;
 
     float distanceToPlayer;
 
@@ -55,6 +58,8 @@ public class npcAI : MonoBehaviour
 
     public float fieldOfView = 45f;
 
+    private float switchTimer = 5.0f;
+    private bool isHealthPotionActive = true;
 
     // Start is called before the first frame update
     void Awake()
@@ -67,6 +72,7 @@ public class npcAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         currentState = FSMStates.Patrol;
         FindNextPoint();
+        SetPotionVFX(isHealthPotionActive);
     }
 
     // Update is called once per frame
@@ -85,15 +91,22 @@ public class npcAI : MonoBehaviour
                 UpdateAttackState();
                 break;
         }
+
         elapsedTime += Time.deltaTime;
+        switchTimer -= Time.deltaTime;
+
+        if (switchTimer <= 0)
+        {
+            isHealthPotionActive = !isHealthPotionActive;
+            SetPotionVFX(isHealthPotionActive);
+            switchTimer = 5.0f;
+        }
     }
 
     void UpdatePatrolState()
     {
         anim.SetInteger("animState", 1);
-
         agent.stoppingDistance = 0;
-
         agent.speed = 3.5f;
 
         if (Vector3.Distance(transform.position, nextDestination) < 1.5f)
@@ -106,19 +119,14 @@ public class npcAI : MonoBehaviour
         }
 
         FaceTarget(nextDestination);
-
         agent.SetDestination(nextDestination);
     }
 
     void UpdateChaseState()
     {
-
         anim.SetInteger("animState", 2);
-
         nextDestination = player.transform.position;
-
         agent.stoppingDistance = attackDistance;
-
         agent.speed = 5;
 
         if (distanceToPlayer <= attackDistance)
@@ -132,30 +140,22 @@ public class npcAI : MonoBehaviour
         }
 
         FaceTarget(nextDestination);
-
         agent.SetDestination(nextDestination);
     }
 
     void UpdateAttackState()
     {
         nextDestination = player.transform.position;
-
         FaceTarget(nextDestination);
-
         anim.SetInteger("animState", 3);
-
         EnemySpellCast();
-
         Destroy(gameObject, 3);
     }
-
 
     void FindNextPoint()
     {
         nextDestination = wanderPoints[currentDestinationIndex].transform.position;
-
         currentDestinationIndex = (currentDestinationIndex + 1) % wanderPoints.Length;
-
         agent.SetDestination(nextDestination);
     }
 
@@ -171,17 +171,23 @@ public class npcAI : MonoBehaviour
     {
         if (elapsedTime >= shootRate)
         {
-            //var animDuration = anim.GetCurrentAnimatorStateInfo(0).length;
-            //print("animDuration" + anim.GetCurrentAnimatorStateInfo(0).length);
-            var animDuration = 2;
-            Invoke("SpellCasting", animDuration);
             elapsedTime = 0.0f;
+            Invoke("SpellCasting", 2.0f);
         }
     }
 
     void SpellCasting()
     {
-        Instantiate(spellProjectile, hand.transform.position, hand.transform.rotation);
+        GameObject potionToSpawn = isHealthPotionActive ? healthPotionPrefab : speedPotionPrefab;
+        Vector3 spawnPosition = hand.transform.position + hand.transform.forward * 0.5f; // This will place the spawn position in front of the hand.
+        Instantiate(potionToSpawn, spawnPosition, Quaternion.identity);
+    }
+
+    void SetPotionVFX(bool isHealth)
+    {
+        if (currentVFX != null) Destroy(currentVFX);
+        GameObject vfxPrefab = isHealth ? redGlowVFX : blueGlowVFX;
+        currentVFX = Instantiate(vfxPrefab, hand.transform.position, Quaternion.identity, transform);
     }
 
     private void OnDrawGizmos()
@@ -200,7 +206,6 @@ public class npcAI : MonoBehaviour
         Debug.DrawLine(enemyEyes.position, leftRayPoint, Color.yellow);
         Debug.DrawLine(enemyEyes.position, rightRayPoint, Color.yellow);
     }
-
 
     bool IsPlayerInClearFOV()
     {
@@ -221,7 +226,5 @@ public class npcAI : MonoBehaviour
             return false;
         }
         return false;
-
     }
 }
-
