@@ -419,15 +419,13 @@ public class Potato2 : MonoBehaviour
             onAbilityLift = false;
             onAbilityDown = true;
 
-            // minus and plus the height of the player
-            playerRecordPosition = new Vector3(player.position.x, player.position.y + 3, player.position.z);
-            Vector3 teampPosition = new Vector3(player.position.x, player.position.y - 0.6f, player.position.z);
+            playerRecordPosition = new Vector3(player.position.x, 6, player.position.z);
+            // place the warning on the ground
+            Vector3 teampPosition = new Vector3(player.position.x, 2, player.position.z);
 
             localWarning = Instantiate(warning, teampPosition, Quaternion.identity);
             localWarning.transform.localScale = new Vector3(2.2f * damageRadius, 0.2f, 2.2f * damageRadius);
         }
-       
-
     }
 
     private void OnTriggerEnter(Collider other)
