@@ -62,7 +62,6 @@ public class PlayerHealth : MonoBehaviour
         GameObject.FindAnyObjectByType<LevelMagager>().gameLose();
 
         Debug.Log("Player is dead ...");
-        Time.timeScale = 0;
         transform.Rotate(-90, 0, 0, Space.Self);
     }
 }

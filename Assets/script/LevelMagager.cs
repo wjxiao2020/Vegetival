@@ -76,6 +76,7 @@ public class LevelMagager : MonoBehaviour
     {
         if (!gameEnd)
         {
+            print("gameLose");
             gameEnd = true;
             gameOverScene.gameObject.SetActive(true);
 
@@ -89,13 +90,10 @@ public class LevelMagager : MonoBehaviour
 
     void LoadCurrentLevel()
     {
-        //Debug.Log("aaaa");
-
+        print("LoadCurrentLevel");
         Time.timeScale = 1;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //SceneManager.LoadScene(0);
-
     }
 
     public void BossDie()
@@ -108,9 +106,9 @@ public class LevelMagager : MonoBehaviour
             bossCount = 0;
             portalScript.ReadyToTeleport();
 
-            if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCount + 1)
+            if (SceneManager.GetActiveScene().buildIndex >= SceneManager.sceneCountInBuildSettings - 1)
             {
-                gameWinScene.gameObject.SetActive(true );
+                gameWin();
             }
         }
         
