@@ -18,7 +18,6 @@ public class WarningBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         warningMaterial.color = new Color(warningMaterial.color.r, warningMaterial.color.g, warningMaterial.color.b, Mathf.PingPong(Time.time, 0.6f));
     }
 }

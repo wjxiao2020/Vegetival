@@ -6,16 +6,10 @@ using UnityEngine.UI;
 public class UserSettings : MonoBehaviour
 {
     public static float mouseSensitivity = 100;
-    public static float soundVolume;
+    public static float soundVolume = 1;
 
     public Slider mouseSensitivitySlider;
     public Slider soundVolumeSlider;
-
-    private void Start()
-    {
-        UpdateMouseSensitivity();
-        UpdateSoundVolume();
-    }
 
     public void UpdateMouseSensitivity()
     {
@@ -26,4 +20,5 @@ public class UserSettings : MonoBehaviour
     {
         soundVolume = soundVolumeSlider.value;
     }
+
 }

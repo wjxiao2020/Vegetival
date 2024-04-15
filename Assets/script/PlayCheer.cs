@@ -21,6 +21,8 @@ public class PlayCheer : MonoBehaviour
 
     public static bool isPlaying()
     {
+        if (cheer == null)
+            return false;
         return cheer.isPlaying;
     }
 }

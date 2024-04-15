@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject[] buttons;
+
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -15,13 +17,19 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void ShowSettings()
+    public void HideButtons()
     {
-
+        foreach (GameObject button in buttons)
+        {
+            button.SetActive(false);
+        }
     }
 
-    public void ShowInstructions()
+    public void ShowButtons()
     {
-
+        foreach (GameObject button in buttons)
+        {
+            button.SetActive(true);
+        }
     }
 }

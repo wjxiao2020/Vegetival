@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 
 public class Potato2 : MonoBehaviour
@@ -76,10 +77,10 @@ public class Potato2 : MonoBehaviour
     Vector3 playerRecordPosition;
     bool onAbilityLift;
     bool onAbilityDown;
-    bool localBool;
     GameObject localWarning;
 
     CharacterController controller;
+    bool isFloating = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -122,7 +123,6 @@ public class Potato2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         // if spinning, don't do anything except spinning
         if (!onTransformForm)
         {
@@ -137,6 +137,7 @@ public class Potato2 : MonoBehaviour
 
         // trigger 2nd form when enemy is on second health bar
         bool currentOnFirstHealth = gameObject.GetComponent<BossHit>().OnFirstHealth();
+
         if (!currentOnFirstHealth && onFirstForm)
         {
             // back up and enable shield
@@ -176,32 +177,31 @@ public class Potato2 : MonoBehaviour
     // method to move current enemy
     private void moveEnemy()
     {
-        
-            float step = moveSpeed * Time.deltaTime;
-            float distance =
-                Vector3.Distance(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z));
+        float step = moveSpeed * Time.deltaTime;
+        float distance =
+            Vector3.Distance(transform.position, new Vector3(player.position.x, transform.position.y, player.position.z));
 
-            if (distance > minDistance)
+        if (distance > minDistance)
+        {
+            // if potato is on ground
+            if (transform.position.y <= minYCoordinate)
             {
-                // if potato is on ground
-                if (transform.position.y <= minYCoordinate)
-                {
-                    // jump
-                    moveDirection.y = jumpHeight;
-                }
-                else
-                {
-                    moveDirection.y -= gravity * Time.deltaTime;
-                    //moveDirection.y = 0.0f;
-                }
-
-            if (!onTransformForm)
-            {
-                //Debug.Log(onTransformForm);
-                FaceTarget(player.position);
-                transform.position =
-                    Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y + moveDirection.y, player.position.z), step);
+                // jump
+                moveDirection.y = jumpHeight;
             }
+            else
+            {
+                moveDirection.y -= gravity * Time.deltaTime;
+                //moveDirection.y = 0.0f;
+            }
+
+        if (!onTransformForm)
+        {
+            //Debug.Log(onTransformForm);
+            FaceTarget(player.position);
+            transform.position =
+                Vector3.MoveTowards(transform.position, new Vector3(player.position.x, transform.position.y + moveDirection.y, player.position.z), step);
+        }
         }
     }
 
@@ -333,7 +333,7 @@ public class Potato2 : MonoBehaviour
                                     targetPosition, step);
         }
         
-        if (transform.position.y >= secondAbilityJumpHeight)
+        if (transform.position.y >= secondAbilityJumpHeight && !isFloating)
         {
             // float for some time
             StartCoroutine(CountdownFloating(onSkyTime));
@@ -385,7 +385,6 @@ public class Potato2 : MonoBehaviour
             }
 
         }
-
     }
 
     private void UseSecondAbility()
@@ -408,14 +407,16 @@ public class Potato2 : MonoBehaviour
 
         while (timer > 0)
         {
+            isFloating = true;
             FaceTarget(player.position);
             timer -= Time.deltaTime;
+            print("timer = " + timer + " deltaTime = " + Time.deltaTime);
             yield return null;
         }
         
-        if (timer <= 0 && !localBool)
+        if (timer <= 0)
         {
-            localBool = true;
+            isFloating = false;
             onAbilityLift = false;
             onAbilityDown = true;
 
@@ -433,7 +434,17 @@ public class Potato2 : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerBounceBack.backUpTimeLeft += playerBounceBackTime;
-            PlayerBounceBack.backUpDirection = transform.forward.normalized;
+            Vector3 potatoForwardDirection = transform.forward.normalized;
+            if (Vector3.Dot(potatoForwardDirection, Vector3.down) > 0.9f)
+            {
+                // potato is facing down
+                PlayerBounceBack.backUpDirection = transform.up.normalized;
+            }
+            else
+            {
+                // potato is facing the forward direction
+                PlayerBounceBack.backUpDirection = potatoForwardDirection;
+            }
 
             // avoid deal damage for 2 times 
             if (!onAbilityDown)

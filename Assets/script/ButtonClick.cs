@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class ButtonClick : MonoBehaviour
 {
-
-    public AudioClip buttonSFX;
-
+    AudioSource sfx;
     // Start is called before the first frame update
     void Start()
     {
-        
+        sfx = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,7 +20,6 @@ public class ButtonClick : MonoBehaviour
     public void PlayClickSound()
     {
         // Play the click sound effect
-        print("play click sfx");
-        AudioSource.PlayClipAtPoint(buttonSFX, Camera.main.transform.position, 1);
+        sfx.Play();
     }
 }
