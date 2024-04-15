@@ -333,8 +333,11 @@ public class Potato2 : MonoBehaviour
                                     targetPosition, step);
         }
         
-        if (transform.position.y >= secondAbilityJumpHeight && !isFloating)
+        // is reaches certain height
+        if (transform.position.y >= secondAbilityJumpHeight && onAbilityLift  && !isFloating)
         {
+            //Debug.Log(11122);
+            isFloating = true;
             // float for some time
             StartCoroutine(CountdownFloating(onSkyTime));
         }
@@ -407,15 +410,13 @@ public class Potato2 : MonoBehaviour
 
         while (timer > 0)
         {
-            isFloating = true;
+            
             FaceTarget(player.position);
             timer -= Time.deltaTime;
-            print("timer = " + timer + " deltaTime = " + Time.deltaTime);
+            //print("timer = " + timer + " deltaTime = " + Time.deltaTime);
             yield return null;
         }
         
-        if (timer <= 0)
-        {
             isFloating = false;
             onAbilityLift = false;
             onAbilityDown = true;
@@ -426,7 +427,6 @@ public class Potato2 : MonoBehaviour
 
             localWarning = Instantiate(warning, teampPosition, Quaternion.identity);
             localWarning.transform.localScale = new Vector3(2.2f * damageRadius, 0.2f, 2.2f * damageRadius);
-        }
     }
 
     private void OnTriggerEnter(Collider other)
