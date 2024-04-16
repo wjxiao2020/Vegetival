@@ -8,6 +8,7 @@ public class LevelMagager : MonoBehaviour
 {
     public GameObject gameOverScene;
     public GameObject gameWinScene;
+    public bool tutorial = false;
 
     public GameObject VegeBoss;
     public float createBossInterval = 2f;
@@ -44,10 +45,13 @@ public class LevelMagager : MonoBehaviour
             portal = GameObject.FindGameObjectWithTag("Portal");
         }
 
-        //VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
-        GameObject.Instantiate(VegeBoss, spawn.position, Quaternion.identity);
-        Debug.Log(spawn.position);
-
+        if (!tutorial)
+        {
+            //VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
+            GameObject.Instantiate(VegeBoss, spawn.position, Quaternion.identity);
+            Debug.Log(spawn.position);
+        }
+    
         gameEnd = false;
     }
 
