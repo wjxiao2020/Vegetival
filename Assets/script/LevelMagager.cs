@@ -22,6 +22,9 @@ public class LevelMagager : MonoBehaviour
 
     public Transform spawn;
 
+    public static LevelMagager Instance;
+    public int currentLevelNumber;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -111,6 +114,22 @@ public class LevelMagager : MonoBehaviour
             }
         }
         
+    }
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
+    public int GetCurrentLevelNumber()
+    {
+        Debug.Log("Current level number is: " + currentLevelNumber);
+        return currentLevelNumber;
+    }
+
+    public void SetCurrentLevelNumber(int levelNumber)
+    {
+        currentLevelNumber = levelNumber;
     }
 
     /*

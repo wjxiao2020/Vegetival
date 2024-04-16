@@ -73,15 +73,19 @@ public class PauseMenuBehavior : MonoBehaviour
         }
     }
 
-    public void LoadMainMenu()
+
+    public void ExitGame()
     {
+        SaveLevelData();
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
         isGamePaused = false;
     }
 
-    public void ExitGame()
+    void SaveLevelData()
     {
-        Application.Quit();
+        int currentLevelNumber = LevelMagager.Instance.GetCurrentLevelNumber();
+        PlayerPrefs.SetInt("LevelNumber", currentLevelNumber);
+        PlayerPrefs.Save(); 
     }
 }
