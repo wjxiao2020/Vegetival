@@ -19208,9 +19208,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2679130587461993215, guid: 3e0bb1c10a6a9ba41b6d8c99bed71711, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1923.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679130587461993215, guid: 3e0bb1c10a6a9ba41b6d8c99bed71711, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 943.8125
+      objectReference: {fileID: 0}
     - target: {fileID: 5349554559185043558, guid: 3e0bb1c10a6a9ba41b6d8c99bed71711, type: 3}
       propertyPath: m_Name
       value: dialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5752575351476096250, guid: 3e0bb1c10a6a9ba41b6d8c99bed71711, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6659041664579578699, guid: 3e0bb1c10a6a9ba41b6d8c99bed71711, type: 3}
       propertyPath: m_UiScaleMode
@@ -19304,11 +19316,43 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7599927131994076130, guid: 3e0bb1c10a6a9ba41b6d8c99bed71711, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5349554559185043558, guid: 3e0bb1c10a6a9ba41b6d8c99bed71711, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1926539256}
   m_SourcePrefab: {fileID: 100100000, guid: 3e0bb1c10a6a9ba41b6d8c99bed71711, type: 3}
+--- !u!1 &1926539255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5349554559185043558, guid: 3e0bb1c10a6a9ba41b6d8c99bed71711, type: 3}
+  m_PrefabInstance: {fileID: 1926539254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1926539256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926539255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5222c63bec95e2b43914d817bd1bd713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - Where... am I
+  - Hello... Little human
+  - You have been chosen for the 223rd Vege'tival
+  - The rules are simple...
+  - Defeat our greatest warriors...
+  - 'And you get to go home! '
+  - 'Now pick up the weapon and fight!! '
 --- !u!1 &1931068641
 GameObject:
   m_ObjectHideFlags: 0

@@ -97,6 +97,7 @@ public class broccoli : MonoBehaviour
                 new Vector3(transform.position.x, transform.position.y - gravity*Time.deltaTime, transform.position.z);
         }
 
+
     }
 
     private void Shot()
