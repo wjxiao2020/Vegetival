@@ -3519,7 +3519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &359763831
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6355,7 +6355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &641026944
 Transform:
   m_ObjectHideFlags: 0
@@ -10626,7 +10626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1130782237
 Transform:
   m_ObjectHideFlags: 0
@@ -19637,7 +19637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1960458453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22318,6 +22318,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mouse_NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 7596432165734500005, guid: eb8f5fbe1811fa443a32a8a7f0d33d56, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22424,8 +22428,8 @@ GameObject:
   - component: {fileID: 6620438533101217833}
   - component: {fileID: 1853384229600066718}
   - component: {fileID: 3958050176505872613}
-  - component: {fileID: 8394407447074998290}
   - component: {fileID: 8394407447074998291}
+  - component: {fileID: 8394407447074998292}
   m_Layer: 3
   m_Name: spatula
   m_TagString: Untagged
@@ -22433,8 +22437,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &8394407447074998290
-BoxCollider:
+--- !u!114 &8394407447074998291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8394407447074998289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9e9bece05d87443ac354ec1484dac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 1584568589}
+  portal: {fileID: 56232785}
+  text: {fileID: 277254292}
+--- !u!135 &8394407447074998292
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22452,20 +22471,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.6063517, y: 1.0206786, z: 1.6108694}
-  m_Center: {x: -0.19452609, y: 0.14489487, z: -0.076978855}
---- !u!114 &8394407447074998291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8394407447074998289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b9e9bece05d87443ac354ec1484dac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Radius: 1.76
+  m_Center: {x: -0.0009458288, y: 0.0014887063, z: 0.006646545}
 --- !u!1 &8552382386813905950
 GameObject:
   m_ObjectHideFlags: 0

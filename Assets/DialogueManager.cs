@@ -15,10 +15,13 @@ public class DialogueManager : MonoBehaviour
     // remember when is player's turn
     public int[] playerScriptIndex;
     int currentIndex = 0;
+    public static bool finishDialogue = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        finishDialogue = false;
         player.SetActive(true);
         lord.SetActive(false);
         playerText.SetText(scripts[currentIndex].ToString());
@@ -58,8 +61,8 @@ public class DialogueManager : MonoBehaviour
             {
                 player.SetActive(false);
                 lord.SetActive(false);
+                finishDialogue = true;
             }
-           
         }
     }
 }
