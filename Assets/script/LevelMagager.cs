@@ -46,6 +46,7 @@ public class LevelMagager : MonoBehaviour
 
         //VegeBoss[index].gameObject.GetComponent<BossHit>().CreateBoss();
         GameObject.Instantiate(VegeBoss, spawn.position, Quaternion.identity);
+        Debug.Log(spawn.position);
 
         gameEnd = false;
     }
