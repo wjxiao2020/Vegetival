@@ -15107,6 +15107,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577415010}
   m_CullTransparentMesh: 0
+--- !u!1 &1584568589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5626742903195852697, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+  m_PrefabInstance: {fileID: 2905264341930080417}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1602536137
 GameObject:
   m_ObjectHideFlags: 0
@@ -19353,6 +19358,43 @@ MonoBehaviour:
   - Defeat our greatest warriors...
   - 'And you get to go home! '
   - 'Now pick up the weapon and fight!! '
+  player: {fileID: 1926539258}
+  playerText: {fileID: 1926539264}
+  lord: {fileID: 1926539257}
+  lordText: {fileID: 1926539261}
+  playerScriptIndex: 00000000
+--- !u!1 &1926539257 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7599927131994076130, guid: 3e0bb1c10a6a9ba41b6d8c99bed71711, type: 3}
+  m_PrefabInstance: {fileID: 1926539254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1926539258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5752575351476096250, guid: 3e0bb1c10a6a9ba41b6d8c99bed71711, type: 3}
+  m_PrefabInstance: {fileID: 1926539254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1926539261 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2397679289077854846, guid: 3e0bb1c10a6a9ba41b6d8c99bed71711, type: 3}
+  m_PrefabInstance: {fileID: 1926539254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1926539264 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1322155884675474263, guid: 3e0bb1c10a6a9ba41b6d8c99bed71711, type: 3}
+  m_PrefabInstance: {fileID: 1926539254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1931068641
 GameObject:
   m_ObjectHideFlags: 0
@@ -22141,6 +22183,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2118328022}
     - target: {fileID: 9093697223150452174, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
+      propertyPath: weaponPrefab
+      value: 
+      objectReference: {fileID: 1584568589}
+    - target: {fileID: 9093697223150452174, guid: fe256e5c26a5fb944b360535cd7d0c0b, type: 3}
       propertyPath: bulletCountText
       value: 
       objectReference: {fileID: 1717247129}
@@ -22379,9 +22425,10 @@ GameObject:
   - component: {fileID: 1853384229600066718}
   - component: {fileID: 3958050176505872613}
   - component: {fileID: 8394407447074998290}
+  - component: {fileID: 8394407447074998291}
   m_Layer: 3
   m_Name: spatula
-  m_TagString: Weapon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22407,6 +22454,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6063517, y: 1.0206786, z: 1.6108694}
   m_Center: {x: -0.19452609, y: 0.14489487, z: -0.076978855}
+--- !u!114 &8394407447074998291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8394407447074998289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9e9bece05d87443ac354ec1484dac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8552382386813905950
 GameObject:
   m_ObjectHideFlags: 0

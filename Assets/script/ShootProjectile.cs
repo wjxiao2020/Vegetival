@@ -45,7 +45,9 @@ public class ShootProjectile : MonoBehaviour
 
     void Update()
     {
-        if (!LevelMagager.gameEnd && !PauseMenuBehavior.isGamePaused)
+        var levelmanager = GameObject.FindAnyObjectByType<LevelMagager>();
+
+        if (!LevelMagager.gameEnd && !PauseMenuBehavior.isGamePaused && !levelmanager.tutorial)
         { 
             weaponAnimator.SetBool("fire", false);
         
