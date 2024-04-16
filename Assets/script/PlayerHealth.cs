@@ -25,16 +25,18 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        if (!PlayCheer.isPlaying() || currentHealth <= 0) {
+        if (!PlayCheer.isPlaying()) {
             PlayCheer.Play(cheerVolume);
         }
+
         if (currentHealth > 0)
         {
             currentHealth -= damageAmount;
             healthSlider.value = currentHealth;
         }
-        if (currentHealth <= 0)
+        else if (currentHealth <= 0 && !LevelMagager.gameEnd)
         {
+            PlayCheer.Play(cheerVolume);
             PlayerDies();
         }
 
@@ -48,7 +50,7 @@ public class PlayerHealth : MonoBehaviour
             currentHealth += healthAmount;
             healthSlider.value = Mathf.Clamp(currentHealth, 0, 100);
         }
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !LevelMagager.gameEnd)
         {
             PlayerDies();
         }

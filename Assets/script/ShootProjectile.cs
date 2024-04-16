@@ -173,6 +173,7 @@ public class ShootProjectile : MonoBehaviour
     {
         reticleImage.gameObject.SetActive(false);
         hitReticle.gameObject.SetActive(true);
+        StopCoroutine(HitCrossHair());
         StartCoroutine(HitCrossHair());
     }
 
