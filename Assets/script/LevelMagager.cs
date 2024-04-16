@@ -20,9 +20,8 @@ public class LevelMagager : MonoBehaviour
     public static int bossCount = 0;
     int bossDieCount = 0;
 
-
-
     public Transform spawn;
+
     // Start is called before the first frame update
     void Start()
     {
