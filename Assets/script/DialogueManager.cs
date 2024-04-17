@@ -43,7 +43,7 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !PauseMenuBehavior.isGamePaused)
         {
             bool triggered = false;
             currentIndex++;

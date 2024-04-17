@@ -44,8 +44,8 @@ public class BossHit : MonoBehaviour
     {
         if (other.CompareTag("Projectile"))
         {
-            if ((gameObject.CompareTag("Lettuce") && !LettuceLord.immortal) || !gameObject.CompareTag("Lettuce"))
-            {
+            //if ((gameObject.CompareTag("Lettuce") && !LettuceLord.immortal) || !gameObject.CompareTag("Lettuce"))
+            //{
                 // get damage amount of project
                 int dmg = FindObjectOfType<VariableHolder>().projectileDamage;
 
@@ -56,7 +56,7 @@ public class BossHit : MonoBehaviour
                 }
 
                 takeDamage(dmg);
-            }
+            //}
 
         }
     }
