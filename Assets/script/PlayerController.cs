@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     CharacterController controller;
     Vector3 input, moveDirection;
     public float speed = 5.0f;
-    private int speedBoostCount = 0;
+    //private int speedBoostCount = 0;
     public Text speedBoostCountText;
     public float jumpHeight = 10;
     public float gravity = 9.81f;
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        UpdateSpeedBoostCountUI();
     }
 
     // Update is called once per frame
@@ -61,15 +62,15 @@ public class PlayerController : MonoBehaviour
 
     public void AddSpeedBoost()
     {
-        speedBoostCount++;
+        UserSettings.UpdateSpeedBoostCount(1);
         UpdateSpeedBoostCountUI();
     }
 
     private void ActivateSpeedBoost()
     {
-        if (speedBoostCount > 0 && !isSpeedBoostActive)
+        if (UserSettings.speedBoostCount > 0 && !isSpeedBoostActive)
         {
-            speedBoostCount--;
+            UserSettings.UpdateSpeedBoostCount(-1);
             UpdateSpeedBoostCountUI();
             StartCoroutine(ApplySpeedBoost());
         }
@@ -87,6 +88,6 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateSpeedBoostCountUI()
     {
-        speedBoostCountText.text = "Speed Boosts: " + speedBoostCount.ToString();
+        speedBoostCountText.text = "Speed Boosts: " + UserSettings.speedBoostCount.ToString();
     }
 }

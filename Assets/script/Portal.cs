@@ -35,7 +35,7 @@ public class Portal : MonoBehaviour
 
             if (isInRange && Input.GetKeyDown(KeyCode.E))
             {
-                if (SceneManager.GetActiveScene().buildIndex <= SceneManager.sceneCount + 1)
+                if (SceneManager.GetActiveScene().buildIndex <= SceneManager.sceneCount + 2)
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }
