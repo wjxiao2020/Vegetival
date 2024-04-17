@@ -39,6 +39,11 @@ public class Portal : MonoBehaviour
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }
+                else
+                {
+                    PlayerPrefs.DeleteAll();
+                    SceneManager.LoadScene(0);
+                }
             }
         }
 
