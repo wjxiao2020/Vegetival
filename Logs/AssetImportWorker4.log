@@ -22,7 +22,7 @@ AssetImportWorker4
 -logFile
 Logs/AssetImportWorker4.log
 -srvPort
-53874
+56613
 Successfully changed project path to: /Users/weijia/Game/Vege’tival
 /Users/weijia/Game/Vege’tival
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -56,12 +56,12 @@ Successfully changed project path to: /Users/weijia/Game/Vege’tival
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [7914541056] Host "[IP] 192.168.1.101 [Port] 0 [Flags] 2 [Guid] 3061586576 [EditorId] 3061586576 [Version] 1048832 [Id] OSXEditor(0,Weijias-MacBook-Air.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [7914541056] Host "[IP] 192.168.1.101 [Port] 0 [Flags] 2 [Guid] 3840102467 [EditorId] 3840102467 [Version] 1048832 [Id] OSXEditor(0,Weijias-MacBook-Air.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [7914541056] Host "[IP] 192.168.1.101 [Port] 0 [Flags] 2 [Guid] 3061586576 [EditorId] 3061586576 [Version] 1048832 [Id] OSXEditor(0,Weijias-MacBook-Air.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [7914541056] Host "[IP] 192.168.1.101 [Port] 0 [Flags] 2 [Guid] 3840102467 [EditorId] 3840102467 [Version] 1048832 [Id] OSXEditor(0,Weijias-MacBook-Air.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
-Refreshing native plugins compatible for Editor in 3.21 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 3.89 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.16f1 (d2c21f0ef2f1)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2022.3.16f1/Unity.app/Contents/Resources/UnitySubsystems
@@ -76,44 +76,46 @@ Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2022.3.16f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2022.3.16f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
 Mono config path = '/Applications/Unity/Hub/Editor/2022.3.16f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56143
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56776
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2022.3.16f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2022.3.16f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.003848 seconds.
-- Loaded All Assemblies, in  0.715 seconds
+Registered in 0.006165 seconds.
+- Loaded All Assemblies, in  0.786 seconds
 Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.317 seconds
-Domain Reload Profiling: 1032ms
-	BeginReloadAssembly (219ms)
+- Finished resetting the current domain, in  0.480 seconds
+Domain Reload Profiling: 1266ms
+	BeginReloadAssembly (253ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (67ms)
-	RebuildNativeTypeToScriptingClass (24ms)
-	initialDomainReloadingComplete (91ms)
-	LoadAllAssembliesAndSetupDomain (313ms)
-		LoadAssemblies (221ms)
+	RebuildCommonClasses (73ms)
+	RebuildNativeTypeToScriptingClass (26ms)
+	initialDomainReloadingComplete (119ms)
+	LoadAllAssembliesAndSetupDomain (316ms)
+		LoadAssemblies (253ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (308ms)
-			TypeCache.Refresh (306ms)
-				TypeCache.ScanAssembly (283ms)
+		AnalyzeDomain (312ms)
+			TypeCache.Refresh (308ms)
+				TypeCache.ScanAssembly (270ms)
 			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (317ms)
+	FinalizeReload (480ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (234ms)
+		SetupLoadedEditorAssemblies (362ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (9ms)
-			SetLoadedEditorAssemblies (10ms)
+			InitializePlatformSupportModulesInManaged (17ms)
+			SetLoadedEditorAssemblies (9ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (162ms)
-			ProcessInitializeOnLoadMethodAttributes (51ms)
+			BeforeProcessingInitializeOnLoad (4ms)
+			ProcessInitializeOnLoadAttributes (252ms)
+			ProcessInitializeOnLoadMethodAttributes (79ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -121,722 +123,54 @@ Domain Reload Profiling: 1032ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.396 seconds
-Refreshing native plugins compatible for Editor in 0.26 ms, found 1 plugins.
+- Loaded All Assemblies, in  0.702 seconds
+Refreshing native plugins compatible for Editor in 0.33 ms, found 1 plugins.
 Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.448 seconds
-Domain Reload Profiling: 845ms
-	BeginReloadAssembly (131ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (24ms)
-	RebuildCommonClasses (43ms)
-	RebuildNativeTypeToScriptingClass (12ms)
-	initialDomainReloadingComplete (37ms)
-	LoadAllAssembliesAndSetupDomain (173ms)
-		LoadAssemblies (202ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (43ms)
-			TypeCache.Refresh (33ms)
-				TypeCache.ScanAssembly (18ms)
-			ScanForSourceGeneratedMonoScriptInfo (5ms)
-			ResolveRequiredComponents (4ms)
-	FinalizeReload (449ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (253ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (6ms)
-			SetLoadedEditorAssemblies (5ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (51ms)
-			ProcessInitializeOnLoadAttributes (169ms)
-			ProcessInitializeOnLoadMethodAttributes (22ms)
-			AfterProcessingInitializeOnLoad (1ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (4ms)
-Launching external process: /Applications/Unity/Hub/Editor/2022.3.16f1/Unity.app/Contents/Tools/UnityShaderCompiler
-Launched and connected shader compiler UnityShaderCompiler after 0.10 seconds
-Refreshing native plugins compatible for Editor in 0.32 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 847 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 10 unused Assets / (44.5 KB). Loaded Objects now: 1331.
-Memory consumption went from 155.4 MB to 155.3 MB.
-Total: 3.290417 ms (FindLiveObjects: 0.057667 ms CreateObjectMapping: 0.022250 ms MarkObjects: 3.099875 ms  DeleteObjects: 0.110125 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
-  custom:CustomObjectIndexerAttribute: 43b350a4d6e6d1791af0b5038c4bea17 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-========================================================================
-Received Import Request.
-  Time since last request: 1730361.295887 seconds.
-  path: Assets/Low Poly Fruits/Fruits_FBX.fbx
-  artifactKey: Guid(3f4d2118f6a772542a1635ef5bfa6982) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Low Poly Fruits/Fruits_FBX.fbx using Guid(3f4d2118f6a772542a1635ef5bfa6982) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7ab291a8a98157f1d5cdd8cb299e5dd') in 0.187421 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 56
-========================================================================
-Received Import Request.
-  Time since last request: 3.525194 seconds.
-  path: Assets/material/Projectile Material.mat
-  artifactKey: Guid(043b30a9ef5b229408b4e475c7ca9d43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/material/Projectile Material.mat using Guid(043b30a9ef5b229408b4e475c7ca9d43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12e5a18f4b5aed5801b4f3152c69b7d2') in 0.030393 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 101.502939 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Apple.prefab
-  artifactKey: Guid(d0ddd93953187fd4195f9cea4a7b8a56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Apple.prefab using Guid(d0ddd93953187fd4195f9cea4a7b8a56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d25b95f6744e5024d43d3f7cc5483d1') in 0.212191 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000128 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/KitchenProps_02.prefab
-  artifactKey: Guid(4fb052047707ed645a77e875351e3a5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/KitchenProps_02.prefab using Guid(4fb052047707ed645a77e875351e3a5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '093d10338f99a7d17023245b48e2c240') in 0.007705 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000058 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Banana.prefab
-  artifactKey: Guid(869b55c0dc2962d41a835b0eeb3c4b36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Banana.prefab using Guid(869b55c0dc2962d41a835b0eeb3c4b36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e30883b3fbc251b233311f883b5defb') in 0.007270 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000044 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Carrot.prefab
-  artifactKey: Guid(ac3960763d9ed134b93e9bf2315734f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Carrot.prefab using Guid(ac3960763d9ed134b93e9bf2315734f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'add49da12bc19e7d59540a78b939eee6') in 0.009318 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000129 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Pear.prefab
-  artifactKey: Guid(ba93ae1410e341d41be192f9d77df500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Pear.prefab using Guid(ba93ae1410e341d41be192f9d77df500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '901e1bab1530638d0a4981186f8edf09') in 0.012206 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000856 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Knife.prefab
-  artifactKey: Guid(c331d4509e2a94446b4dedf64fcae8dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Knife.prefab using Guid(c331d4509e2a94446b4dedf64fcae8dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38555237892531754d7433b06fa0d139') in 0.009563 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000057 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/KitchenProps_01.prefab
-  artifactKey: Guid(49631361040b46f4889e95efdb1b1a3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/KitchenProps_01.prefab using Guid(49631361040b46f4889e95efdb1b1a3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a4dc75432b6589a4adb19d7f09378b8') in 0.008531 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000086 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Cookie.prefab
-  artifactKey: Guid(bb285724e2c64684b817d021a6bc867d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Cookie.prefab using Guid(bb285724e2c64684b817d021a6bc867d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '759182070c82eb553de9508d0dcad58b') in 0.008401 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000062 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Steak.prefab
-  artifactKey: Guid(10ab30527b9bc8a4995e798ac0706a37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Steak.prefab using Guid(10ab30527b9bc8a4995e798ac0706a37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d7f70d67f7b1914c28d2ae3b9060b31') in 0.008246 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000049 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Plate_01.prefab
-  artifactKey: Guid(9bedc97a18133ae4a828aff2a2117745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Plate_01.prefab using Guid(9bedc97a18133ae4a828aff2a2117745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '888266c01aca86a8d4961b8261da68d9') in 0.007876 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000082 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Cupcake.prefab
-  artifactKey: Guid(d8cf39e351e7c82408a1ea1822811ad9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Cupcake.prefab using Guid(d8cf39e351e7c82408a1ea1822811ad9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d3d40e516301cf82ee977698759d506') in 0.008789 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000060 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Donut_02.prefab
-  artifactKey: Guid(7ad882d92260f6d42900c84561064dd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Donut_02.prefab using Guid(7ad882d92260f6d42900c84561064dd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be3988c0bc54399ac57dc3374e81e3f9') in 0.009050 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000184 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Cake.prefab
-  artifactKey: Guid(c6f47410b0c7bfa488e17d3d793d6de4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Cake.prefab using Guid(c6f47410b0c7bfa488e17d3d793d6de4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fcd45910a49938fb653c33f6b230c8f5') in 0.009082 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000522 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Fish.prefab
-  artifactKey: Guid(1c6865324f95c004293d5d1efe86d559) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Fish.prefab using Guid(1c6865324f95c004293d5d1efe86d559) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0aa12cf0f4f4b67a9a98b51312381663') in 0.009678 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000889 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Pumpkin.prefab
-  artifactKey: Guid(e532945e283cca7478582f8a1880fdc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Pumpkin.prefab using Guid(e532945e283cca7478582f8a1880fdc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc1eecf197329d1ad6e744fe5481e7b4') in 0.014022 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000390 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Watermelon.prefab
-  artifactKey: Guid(517e976be9ac3ee41a961dd8bf728615) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Watermelon.prefab using Guid(517e976be9ac3ee41a961dd8bf728615) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8db1f315dfe285bdecec0bff55fa88fa') in 0.011548 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000572 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Broccoli.prefab
-  artifactKey: Guid(5bef41f8151d12e47b88b8ec00bc0b63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Broccoli.prefab using Guid(5bef41f8151d12e47b88b8ec00bc0b63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '475c683632daeeaa29cb3de5bbc36a81') in 0.009186 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.005251 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Donut_01.prefab
-  artifactKey: Guid(71be32ea5846afd419e33241296bc486) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Donut_01.prefab using Guid(71be32ea5846afd419e33241296bc486) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ca7c7798c7f3377856a7feb90f21f2a') in 0.011764 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000771 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Tomato.prefab
-  artifactKey: Guid(e46a842bf3694a84cadd43bb62ba0348) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Tomato.prefab using Guid(e46a842bf3694a84cadd43bb62ba0348) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd65c40a9e6bd4b8f061243529cf431e') in 0.011996 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000050 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/CoffeCup.prefab
-  artifactKey: Guid(6b5c801f5ca0b3e4aa2780dbe3ba0538) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/CoffeCup.prefab using Guid(6b5c801f5ca0b3e4aa2780dbe3ba0538) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b7eae63089cd4c0add656e8bf1b1a23') in 0.010550 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.014627 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Mushroom.prefab
-  artifactKey: Guid(e883ef9085352484c9e3e76351515178) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Mushroom.prefab using Guid(e883ef9085352484c9e3e76351515178) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9607c33e74e97d63e3a7abbdc47e0d69') in 0.011922 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 2.384565 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs
-  artifactKey: Guid(2359cbeec6c6d9f4383c6f907531c518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs using Guid(2359cbeec6c6d9f4383c6f907531c518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8300b58669c2a421a4daa52880840eb') in 0.001247 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 10.066144 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Apple.prefab
-  artifactKey: Guid(d0ddd93953187fd4195f9cea4a7b8a56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Apple.prefab using Guid(d0ddd93953187fd4195f9cea4a7b8a56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9434148e057034dc01ff6c481b52f86d') in 0.048090 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000364 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Carrot.prefab
-  artifactKey: Guid(ac3960763d9ed134b93e9bf2315734f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Carrot.prefab using Guid(ac3960763d9ed134b93e9bf2315734f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05bc02eefd228a5a36f7ee2ba53b96bb') in 0.011166 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.001130 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Knife.prefab
-  artifactKey: Guid(c331d4509e2a94446b4dedf64fcae8dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Knife.prefab using Guid(c331d4509e2a94446b4dedf64fcae8dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cee936623e3b03603ee4f815d5855478') in 0.023832 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.001793 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Steak.prefab
-  artifactKey: Guid(10ab30527b9bc8a4995e798ac0706a37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Steak.prefab using Guid(10ab30527b9bc8a4995e798ac0706a37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72dd4713c06089a21f357d10f66cdf6d') in 0.010913 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.001557 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Plate_01.prefab
-  artifactKey: Guid(9bedc97a18133ae4a828aff2a2117745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Plate_01.prefab using Guid(9bedc97a18133ae4a828aff2a2117745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78ef403f59af63c8f9a3a3d52afeb8c8') in 0.012129 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.002738 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Donut_02.prefab
-  artifactKey: Guid(7ad882d92260f6d42900c84561064dd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Donut_02.prefab using Guid(7ad882d92260f6d42900c84561064dd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bb4d5ae93dc499ed64b8aee8bc30332') in 0.018932 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.001000 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Fish.prefab
-  artifactKey: Guid(1c6865324f95c004293d5d1efe86d559) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Fish.prefab using Guid(1c6865324f95c004293d5d1efe86d559) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e05243ac59691f432e745a1af1d0ef4') in 0.010001 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000617 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Watermelon.prefab
-  artifactKey: Guid(517e976be9ac3ee41a961dd8bf728615) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Watermelon.prefab using Guid(517e976be9ac3ee41a961dd8bf728615) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4c2edf3af2b4fefd029156f53558c85') in 0.009621 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000359 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Donut_01.prefab
-  artifactKey: Guid(71be32ea5846afd419e33241296bc486) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Donut_01.prefab using Guid(71be32ea5846afd419e33241296bc486) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8831c151ed1cce06fe51fbe35f39613d') in 0.016789 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.005051 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/CoffeCup.prefab
-  artifactKey: Guid(6b5c801f5ca0b3e4aa2780dbe3ba0538) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/CoffeCup.prefab using Guid(6b5c801f5ca0b3e4aa2780dbe3ba0538) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '030d0c14222f5e3aa8be717edf92f678') in 0.016167 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.002868 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Burger.prefab
-  artifactKey: Guid(cff631b005b811944a846f281776d825) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Burger.prefab using Guid(cff631b005b811944a846f281776d825) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12dadf9c1939f59d4db2653fe5505120') in 0.016338 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.962963 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Apple.prefab
-  artifactKey: Guid(d0ddd93953187fd4195f9cea4a7b8a56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Apple.prefab using Guid(d0ddd93953187fd4195f9cea4a7b8a56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '305ac7aab4148caf94dd6054baed1ce8') in 0.008854 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000544 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Carrot.prefab
-  artifactKey: Guid(ac3960763d9ed134b93e9bf2315734f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Carrot.prefab using Guid(ac3960763d9ed134b93e9bf2315734f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a513082cf541e94e4d02709ba7929f10') in 0.008035 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000782 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Steak.prefab
-  artifactKey: Guid(10ab30527b9bc8a4995e798ac0706a37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Steak.prefab using Guid(10ab30527b9bc8a4995e798ac0706a37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6946d03b4f011c00ccb74415ed3cdd1b') in 0.005619 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.002280 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Cake.prefab
-  artifactKey: Guid(c6f47410b0c7bfa488e17d3d793d6de4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Cake.prefab using Guid(c6f47410b0c7bfa488e17d3d793d6de4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '180af120894b093f8006de7d0ef25898') in 0.007181 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000075 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Donut_01.prefab
-  artifactKey: Guid(71be32ea5846afd419e33241296bc486) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Donut_01.prefab using Guid(71be32ea5846afd419e33241296bc486) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'faf7e4c4b8d2c3cc1fb2d0f43d8d2a1a') in 0.007098 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000218 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Plate_02.prefab
-  artifactKey: Guid(1b4c57d892a190d488bc5467a43318ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Plate_02.prefab using Guid(1b4c57d892a190d488bc5467a43318ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93ee59c9d77eb71fd500535186e57f86') in 0.006358 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 4.080292 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Apple.prefab
-  artifactKey: Guid(d0ddd93953187fd4195f9cea4a7b8a56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Apple.prefab using Guid(d0ddd93953187fd4195f9cea4a7b8a56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f97aca32cc220b32e600901e82a019f1') in 0.027307 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.002239 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Knife.prefab
-  artifactKey: Guid(c331d4509e2a94446b4dedf64fcae8dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Knife.prefab using Guid(c331d4509e2a94446b4dedf64fcae8dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23654d17131b719d3557a9d489a41b60') in 0.007964 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000785 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Cupcake.prefab
-  artifactKey: Guid(d8cf39e351e7c82408a1ea1822811ad9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Cupcake.prefab using Guid(d8cf39e351e7c82408a1ea1822811ad9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8aa75f550e4f4e0a48994ffb21e13ee6') in 0.013137 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.001727 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Pumpkin.prefab
-  artifactKey: Guid(e532945e283cca7478582f8a1880fdc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Pumpkin.prefab using Guid(e532945e283cca7478582f8a1880fdc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4fe8e91cc42b6637aaa3e6bb2c7be36') in 0.016534 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000581 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Garlic.prefab
-  artifactKey: Guid(b701910af56d089428c372aa6ba53383) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Garlic.prefab using Guid(b701910af56d089428c372aa6ba53383) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a902ceef116c6433853b4f906271832') in 0.011484 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.002713 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Burger.prefab
-  artifactKey: Guid(cff631b005b811944a846f281776d825) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Burger.prefab using Guid(cff631b005b811944a846f281776d825) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3086544191f6772ba7934aa72f8f444d') in 0.009498 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Thread 0x2ab1c7000 may have been prematurely finalized
-- Loaded All Assemblies, in  0.365 seconds
-Refreshing native plugins compatible for Editor in 0.25 ms, found 1 plugins.
-Native extension for OSXStandalone target not found
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.382 seconds
-Domain Reload Profiling: 747ms
-	BeginReloadAssembly (145ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (45ms)
-	RebuildCommonClasses (40ms)
-	RebuildNativeTypeToScriptingClass (14ms)
-	initialDomainReloadingComplete (22ms)
-	LoadAllAssembliesAndSetupDomain (144ms)
-		LoadAssemblies (196ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (12ms)
-			TypeCache.Refresh (7ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (5ms)
-	FinalizeReload (382ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (201ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (4ms)
-			SetLoadedEditorAssemblies (4ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (34ms)
-			ProcessInitializeOnLoadAttributes (138ms)
-			ProcessInitializeOnLoadMethodAttributes (20ms)
-			AfterProcessingInitializeOnLoad (1ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (4ms)
-Refreshing native plugins compatible for Editor in 0.44 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 826 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6 unused Assets / (24.3 KB). Loaded Objects now: 1378.
-Memory consumption went from 158.3 MB to 158.3 MB.
-Total: 3.070916 ms (FindLiveObjects: 0.072916 ms CreateObjectMapping: 0.023875 ms MarkObjects: 2.935708 ms  DeleteObjects: 0.037667 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
-  custom:CustomObjectIndexerAttribute: 43b350a4d6e6d1791af0b5038c4bea17 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Thread 0x2aa98b000 may have been prematurely finalized
-- Loaded All Assemblies, in  0.289 seconds
-Refreshing native plugins compatible for Editor in 0.25 ms, found 1 plugins.
-Native extension for OSXStandalone target not found
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.370 seconds
-Domain Reload Profiling: 659ms
-	BeginReloadAssembly (119ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (4ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (23ms)
-	RebuildCommonClasses (39ms)
-	RebuildNativeTypeToScriptingClass (14ms)
-	initialDomainReloadingComplete (20ms)
-	LoadAllAssembliesAndSetupDomain (97ms)
-		LoadAssemblies (153ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (10ms)
-			TypeCache.Refresh (5ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (4ms)
-	FinalizeReload (370ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (214ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (4ms)
-			SetLoadedEditorAssemblies (4ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (33ms)
-			ProcessInitializeOnLoadAttributes (148ms)
-			ProcessInitializeOnLoadMethodAttributes (24ms)
-			AfterProcessingInitializeOnLoad (1ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (4ms)
-Refreshing native plugins compatible for Editor in 0.28 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 827 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6 unused Assets / (24.4 KB). Loaded Objects now: 1381.
-Memory consumption went from 163.4 MB to 163.4 MB.
-Total: 2.756875 ms (FindLiveObjects: 0.070083 ms CreateObjectMapping: 0.022666 ms MarkObjects: 2.636917 ms  DeleteObjects: 0.026208 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
-  custom:CustomObjectIndexerAttribute: 43b350a4d6e6d1791af0b5038c4bea17 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-========================================================================
-Received Import Request.
-  Time since last request: 169.847335 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Apple.prefab
-  artifactKey: Guid(d0ddd93953187fd4195f9cea4a7b8a56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Apple.prefab using Guid(d0ddd93953187fd4195f9cea4a7b8a56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23daa03d315b7168b1f233998c4a48ce') in 0.114108 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.003078 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Banana.prefab
-  artifactKey: Guid(869b55c0dc2962d41a835b0eeb3c4b36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Banana.prefab using Guid(869b55c0dc2962d41a835b0eeb3c4b36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fa325a338307ba28fcc8fa49c6f0795') in 0.007181 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000245 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Pear.prefab
-  artifactKey: Guid(ba93ae1410e341d41be192f9d77df500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Pear.prefab using Guid(ba93ae1410e341d41be192f9d77df500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d9e24b17d196010085ac1d76ab1a7ca') in 0.010535 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000141 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/KitchenProps_01.prefab
-  artifactKey: Guid(49631361040b46f4889e95efdb1b1a3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/KitchenProps_01.prefab using Guid(49631361040b46f4889e95efdb1b1a3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '526903c2f9859c476c364eb71c69996b') in 0.013592 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.001160 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Steak.prefab
-  artifactKey: Guid(10ab30527b9bc8a4995e798ac0706a37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Steak.prefab using Guid(10ab30527b9bc8a4995e798ac0706a37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7fa1c87aef4dc416e0e09e73fe0da189') in 0.014368 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.003986 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Cupcake.prefab
-  artifactKey: Guid(d8cf39e351e7c82408a1ea1822811ad9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Cupcake.prefab using Guid(d8cf39e351e7c82408a1ea1822811ad9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cdab897658b972a1f055d191e90894e') in 0.021440 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000327 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Cake.prefab
-  artifactKey: Guid(c6f47410b0c7bfa488e17d3d793d6de4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Cake.prefab using Guid(c6f47410b0c7bfa488e17d3d793d6de4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07abf07b052519408da9981ab348cf82') in 0.011369 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.012102 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Pumpkin.prefab
-  artifactKey: Guid(e532945e283cca7478582f8a1880fdc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Pumpkin.prefab using Guid(e532945e283cca7478582f8a1880fdc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44ff55cdab2f7e321c91ae2ee58d9a82') in 0.015172 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000755 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Watermelon.prefab
-  artifactKey: Guid(517e976be9ac3ee41a961dd8bf728615) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Watermelon.prefab using Guid(517e976be9ac3ee41a961dd8bf728615) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a28a47cc9ac66a34a627ff2418611ebc') in 0.015234 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.003274 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Donut_01.prefab
-  artifactKey: Guid(71be32ea5846afd419e33241296bc486) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Donut_01.prefab using Guid(71be32ea5846afd419e33241296bc486) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46c39702c792ef4f87884223e5623e83') in 0.013806 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.001029 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Garlic.prefab
-  artifactKey: Guid(b701910af56d089428c372aa6ba53383) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Garlic.prefab using Guid(b701910af56d089428c372aa6ba53383) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9be3ff3100a6c624b5d583d9a3ba12b1') in 0.015276 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.003815 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/CoffeCup.prefab
-  artifactKey: Guid(6b5c801f5ca0b3e4aa2780dbe3ba0538) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/CoffeCup.prefab using Guid(6b5c801f5ca0b3e4aa2780dbe3ba0538) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1597bbe22d045af2a4b63d47fc380d63') in 0.013592 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Import Request.
-  Time since last request: 0.000060 seconds.
-  path: Assets/LowPolyFoodLite/Prefabs/Mushroom.prefab
-  artifactKey: Guid(e883ef9085352484c9e3e76351515178) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/LowPolyFoodLite/Prefabs/Mushroom.prefab using Guid(e883ef9085352484c9e3e76351515178) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '358fa148c38422e68899fbdbb33ccf18') in 0.012723 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Thread 0x2bcc87000 may have been prematurely finalized
-- Loaded All Assemblies, in  0.560 seconds
-Refreshing native plugins compatible for Editor in 0.29 ms, found 1 plugins.
-Native extension for OSXStandalone target not found
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.548 seconds
-Domain Reload Profiling: 1108ms
-	BeginReloadAssembly (238ms)
+- Finished resetting the current domain, in  0.602 seconds
+Domain Reload Profiling: 1304ms
+	BeginReloadAssembly (227ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (8ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (71ms)
-	RebuildCommonClasses (83ms)
-	RebuildNativeTypeToScriptingClass (25ms)
-	initialDomainReloadingComplete (46ms)
-	LoadAllAssembliesAndSetupDomain (168ms)
-		LoadAssemblies (274ms)
+		CreateAndSetChildDomain (62ms)
+	RebuildCommonClasses (70ms)
+	RebuildNativeTypeToScriptingClass (28ms)
+	initialDomainReloadingComplete (73ms)
+	LoadAllAssembliesAndSetupDomain (303ms)
+		LoadAssemblies (335ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (14ms)
-			TypeCache.Refresh (7ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (6ms)
-	FinalizeReload (548ms)
+		AnalyzeDomain (59ms)
+			TypeCache.Refresh (47ms)
+				TypeCache.ScanAssembly (31ms)
+			ScanForSourceGeneratedMonoScriptInfo (6ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (602ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (300ms)
+		SetupLoadedEditorAssemblies (345ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (5ms)
-			SetLoadedEditorAssemblies (6ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (49ms)
-			ProcessInitializeOnLoadAttributes (200ms)
-			ProcessInitializeOnLoadMethodAttributes (38ms)
+			BeforeProcessingInitializeOnLoad (57ms)
+			ProcessInitializeOnLoadAttributes (242ms)
+			ProcessInitializeOnLoadMethodAttributes (34ms)
 			AfterProcessingInitializeOnLoad (2ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (6ms)
-Refreshing native plugins compatible for Editor in 0.34 ms, found 1 plugins.
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launching external process: /Applications/Unity/Hub/Editor/2022.3.16f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.17 seconds
+Refreshing native plugins compatible for Editor in 0.27 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 826 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6 unused Assets / (24.5 KB). Loaded Objects now: 1384.
-Memory consumption went from 168.5 MB to 168.5 MB.
-Total: 3.904334 ms (FindLiveObjects: 0.097667 ms CreateObjectMapping: 0.030750 ms MarkObjects: 3.739500 ms  DeleteObjects: 0.035500 ms)
+Unloading 848 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 10 unused Assets / (44.3 KB). Loaded Objects now: 1332.
+Memory consumption went from 153.7 MB to 153.6 MB.
+Total: 24.541084 ms (FindLiveObjects: 0.090000 ms CreateObjectMapping: 0.031417 ms MarkObjects: 24.318625 ms  DeleteObjects: 0.100166 ms)
 
-Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
@@ -850,6 +184,78 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1736586.871128 seconds.
+  path: Assets/LowPolyFoodLite/Prefabs/KitchenProps_02.prefab
+  artifactKey: Guid(4fb052047707ed645a77e875351e3a5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LowPolyFoodLite/Prefabs/KitchenProps_02.prefab using Guid(4fb052047707ed645a77e875351e3a5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cabc4d7ca5e9d03b8d8b7edf44e9f8eb') in 0.891998 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 0.000090 seconds.
+  path: Assets/LowPolyFoodLite/Prefabs/KitchenProps_01.prefab
+  artifactKey: Guid(49631361040b46f4889e95efdb1b1a3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LowPolyFoodLite/Prefabs/KitchenProps_01.prefab using Guid(49631361040b46f4889e95efdb1b1a3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '633ee3eb88595cd9386b8b32e3ea3f52') in 0.011459 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 0.000344 seconds.
+  path: Assets/LowPolyFoodLite/Prefabs/Cookie.prefab
+  artifactKey: Guid(bb285724e2c64684b817d021a6bc867d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LowPolyFoodLite/Prefabs/Cookie.prefab using Guid(bb285724e2c64684b817d021a6bc867d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f0b3350bff90d30ec19375b910861cd') in 0.011207 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 0.001284 seconds.
+  path: Assets/LowPolyFoodLite/Prefabs/Plate_01.prefab
+  artifactKey: Guid(9bedc97a18133ae4a828aff2a2117745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LowPolyFoodLite/Prefabs/Plate_01.prefab using Guid(9bedc97a18133ae4a828aff2a2117745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9237df589ec5381939d599a10b05fdef') in 0.010541 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 0.000804 seconds.
+  path: Assets/LowPolyFoodLite/Prefabs/Donut_02.prefab
+  artifactKey: Guid(7ad882d92260f6d42900c84561064dd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LowPolyFoodLite/Prefabs/Donut_02.prefab using Guid(7ad882d92260f6d42900c84561064dd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7f0fd577d3a11bc5c07b4de859735eb') in 0.015368 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 0.001401 seconds.
+  path: Assets/LowPolyFoodLite/Prefabs/Pumpkin.prefab
+  artifactKey: Guid(e532945e283cca7478582f8a1880fdc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LowPolyFoodLite/Prefabs/Pumpkin.prefab using Guid(e532945e283cca7478582f8a1880fdc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b4e9d4cc8e5a34eea148331956445a3') in 0.007800 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 0.000846 seconds.
+  path: Assets/LowPolyFoodLite/Prefabs/Broccoli.prefab
+  artifactKey: Guid(5bef41f8151d12e47b88b8ec00bc0b63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LowPolyFoodLite/Prefabs/Broccoli.prefab using Guid(5bef41f8151d12e47b88b8ec00bc0b63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33a74b8194cee62b6dffc80d7e833233') in 0.007115 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 0.000073 seconds.
+  path: Assets/LowPolyFoodLite/Prefabs/Apple.prefab
+  artifactKey: Guid(d0ddd93953187fd4195f9cea4a7b8a56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LowPolyFoodLite/Prefabs/Apple.prefab using Guid(d0ddd93953187fd4195f9cea4a7b8a56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff7b91b402041e63351abb809d3f1ba8') in 0.007513 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Assets/LowPolyFoodLite/Prefabs/Mushroom.prefab
+  artifactKey: Guid(e883ef9085352484c9e3e76351515178) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LowPolyFoodLite/Prefabs/Mushroom.prefab using Guid(e883ef9085352484c9e3e76351515178) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1217bbe31ff1addb6d7af332a6b2d3c3') in 0.006661 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 TcpMessagingSession - receive error: operation aborted. errorcode: 89, details: Operation aborted.
 AssetImportWorker is now disconnected from the server

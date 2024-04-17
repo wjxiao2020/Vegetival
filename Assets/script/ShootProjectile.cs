@@ -103,7 +103,7 @@ public class ShootProjectile : MonoBehaviour
 
             AudioSource.PlayClipAtPoint(projectileSFX, transform.position, SFXVolume);
             int randProjectile = Random.Range(0, projectilePrefab.Length);
-            GameObject projectile = Instantiate(projectilePrefab[randProjectile], Camera.main.transform.position, transform.rotation) as GameObject;
+            GameObject projectile = Instantiate(projectilePrefab[randProjectile], Camera.main.transform.position + transform.forward, transform.rotation) as GameObject;
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);
             projectile.transform.SetParent(GameObject.Find("ProjectileParent").transform);

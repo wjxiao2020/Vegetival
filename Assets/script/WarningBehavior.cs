@@ -13,6 +13,7 @@ public class WarningBehavior : MonoBehaviour
         MeshRenderer warningMesh = GetComponent<MeshRenderer>();
         warningMaterial = warningMesh.material;
         //startOpacity = warningMaterial.color.a;
+        Destroy(gameObject, 5);
     }
 
     // Update is called once per frame

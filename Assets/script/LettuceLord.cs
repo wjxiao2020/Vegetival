@@ -22,6 +22,7 @@ public class LettuceLord : MonoBehaviour
     public GameObject[] spawns;
     public float scaleForHealth = 0.6f;
     public GameObject panel;
+    public static bool immortal;
 
     Animator animator;
     // if the boss is summoning another boss
@@ -127,6 +128,7 @@ public class LettuceLord : MonoBehaviour
                 bossIndex = 0;
                 animator.SetInteger("animState", 1);
                 currentShield = GameObject.Instantiate(shieldPrefab, transform);
+                immortal = true;
                 Debug.Log("shield");
                 summoning = true;
             }
@@ -136,6 +138,7 @@ public class LettuceLord : MonoBehaviour
                 bossIndex = 1;
                 animator.SetInteger("animState", 1);
                 currentShield = GameObject.Instantiate(shieldPrefab, transform);
+                immortal = true;
                 summoning = true;
             }
         }

@@ -44,17 +44,20 @@ public class BossHit : MonoBehaviour
     {
         if (other.CompareTag("Projectile"))
         {
-            // get damage amount of project
-            int dmg = FindObjectOfType<VariableHolder>().projectileDamage;
-
-            hitAmout++;
-            if (hitAmout % 10 == 1)
+            if ((gameObject.CompareTag("Lettuce") && !LettuceLord.immortal) || !gameObject.CompareTag("Lettuce"))
             {
-                AudioSource.PlayClipAtPoint(hitSFX, Camera.main.transform.position, 0.5f);
-            }
-            
+                // get damage amount of project
+                int dmg = FindObjectOfType<VariableHolder>().projectileDamage;
 
-            takeDamage(dmg);
+                hitAmout++;
+                if (hitAmout % 10 == 1)
+                {
+                    AudioSource.PlayClipAtPoint(hitSFX, Camera.main.transform.position, 0.5f);
+                }
+
+                takeDamage(dmg);
+            }
+
         }
     }
 
