@@ -9,6 +9,7 @@ public class IntroSpatula : MonoBehaviour
     public GameObject weapon;
     public GameObject portal;
     public GameObject text;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,15 @@ public class IntroSpatula : MonoBehaviour
         {
             if (playerInRange)
             {
-                gameObject.SetActive(false);
+                AudioSource lootSFX = GetComponent<AudioSource>();
+                lootSFX.time = 2;
+                lootSFX.Play();
+                
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    transform.GetChild(i).gameObject.SetActive(false);
+                }
+                //gameObject.SetActive(false);
                 //var weapon = GameObject.FindGameObjectWithTag("Weapon");
                 weapon.SetActive(true);
                 var levelmanager = GameObject.FindAnyObjectByType<LevelMagager>();

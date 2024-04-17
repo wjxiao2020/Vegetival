@@ -29,17 +29,17 @@ public class PlayerHealth : MonoBehaviour
             PlayCheer.Play(cheerVolume);
         }
 
-        if (currentHealth > 0)
+        if (currentHealth > damageAmount)
         {
             currentHealth -= damageAmount;
-            healthSlider.value = currentHealth;
         }
-        else if (currentHealth <= 0 && !LevelMagager.gameEnd)
+        if (currentHealth <= damageAmount && !LevelMagager.gameEnd)
         {
+            currentHealth = 0;
             PlayCheer.Play(cheerVolume);
             PlayerDies();
         }
-
+        healthSlider.value = currentHealth;
         Debug.Log("Current Health: " + currentHealth);
     }
 
@@ -50,6 +50,7 @@ public class PlayerHealth : MonoBehaviour
             currentHealth += healthAmount;
             healthSlider.value = Mathf.Clamp(currentHealth, 0, 100);
         }
+        
         if (currentHealth <= 0 && !LevelMagager.gameEnd)
         {
             PlayerDies();

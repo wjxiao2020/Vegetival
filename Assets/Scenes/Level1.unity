@@ -4421,12 +4421,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverScene: {fileID: 493579749}
   gameWinScene: {fileID: 1809218138}
+  tutorial: 0
   VegeBoss: {fileID: 5764945877952447415, guid: 2354beb53a8d20742accd6ff02930dc1, type: 3}
   createBossInterval: 2
   levelText: {fileID: 1960458453}
   portal: {fileID: 56232785}
   spawn: {fileID: 1173707621}
-  currentLevelNumber: 1
+  currentLevelNumber: 2
 --- !u!1 &432988238
 GameObject:
   m_ObjectHideFlags: 0
@@ -5321,6 +5322,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 580916469}
+  - {fileID: 1939664017}
   m_Father: {fileID: 777141144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7460,6 +7462,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 555339395}
+  menu: {fileID: 580916468}
+  settings: {fileID: 1939664016}
   levelText: {fileID: 1960458452}
 --- !u!114 &777141141
 MonoBehaviour:
@@ -7537,7 +7541,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 555339396}
-  - {fileID: 1939664017}
   m_Father: {fileID: 1182652006}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -12478,6 +12481,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1653536700}
+  menu: {fileID: 0}
+  settings: {fileID: 0}
   levelText: {fileID: 1478617502}
 --- !u!114 &1295962032
 MonoBehaviour:
@@ -19092,7 +19097,7 @@ RectTransform:
   - {fileID: 1210439886}
   - {fileID: 1218315302}
   - {fileID: 1418885149}
-  m_Father: {fileID: 777141144}
+  m_Father: {fileID: 555339396}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

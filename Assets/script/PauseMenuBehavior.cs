@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,8 @@ public class PauseMenuBehavior : MonoBehaviour
 {
     public static bool isGamePaused = false;
     public GameObject pauseMenu;
+    public GameObject menu;
+    public GameObject settings;
     public GameObject levelText;
     bool turnOnLevelTextAfterResume;
     GameObject[] crosshairs;
@@ -61,6 +64,8 @@ public class PauseMenuBehavior : MonoBehaviour
     {
         isGamePaused = false;
         Time.timeScale = 1;
+        menu.SetActive(true);
+        settings.SetActive(false);
         pauseMenu.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
