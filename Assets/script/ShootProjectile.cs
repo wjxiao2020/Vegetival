@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ShootProjectile : MonoBehaviour
 {
-    public GameObject projectilePrefab;
+    public GameObject[] projectilePrefab;
     public AudioClip projectileSFX;
     public float SFXVolume = 0.1f;
     public float projectileSpeed = 100;
@@ -102,7 +102,8 @@ public class ShootProjectile : MonoBehaviour
             UpdateBulletCountUI();
 
             AudioSource.PlayClipAtPoint(projectileSFX, transform.position, SFXVolume);
-            GameObject projectile = Instantiate(projectilePrefab, transform.position + transform.forward, transform.rotation) as GameObject;
+            int randProjectile = Random.Range(0, projectilePrefab.Length);
+            GameObject projectile = Instantiate(projectilePrefab[randProjectile], Camera.main.transform.position, transform.rotation) as GameObject;
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);
             projectile.transform.SetParent(GameObject.Find("ProjectileParent").transform);
