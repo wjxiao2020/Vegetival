@@ -11,6 +11,8 @@ public class PauseMenuBehavior : MonoBehaviour
     public GameObject menu;
     public GameObject settings;
     public GameObject levelText;
+    public GameObject[] objectsToHide;
+
     bool turnOnLevelTextAfterResume;
     GameObject[] crosshairs;
     GameObject currentActiveCrosshair;
@@ -58,6 +60,11 @@ public class PauseMenuBehavior : MonoBehaviour
             turnOnLevelTextAfterResume = true;
             levelText.SetActive(false);
         }
+
+        foreach (GameObject obj in objectsToHide)
+        {
+            obj.SetActive(false);
+        }
     }
 
     public void ResumeGame()
@@ -75,6 +82,11 @@ public class PauseMenuBehavior : MonoBehaviour
         if (turnOnLevelTextAfterResume)
         {
             levelText.SetActive(true);
+        }
+
+        foreach (GameObject obj in objectsToHide)
+        {
+            obj.SetActive(true);
         }
     }
 

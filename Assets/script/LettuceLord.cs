@@ -13,7 +13,7 @@ public class LettuceLord : MonoBehaviour
     public GameObject shieldPrefab;
     public int summonBossHealth = 70;
     GameObject currentShield;
-    int currentSummonBoss = 0;
+    int currentSummonBoss = 0; // the number of summoned boss
 
     public int fireballAmount = 3;
     int localAmount = 0;
@@ -114,15 +114,15 @@ public class LettuceLord : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRoation, 10 * Time.deltaTime);
     }
 
-    // when boss's health is below 50%, summon another boss
-    // when boss's first health is empty, summon another boss
+    // when boss's first health is below 50%, summon the 1st boss
+    // when boss's first health is empty, summon the 2nd boss
     private void SummonBoss()
     {
         var health = gameObject.GetComponent<BossHit>();
 
         if (!onFiring)
         {
-            // if health is below 50% and haven't summon
+            // if first health is below 50% and haven't summon
             if (health.localBossHealth <= health.BossHealth / (1.5) && !summonFirst && !summoning)
             {
                 bossIndex = 0;
@@ -148,7 +148,7 @@ public class LettuceLord : MonoBehaviour
     public void SummonBossHelper()
     {
         currentSummonBoss++;
-
+        print("SummonBossHelper");
         GameObject newBoss;
         switch (bossIndex)
         {
