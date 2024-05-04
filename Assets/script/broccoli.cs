@@ -93,11 +93,12 @@ public class broccoli : MonoBehaviour
 
         if (transform.position.y > minYCoordinate)
         {
+            // make sure the y location will not go below minYCoordinate
             transform.position = 
-                new Vector3(transform.position.x, transform.position.y - gravity*Time.deltaTime, transform.position.z);
+                new Vector3(transform.position.x,
+                            Mathf.Clamp(transform.position.y - gravity * Time.deltaTime, minYCoordinate, transform.position.y),
+                            transform.position.z);
         }
-
-
     }
 
     private void Shot()

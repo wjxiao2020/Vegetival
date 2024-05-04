@@ -122,24 +122,24 @@ public class LettuceLord : MonoBehaviour
 
         if (!onFiring)
         {
+            
             // if first health is below 50% and haven't summon
             if (health.localBossHealth <= health.BossHealth / (1.5) && !summonFirst && !summoning)
             {
+                summoning = true;
                 bossIndex = 0;
                 animator.SetInteger("animState", 1);
                 currentShield = GameObject.Instantiate(shieldPrefab, transform);
                 //immortal = true;
-                Debug.Log("shield");
-                summoning = true;
             }
 
             if (health.localBossHealth <= 90 && !health.onFirstHealth && !summonSecond && summonFirst && !summoning)
             {
+                summoning = true;
                 bossIndex = 1;
                 animator.SetInteger("animState", 1);
                 currentShield = GameObject.Instantiate(shieldPrefab, transform);
                 //immortal = true;
-                summoning = true;
             }
         }
     }
